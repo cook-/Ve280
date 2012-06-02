@@ -1,0 +1,10 @@
+Please enter the initial mouse angle: Please enter the initial cat angle: Please enter the initial cat radius: 
+Second	Mouse Angle	Cat Angle	Cat Radius
+------	-----------	---------	----------
+0	      40.00	   220.00	      5.00
+1	      97.30	   234.32	      5.00
+2	     154.59	   248.65	      5.00
+3	     211.89	   262.97	      5.00
+4	     269.18	   262.97	      4.00
+5	     326.48	   262.97	      3.00
+The cat catches the mouse!
