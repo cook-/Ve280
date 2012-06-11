@@ -109,7 +109,7 @@ list_t filter_even_helper(list_t list, list_t result)
 
 list_t filter_even(list_t list)
 {
-	return filter_odd_helper(list, list_make());
+	return filter_even_helper(list, list_make());
 }
 
 
