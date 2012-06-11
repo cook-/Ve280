@@ -127,7 +127,31 @@ list_t filter(list_t list, bool (*fn)(int))
 	return filter_helper(list, fn, list_make());
 }
 
+list_t insert_list(list_t first, list_t second, unsigned int n)
+{
+	if (size(first) - n  == 0)
+		return append(first, second);
+	else
+		return insert_list(removeNth(first, n + 1), reverse(list_make(list_first(reverse(chop(reverse(first), n))), reverse(second))), n);
+}
 
+list_t removeNth_helper(list_t list, unsigned int n, list_t result)
+{
+	if (list_isEmpty(list))
+}
+
+list_t removeNth(list_t list, unsigned int n)
+{
+	return list_make();
+}
+
+list_t chop(list_t list, unsigned int n)
+{
+	if (n == 0)
+		return list;
+	else
+		return chop(reverse(list_rest(reverse(list))), n - 1);
+}
 
 
 
