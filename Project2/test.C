@@ -19,6 +19,7 @@ int main()
 	cout << endl;
 	cout << "size of listA: " << size(listA) << endl;
 	cout << "size of listB: " << size(listB) << endl;
+	cout << "3rd element of listA: " << getNth(listA, 3) << endl;
 //	list_print(reverse(listA));
 //	cout << endl;
 //	list_print(reverse(listB));
