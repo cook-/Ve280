@@ -35,5 +35,7 @@ int main()
 	cout << endl;
 	list_print(append(listA, listB));
 	cout << endl;
+	list_print(filter_odd(listA));
+	cout << endl;
 	return 0;
 }
