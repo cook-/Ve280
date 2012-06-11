@@ -61,7 +61,18 @@ int accumulate(list_t list, int (*fn)(int, int), int base)
 	return accumulate_helper(list, fn, base);
 }
 
+list_t reverse_helper(list_t list, list_t result)
+{
+	if (list_isEmpty(list))
+		return result;
+	else
+		return reverse_helper(list_rest(list), list_make(list_first(list), result));
+}
 
+list_t reverse(list_t list)
+{
+	return reverse_helper(list, list_make());
+}
 
 
 
