@@ -1,6 +1,6 @@
 #include "recursive.h"
 
-int size_helper(list_t list, int result)
+static int size_helper(list_t list, int result)
 {
 	if (list_isEmpty(list))
 		return result;
