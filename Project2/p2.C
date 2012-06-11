@@ -21,3 +21,22 @@ int getNth(list_t list, int n)
 	else
 		return getNth(list_rest(list), n - 1);
 }
+
+int product_helper(list_t list, int result)
+{
+	if (list_isEmpty)
+		return 1;
+	else
+		return product_helper(list_rest(list), list_first(list)*result);
+}
+int product(list_t list)
+{
+	return product_helper(list, 1);
+}
+
+
+
+
+
+
+
