@@ -112,8 +112,20 @@ list_t filter_even(list_t list)
 	return filter_even_helper(list, list_make());
 }
 
+list_t filter_helper(list_t list, bool (*fn)(int), list_t result)
+{
+	if (list_isEmpty(list))
+		return result;
+	else if (fn(list_first(reverse(list))))
+		return filter_helper(reverse(list_rest(reverse(list))), fn, list_make(list_first(reverse(list)), result));
+	else
+		return filter_helper(reverse(list_rest(reverse(list))), fn, result);
+}
 
-
+list_t filter(list_t list, bool (*fn)(int))
+{
+	return filter_helper(list, list_make());
+}
 
 
 
