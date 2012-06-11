@@ -8,6 +8,11 @@ int add(int x, int y)
 	return x + y;
 }
 
+bool odd(int a)
+{
+	return a % 2;
+}
+
 int main()
 {
 	int i;
@@ -38,6 +43,8 @@ int main()
 	list_print(filter_odd(listA));
 	cout << endl;
 	list_print(filter_even(listB));
+	cout << endl;
+	list_print(filter(listA, odd));
 	cout << endl;
 	return 0;
 }
