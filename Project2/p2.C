@@ -19,5 +19,5 @@ int getNth(list_t list, int n)
 	if (n == 1)
 		return list_first(list);
 	else
-		return getNth_helper(list_rest(list), n - 1);
+		return getNth(list_rest(list), n - 1);
 }
