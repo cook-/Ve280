@@ -102,9 +102,9 @@ list_t filter_even_helper(list_t list, list_t result)
 	if (list_isEmpty(list))
 		return result;
 	else if (!(list_first(reverse(list)) % 2))
-		return filter_odd_helper(reverse(list_rest(reverse(list))), list_make(list_first(reverse(list)), result));
+		return filter_even_helper(reverse(list_rest(reverse(list))), list_make(list_first(reverse(list)), result));
 	else
-		return filter_odd_helper(reverse(list_rest(reverse(list))), result);
+		return filter_even_helper(reverse(list_rest(reverse(list))), result);
 }
 
 list_t filter_even(list_t list)
