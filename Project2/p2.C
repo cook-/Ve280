@@ -29,6 +29,7 @@ int product_helper(list_t list, int result)
 	else
 		return product_helper(list_rest(list), list_first(list)*result);
 }
+
 int product(list_t list)
 {
 	return product_helper(list, 1);
