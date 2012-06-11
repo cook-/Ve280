@@ -135,14 +135,9 @@ list_t insert_list(list_t first, list_t second, unsigned int n)
 		return insert_list(removeNth(first, n + 1), reverse(list_make(list_first(reverse(chop(reverse(first), n))), reverse(second))), n);
 }
 
-list_t removeNth_helper(list_t list, unsigned int n, list_t result)
-{
-	if (list_isEmpty(list))
-}
-
 list_t removeNth(list_t list, unsigned int n)
 {
-	return list_make();
+	return append(chop(size(list) - n - 1), reverse(chop(reverse(list), n)));
 }
 
 list_t chop(list_t list, unsigned int n)
