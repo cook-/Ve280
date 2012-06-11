@@ -33,5 +33,7 @@ int main()
 	cout << endl;
 	list_print(reverse(listB));
 	cout << endl;
+	list_print(append(listA, listB));
+	cout << endl;
 	return 0;
 }
