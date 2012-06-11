@@ -79,6 +79,6 @@ list_t append(list_t first, list_t second)
 	if (list_isEmpty(first))
 		return second;
 	else
-		return append_helper(reverse(list_rest(reverse(first))), list_make(list_first(reverse(first)), second));
+		return append(reverse(list_rest(reverse(first))), list_make(list_first(reverse(first)), second));
 }
 
