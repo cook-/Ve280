@@ -19,5 +19,9 @@ int main()
 	cout << endl;
 	cout << "size of listA: " << size(listA) << endl;
 	cout << "size of listB: " << size(listB) << endl;
+//	list_print(reverse(listA));
+//	cout << endl;
+//	list_print(reverse(listB));
+//	cout << endl;
 	return 0;
 }
