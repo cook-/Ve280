@@ -24,7 +24,7 @@ int getNth(list_t list, int n)
 
 int product_helper(list_t list, int result)
 {
-	if (list_isEmpty)
+	if (list_isEmpty(list))
 		return 1;
 	else
 		return product_helper(list_rest(list), list_first(list)*result);
