@@ -2,11 +2,11 @@
 
 CC = g++
 
-MAINSRCS = hungry_cat.C
-OTHSRCS = io.C
+MAINSRCS = test.C
+OTHSRCS = recursive.C p2.C
 SRCS = $(MAINSRCS) $(OTHSRCS)
 OBJS = $(SRCS:.C=.o)
-TARGETS = p1
+TARGETS = $(MAINSRCS:.C=)
 
 CFLAGS = -g -Wall
 
