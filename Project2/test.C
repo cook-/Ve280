@@ -29,7 +29,8 @@ int main()
 	cout << "product of elements in listA: " << product(listA) << endl;
 	cout << "sum of elements in listA: " << sum(listA) << endl;
 	cout << "sum of elements in listB: " << accumulate(listB, add, 0) << endl;
-	cout << "reverse of listA: " << reverse(listA) << endl;
+	cout << "reverse of listA: ";
+	list_print(listA);
 //	list_print(reverse(listA));
 //	cout << endl;
 //	list_print(reverse(listB));
