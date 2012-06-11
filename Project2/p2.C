@@ -82,3 +82,29 @@ list_t append(list_t first, list_t second)
 		return append(reverse(list_rest(reverse(first))), list_make(list_first(reverse(first)), second));
 }
 
+list_t filter_odd_helper(list_t list, list_t result)
+{
+	if (list_isEmpty(list))
+		return result;
+	else if (list_first(reverse(list)) % 2)
+		return filter_odd_helper(reverse(list_rest(reverse(list))), list_make(list_first(reverse(list)), result));
+	else
+		return filter_odd_helper(reverse(list_rest(reverse(list))), result);
+}
+
+list_t filter_odd(list_t list)
+{
+	return filter_odd_helper(list, list_make());
+}
+
+
+
+
+
+
+
+
+
+
+
+
