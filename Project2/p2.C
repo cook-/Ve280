@@ -215,29 +215,51 @@ list_t traversal(tree_t tree)
 	else
 		return append(traversal(tree_left(tree)), list_make(tree_elt(tree), traversal(tree_right(tree))));
 }
-/*
+
 bool tree_hasPathSum(tree_t tree, int sum)
 {
-
+	if (sum == 0) 
+		return true;
+	else if (tree_isEmpty(tree))
+		return false;
+	else
+		return tree_hasPathSum(tree_left(tree), sum - tree_elt(tree)) || tree_hasPathSum(tree_right(tree), sum - tree_elt(tree));
 }
 
 tree_t mirror(tree_t tree)
 {
-
+	if (tree_isEmpty(tree))
+		return tree_make();
+	else
+		return tree_make(tree_elt(tree), mirror(tree_right(tree)), mirror(tree_left(tree)));
 }
 
 bool covered_by(tree_t A, tree_t B)
 {
-
+	if (tree_isEmpty(A))
+		return true;
+	else if (tree_isEmpty(B))
+		return false;
+	else if (tree_elt(A) != tree_elt(B))
+		return false;
+	else
+		return covered_by(tree_left(A), tree_left(B)) && covered_by(tree_right(A), tree_right(B));
 }
 
 bool contained_by(tree_t A, tree_t B)
 {
-
+	if (tree_isEmpty(B))
+		return covered_by(A, B);
+	else
+		return covered_by(A, B) || contained_by(A, tree_left(B)) || contained_by(A, tree_right(B));
 }
 
 tree_t insert_tree(int elt, tree_t tree)
 {
-
+	if (tree_isEmpty(tree))
+		return tree_make(elt, tree_make(), tree_make());
+	else if (elt < tree_elt(tree))
+		return tree_make(tree_elt(tree), insert_tree(elt, tree_left(tree)), tree_right(tree));
+	else
+		return tree_make(tree_elt(tree), tree_left(tree), insert_tree(elt, tree_right(tree)));
 }
-*/

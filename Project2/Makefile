@@ -2,7 +2,7 @@
 
 CC = g++
 
-MAINSRCS = my_tree_test.C
+MAINSRCS = treeins_test.C
 OTHSRCS = recursive.C p2.C
 SRCS = $(MAINSRCS) $(OTHSRCS)
 OBJS = $(SRCS:.C=.o)
