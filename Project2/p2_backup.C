@@ -1,7 +1,6 @@
 #include "recursive.h"
 using namespace std;
 
-// Funcitions for lists
 static int size_helper(list_t list, int result)
 {
 	if (list_isEmpty(list))
@@ -161,83 +160,3 @@ list_t chop(list_t list, unsigned int n)
 	else
 		return chop(reverse(list_rest(reverse(list))), n - 1);
 }
-
-// Functions for binary trees
-int larger(int a, int b)
-{
-	return (a >= b) ? a : b;
-}
-
-int smaller(int a, int b)
-{
-	return (a < b) ? a : b;
-}
-int tree_sum(tree_t tree)
-{
-	if (tree_isEmpty(tree))
-		return 0;
-	else
-		return tree_elt(tree) + tree_sum(tree_left(tree)) + tree_sum(tree_right(tree));
-}
-
-bool tree_search(tree_t tree, int key)
-{
-	if (tree_isEmpty(tree))
-		return false;
-	else
-		return tree_elt(tree) == key || tree_search(tree_right(tree), key) || tree_search(tree_left(tree), key);
-}
-
-int depth(tree_t tree)
-{
-	if (tree_isEmpty(tree))
-		return 0;
-	else
-		return larger(depth(tree_left(tree)), depth(tree_right(tree))) + 1;
-}
-
-int tree_min(tree_t tree)
-{
-	if (tree_isEmpty(tree_left(tree)) && tree_isEmpty(tree_right(tree)))
-		return tree_elt(tree);
-	else if (tree_isEmpty(tree_left(tree)) && !tree_isEmpty(tree_right(tree))) 
-		return smaller(tree_elt(tree), tree_min(tree_right(tree)));
-	else if (!tree_isEmpty(tree_left(tree)) && tree_isEmpty(tree_right(tree))) 
-		return smaller(tree_elt(tree), tree_min(tree_left(tree)));
-	else
-		return smaller(tree_elt(tree), smaller(tree_min(tree_left(tree)), tree_min(tree_right(tree))));
-}
-
-list_t traversal(tree_t tree)
-{
-	if (tree_isEmpty(tree))
-		return list_make();
-	else
-		return append(traversal(tree_left(tree)), list_make(tree_elt(tree), traversal(tree_right(tree))));
-}
-/*
-bool tree_hasPathSum(tree_t tree, int sum)
-{
-
-}
-
-tree_t mirror(tree_t tree)
-{
-
-}
-
-bool covered_by(tree_t A, tree_t B)
-{
-
-}
-
-bool contained_by(tree_t A, tree_t B)
-{
-
-}
-
-tree_t insert_tree(int elt, tree_t tree)
-{
-
-}
-*/

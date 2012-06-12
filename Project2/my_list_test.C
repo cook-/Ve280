@@ -46,5 +46,11 @@ int main()
 	cout << endl;
 	list_print(filter(listA, odd));
 	cout << endl;
+	list_print(insert_list(listA, listB, 3));
+	cout << endl;
+	list_print(removeNth(listA, 3));
+	cout << endl;
+	list_print(chop(listA, 3));
+	cout << endl;
 	return 0;
 }
