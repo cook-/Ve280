@@ -218,12 +218,18 @@ list_t traversal(tree_t tree)
 
 bool tree_hasPathSum(tree_t tree, int sum)
 {
-	if (sum == 0) 
-		return true;
-	else if (tree_isEmpty(tree))
-		return false;
-	else
-		return tree_hasPathSum(tree_left(tree), sum - tree_elt(tree)) || tree_hasPathSum(tree_right(tree), sum - tree_elt(tree));
+	if (tree_isEmpty(tree_left(tree)) {
+		if (tree_isEmpty(tree_right(tree)))
+			return sum == tree_elt(tree);
+		else
+			return tree_hasPathSum(tree_right(tree), sum - tree_elt(tree));
+	}
+	else {
+		if (tree_isEmpty(tree_right(tree)))
+			return tree_hasPathSum(tree_left(tree), sum - tree_elt(tree));
+		else
+			return tree_hasPathSum(tree_left(tree), sum - tree_elt(tree)) || tree_hasPathSum(tree_right(tree), sum - tree_elt(tree));
+	}
 }
 
 tree_t mirror(tree_t tree)
