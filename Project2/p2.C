@@ -218,7 +218,7 @@ list_t traversal(tree_t tree)
 
 bool tree_hasPathSum(tree_t tree, int sum)
 {
-	if (tree_isEmpty(tree_left(tree)) {
+	if (tree_isEmpty(tree_left(tree))) {
 		if (tree_isEmpty(tree_right(tree)))
 			return sum == tree_elt(tree);
 		else
