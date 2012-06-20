@@ -46,7 +46,7 @@ int main()
 	cout << "traversal of treeA: ";
 	list_print(traversal(treeA));
 	cout << endl;
-	cout << "treeA has a path of sum 6?: " << tree_hasPathSum(treeA, 6) << endl;
+	cout << "treeA has a path of sum 16?: " << tree_hasPathSum(treeA, 16) << endl;
 	tree_print(mirror(treeA));
 	cout << endl;
 	cout << "treeA is covered by treeB?: " << covered_by(treeA, treeB) << endl;
