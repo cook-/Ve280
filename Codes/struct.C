@@ -17,7 +17,7 @@ main()
 	};
 	const struct Grade grade = {"Tommy", 80, 90};
 	cout << "The average score of " << grade.name 
-		 << " is " << avg_score(grade.mid_term + grade.final_term) 
+		 << " is " << avg_score(grade) 
 		 << endl;
 }
 
