@@ -16,7 +16,7 @@ main()
 		cout << *(str + i);
 	cout << endl;
 
-	char *copied_str;
+	char copied_str[];
 	strcpy(copied_str, str);
 	for (int i = 0; i != strlen(copied_str); ++i)
 		cout << *(copied_str + i);
@@ -31,13 +31,13 @@ strlen(const char * str)
 	int *p = str;
 	while (*p)
 		++p;
-	return (p - s);
+	return (p - str);
 }
 
 void
 strcpy(char *dest, const char *src)
 {
-	length = strlen(src);
+	unsigned length = strlen(src);
 	while (length-- && *src)
 		*dest++ = *src++;
 	*dest = '\0';
