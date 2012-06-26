@@ -22,7 +22,7 @@ main()
 }
 
 int
-avg_score(struct Grade &grade)
+avg_score(struct Grade grade)
 {
 	return (grade.mid_term + grade.final_term)/2;
 }
