@@ -4,7 +4,7 @@
 #include <string>
 
 int
-avg_score(const struct &);
+avg_score(const struct Grade &);
 
 int
 main()
@@ -13,14 +13,14 @@ main()
 		string name = "Tommy";
 		int mid_term = 80;
 		int final_term = 90;
-	} grader;
+	} grade;
 	cout << "The average score of " << grade.name 
 		 << " is " << avg_score(grade.mid_term + grade.final_term) 
 		 << endl;
 }
 
 int
-avg_score(const struct &grade)
+avg_score(const struct Grade &grade)
 {
 	return (grade.mid_term + grade.final_term)/2;
 }
