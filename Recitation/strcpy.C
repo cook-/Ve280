@@ -10,7 +10,7 @@ strncpy(char *, const char *, size_t);
 int 
 main()
 {
-	char str[] = "C++ language";
+	const char *str = "C++ language";
 	for (size_t i = 0; i != 13; ++i)
 		cout << str[i];
 	cout << endl;
