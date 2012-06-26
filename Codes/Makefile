@@ -1,6 +1,7 @@
 CC = g++
+CFLAGS = -g -Wall
 SRCS = strlen.C
-OBJS = $(SRC:.C=.o)
+OBJS = $(SRCS:.C=.o)
 TARGETS = $(SRCS:.C=)
 
 all: $(TARGETS)
