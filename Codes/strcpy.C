@@ -17,7 +17,7 @@ main()
 		cout << *(str + i);
 	cout << endl;
 
-	char copied_str[20];
+	char copied_str[21];
 	strcpy(copied_str, str);
 	for (int i = 0; i != strlen(copied_str); ++i)
 		cout << *(copied_str + i);
