@@ -28,7 +28,7 @@ main()
 int
 strlen(const char *str)
 {
-	int i = 0
+	int i = 0;
 	while (str[i++])
 		;
 	return (i - 1);
