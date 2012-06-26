@@ -11,19 +11,19 @@ struct Grade{
 };
 
 int
-avg(struct Grade);
+avg(const struct Grade &);
 
 int
 main()
 {
-	struct Grade grade = {"Tommy", 80, 90};
+	const struct Grade grade = {"Tommy", 80, 90};
 	cout << "The average score of " << grade.name 
 		 << " is " << avg(grade) 
 		 << endl;
 }
 
 int 
-avg(struct Grade grade) 
+avg(const struct Grade &grade) 
 {
 	return (grade.mid_term + grade.final_term)/2;
 }
