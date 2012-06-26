@@ -5,7 +5,7 @@
 using namespace std;
 
 int
-avg(struct main()::Grade);
+avg(main()::struct Grade);
 
 int
 main()
@@ -22,7 +22,7 @@ main()
 }
 
 int 
-avg(struct main()::Grade grade) 
+avg(main()::struct Grade grade) 
 {
 	return (grade.mid_term + grade.final_term)/2;
 }
