@@ -1,6 +1,7 @@
 // create a struct and use it to do something.
 
 #include <iostream>
+#include <string>
 
 int
 avg(const struct &);
@@ -9,17 +10,17 @@ int
 main()
 {
 	const struct Grade{
-		const char *name = "Tommy";
+		string name = "Tommy";
 		int mid_term = 80;
 		int final_term = 90;
-	}
-	cout << "The average score of " << Grade.name 
-		 << " is " << avg(Grade.mid_term + Grade.final_term) 
+	} grade.
+	cout << "The average score of " << grade.name 
+		 << " is " << avg(grade.mid_term + grade.final_term) 
 		 << endl;
 }
 
 int
-avg(const struct &Grade)
+avg(const struct &grade)
 {
-	return (Grade.mid_term + Grade.final_term)/2;
+	return (grade.mid_term + grade.final_term)/2;
 }
