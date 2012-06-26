@@ -15,7 +15,7 @@ main()
 		cout << str[i];
 	cout << endl;
 	
-	char str_cpy[];
+	char str_cpy[20];
 	strcpy(str_cpy, str, 20);
 	for (size_t i = 0; i != 20; ++i)
 		cout << str_cpy[i];
