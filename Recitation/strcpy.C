@@ -26,7 +26,8 @@ main()
 char *
 strcpy(char *dest, const char *src, size_t n)
 {
-	for (size_t i = 0; i != n && src[i] != '\0'; ++i)
+	size_t i;
+	for (i = 0; i != n && src[i] != '\0'; ++i)
 		dest[i] = src[i];
 	for (; i != n; ++i)
 		dest[i] = '\0';
