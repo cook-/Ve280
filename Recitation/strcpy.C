@@ -5,7 +5,7 @@
 using namespace std;
 
 char *
-strcpy(char *, const char *, size_t);
+strncpy(char *, const char *, size_t);
 
 int 
 main()
