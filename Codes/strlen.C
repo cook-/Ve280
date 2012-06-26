@@ -4,7 +4,7 @@
 using namespace std;
 
 int
-strlen(char *);
+strlen(const char *);
 
 int
 main()
