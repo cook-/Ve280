@@ -1,7 +1,7 @@
 // copy string from src to dest.
 
-#include <iostream.h>
-#include <string.h>
+#include <iostream>
+#include <string>
 
 char *
 strcpy(char *, const char *, size_t);
