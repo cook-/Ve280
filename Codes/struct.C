@@ -20,7 +20,7 @@ main()
 //		 << " is " << avg_score(grade) 
 //		 << endl;
 }
-/*
+
 int
 avg_score(struct Grade grade)
 {
