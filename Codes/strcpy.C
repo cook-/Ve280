@@ -28,7 +28,7 @@ main()
 int
 strlen(const char * str)
 {
-	int *p = str;
+	char *p = str;
 	while (*p)
 		++p;
 	return (p - str);
@@ -41,5 +41,4 @@ strcpy(char *dest, const char *src)
 	while (length-- && *src)
 		*dest++ = *src++;
 	*dest = '\0';
-	return dest;
 }
