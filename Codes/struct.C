@@ -10,11 +10,12 @@ avg_score(const struct Grade &);
 int
 main()
 {
-	const struct Grade{
-		string name = "Tommy";
-		int mid_term = 80;
-		int final_term = 90;
-	} grade;
+	struct Grade{
+		string name;
+		int mid_term;
+		int final_term;
+	};
+	const struct Grade grade = {"Tommy", 80, 90};
 	cout << "The average score of " << grade.name 
 		 << " is " << avg_score(grade.mid_term + grade.final_term) 
 		 << endl;
