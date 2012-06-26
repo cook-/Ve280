@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <string>
+using namespace std;
 
 int
 avg_score(const struct Grade &);
