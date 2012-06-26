@@ -12,6 +12,7 @@ int
 main()
 {
 	const char *str = "C++ language";
+	cout << "string length of \"C++ language\" is " << strlen(str) << endl;
 	for (int i = 0; i != strlen(str); ++i)
 		cout << *(str + i);
 	cout << endl;
