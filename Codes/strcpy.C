@@ -26,7 +26,7 @@ main()
 }
 
 int
-strlen(const char * str)
+strlen(const char *str)
 {
 	char *p = str;
 	while (*p)
