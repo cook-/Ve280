@@ -4,8 +4,8 @@
 #include <string>
 using namespace std;
 
-//int
-//avg_score(struct Grade);
+int
+avg_score(struct Grade);
 
 int
 main()
