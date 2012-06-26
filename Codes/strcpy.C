@@ -16,7 +16,7 @@ main()
 		cout << *(str + i);
 	cout << endl;
 
-	char copied_str[2020202020202020202020202020202020202020];
+	char copied_str[20];
 	strcpy(copied_str, str);
 	for (int i = 0; i != strlen(copied_str); ++i)
 		cout << *(copied_str + i);
