@@ -10,12 +10,12 @@ strcpy(char *, const char *, size_t);
 int 
 main()
 {
-	char *str = "C++ language";
+	char str[] = "C++ language";
 	for (size_t i = 0; i != 13; ++i)
 		cout << str[i];
 	cout << endl;
 	
-	char *str_cpy;
+	char str_cpy[];
 	strcpy(str_cpy, str, 20);
 	for (size_t i = 0; i != 20; ++i)
 		cout << str_cpy[i];
