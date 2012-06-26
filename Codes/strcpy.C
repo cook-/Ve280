@@ -28,10 +28,10 @@ main()
 int
 strlen(const char *str)
 {
-	char *p = str;
-	while (*p)
-		++p;
-	return (p - str);
+	int i = 0
+	while (str[i++])
+		;
+	return (i - 1);
 }
 
 void
