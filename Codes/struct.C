@@ -13,7 +13,7 @@ main()
 		string name = "Tommy";
 		int mid_term = 80;
 		int final_term = 90;
-	} grade.
+	} grader;
 	cout << "The average score of " << grade.name 
 		 << " is " << avg(grade.mid_term + grade.final_term) 
 		 << endl;
