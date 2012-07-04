@@ -1,7 +1,8 @@
 #ifndef SIMULATION_H
 #define SIMULATION_H
-#include <world_>
 
+#include <world_type.h>
+using namespace std;
 
 bool 
 initWorld(world_t &world, const string &speciesFile,
@@ -51,3 +52,4 @@ creature_t
 // REQUIRES: location is inside the grid.
 // EFFECTS: Returns a pointer to the creature at "location" in "grid".
 
+#end
