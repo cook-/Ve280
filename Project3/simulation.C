@@ -5,6 +5,7 @@
 #include <string>
 #include <cstdlib>
 #include <cassert>
+#include "world_type.h"
 
 using namespace std;
 
