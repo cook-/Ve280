@@ -1,3 +1,8 @@
+#ifndef SIMULATION_H
+#define SIMULATION_H
+#include <world_>
+
+
 bool 
 initWorld(world_t &world, const string &speciesFile,
 	const string &creaturesFile);
