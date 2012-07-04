@@ -1,6 +1,8 @@
 // calculate the sum of input arguments.
 
 #include <iostream>
+#include <cstdlib>
+using namespace std;
 
 int
 main(int argc, char *argv[])
