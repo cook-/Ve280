@@ -4,7 +4,7 @@
 #include <fstream>
 using namespace std;
 
-void
+int
 main()
 {
 	ifstream iFile;
@@ -13,4 +13,5 @@ main()
 	iFile >> bar;
 	cout << "The answer is " << bar << endl;
 	iFile.close();
+	return 0;
 }
