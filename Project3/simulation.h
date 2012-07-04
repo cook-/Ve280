@@ -2,6 +2,7 @@
 #define SIMULATION_H
 
 #include <world_type.h>
+
 using namespace std;
 
 bool 
@@ -52,4 +53,4 @@ creature_t
 // REQUIRES: location is inside the grid.
 // EFFECTS: Returns a pointer to the creature at "location" in "grid".
 
-#end
+#endif
