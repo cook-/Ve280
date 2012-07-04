@@ -11,6 +11,6 @@ main(int argc, char *argv[])
 	for (int i = 1; i != argc; ++i){
 		sum += atoi(argv[i]);
 	}
-	cout << "sum is " << sum;
+	cout << "sum is " << sum << endl;
 	return 0;
 }
