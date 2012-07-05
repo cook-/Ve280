@@ -11,7 +11,7 @@ using namespace std;
 
 bool 
 initWorld(world_t &world, const string &speciesFile,
-	const string &creaturesFile)
+	const string &worldFile)
 {
 
 }
