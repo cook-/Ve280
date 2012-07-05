@@ -1,3 +1,4 @@
+#include "world_type.h"
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -5,7 +6,6 @@
 #include <string>
 #include <cstdlib>
 #include <cassert>
-#include "world_type.h"
 
 using namespace std;
 
