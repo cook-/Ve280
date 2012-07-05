@@ -7,11 +7,11 @@ using namespace std;
 
 bool 
 initWorld(world_t &world, const string &speciesFile,
-	const string &creaturesFile);
+	const string &worldFile);
 // MODIFIES: world
 // EFFECTS: Initialize "world" given the species summary file
 // 			"speciesFile" and the world description file
-// 			"creaturesFile". This initializes all the components of
+// 			"worldFile". This initializes all the components of
 // 			"world". Return true if initialization is successful.
 
 void 
