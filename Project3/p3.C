@@ -21,9 +21,8 @@ main(int argc, char *argv[])
 		printGrid(world.grid);
 		for (int i = 1; i != roundNum+1; ++i) {
 			cout << "Round " << i << endl;
-			if (verbose) 
-				for (int j = 0; j != world.numCreatures; ++j)
-					simulateCreature(world.creatures[j], grid, verbose);
+			for (int j = 0; j != world.numCreatures; ++j)
+				simulateCreature(world.creatures[j], grid, verbose);
 
 		}
 	}
