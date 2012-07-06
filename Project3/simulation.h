@@ -22,7 +22,7 @@ simulateCreature(creature_t &creature, grid_t &grid, bool verbose);
 // 			the infected creature, and the grid if necessary.
 // 			The creature programID is always updated. The function 
 // 			also prints to the stdout the procedure. If verbose is 
-// 			true, it prints more infirmation.
+// 			true, it prints more information.
 
 void 
 printGrid(const grid_t &grid);
