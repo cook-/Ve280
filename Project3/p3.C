@@ -10,21 +10,19 @@ main(int argc, char *argv[])
 	string speciesFile = argv[1];
 	string worldFile = argv[2];
 	unsigned int roundNum = argv[3];
-	string verboseiStr = argv[4];
+	string v = argv[4];
 
-	bool verbose = (verboseStr == "v" || verboseStr == "verbose");
+	bool verbose = (v == "v" || v== "verbose");
 
 	struct world_t world;
 	if (initWorld(world, speciesFile, worldFile)) {
-		// start simulation
-		cout << "Initial state" << endl;
-		printGrid(world.grid);
-		for (int i = 1; i != roundNum+1; ++i) {
-			cout << "Round " << i << endl;
-			for (int j = 0; j != world.numCreatures; ++j)
-				simulateCreature(world.creatures[j], grid, verbose);
+		for (int i = 0; i != roundNum; ++i) {
+			cout << "Round " << i + 1 << endl;
 
+			for (int j = 0; j != world.numCreatures; ++j)
+				simulateCreature(world.creatures[j], world.grid, verbose);
 		}
 	}
+
 	return 0;
 }
