@@ -8,7 +8,7 @@ int
 main()
 {
 	ifstream iFile;
-	iFile.open("species");
+	iFile.open("foo");
 	string speciesName;
 //	getline(iFile, speciesName);
 	iFile >> speciesName;
