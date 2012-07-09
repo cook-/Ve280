@@ -38,11 +38,11 @@ initWorld(world_t &world, const string &speciesFile,
 			iStream.clear();
 			iStream.str(line);
 
-			string opName;
-			iStream >> opName;
-			world.species[i].program[j].op = findOpcode(opName);	// initialize op.
+			string operName;
+			iStream >> operName;
+			world.species[i].program[j].op = findOpcode(operName);	// initialize op.
 
-			if (opName == "ifempty" || opName == "ifenemy" || opName == "ifsame"			  || opName == "ifwall" || opName == "go")
+			if (operName == "ifempty" || operName == "ifenemy" || operName == "ifsame" || operName == "ifwall" || operName == "go")
 				iStream >> world.species[i].program[j].address;		// initialize address.
 
 			j++;
@@ -82,7 +82,7 @@ initWorld(world_t &world, const string &speciesFile,
 void 
 simulateCreature(creature_t &creature, grid_t &grid, bool verbose)
 {
-	// update the creature(program is always updated)
+	// update the creature(programID is always updated)
 	
 	// update the infected creature
 	// update the grid
@@ -97,6 +97,36 @@ simulateCreature(creature_t &creature, grid_t &grid, bool verbose)
 		 << endl;
 	if (verbose)
 		printGrid(grid);
+}
+
+opcode_t
+findOpcode(const string operName)
+{
+	opcode_t opcode;
+	for (int i = 0; i != 9; ++i)
+		if (operName == opName[i])
+			opcode = i;
+	return opcode;
+}
+
+direction_t
+findDir(const string dir)
+{
+	direction_t direction;
+	for (int i = 0; i != 4; ++i)
+		if (dir == direcName[i])
+			direction = i;
+	return direction;
+}
+
+unsigned int
+findSpeciesIndex(world_t &world, string name)
+{
+	unsigned int index;
+	for (int i = 0; i != world.numSpecies; i++)
+		if (name == world.species[i].name)
+			index = i;
+	return index;
 }
 
 void 
