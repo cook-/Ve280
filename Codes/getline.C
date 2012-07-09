@@ -8,10 +8,9 @@ int
 main()
 {
 	ifstream iFile;
-	iFile.open("foo");
-	int speciesName;
-//	getline(iFile, speciesName);
-	iFile >> speciesName;
+	iFile.open("species");
+	string speciesName;
+	getline(iFile, speciesName);
 	cout << speciesName << endl;
 	iFile.close();
 	return 0;
