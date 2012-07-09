@@ -80,23 +80,39 @@ initWorld(world_t &world, const string &speciesFile,
 }
 
 void 
-simulateCreature(creature_t &creature, grid_t &grid, bool verbose)
+simulateCreature(unsigned int i, world_t &world, bool verbose)
 {
-	// update the creature(programID is always updated)
-	
-	// update the infected creature
-	// update the grid
-	// print to the stdout
+	//follow one instruction
+	instuction_t ins = getInstruction(creature);
+	switch (ins)
+	{
+		case HOP:		hop(i, world);		break;
+		case LEFT:		left(i, world);		break;
+		case RIGHT:		right(i, world);	break;
+		case INFECT:	infect(i, world);	break;
+		case IFEMPTY:	ifempty(i, world);	break;
+		case IFENEMY:	ifenemy(i, world);	break;
+		case IFSAME:	ifsame(i, world);	break;
+		case IFWALL:	ifwall(i, world);	break;
+		case GO:		go(i, world);		break;
+		defalut: ;
+	}
 	cout << "Creature (" 
-		 << (creature -> species) -> name 
-		 << directName[creature.direction] 
-		 << creature.location.r 
-		 << creature.location.c
-		 << ") takes action: " 
-		 << 
-		 << endl;
-	if (verbose)
+		 << (world.creatures[i] -> species) -> name 
+		 << directName[world.creatures[i].direction] 
+		 << world.creature[i].location.r 
+		 << world.creature[i].location.c
+		 << ") takes action:" 
+	
+	if (verbose) {
+		cout << endl << "Instruction " << world.creature[i].programID << ": "
 		printGrid(grid);
+	}
+
+	else {
+
+	}
+		
 }
 
 opcode_t
