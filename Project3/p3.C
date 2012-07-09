@@ -16,11 +16,14 @@ main(int argc, char *argv[])
 
 	struct world_t world;
 	if (initWorld(world, speciesFile, worldFile)) {
+		cout << "Initial state" << endl;
+		printGrid(world.grid);
+
 		for (int i = 0; i != roundNum; ++i) {
 			cout << "Round " << i + 1 << endl;
 
 			for (int j = 0; j != world.numCreatures; ++j)
-				simulateCreature(world.creatures[j], world.grid, verbose);
+				simulateCreature(j, world, verbose);
 		}
 	}
 
