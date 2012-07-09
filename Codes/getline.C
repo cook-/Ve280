@@ -9,7 +9,7 @@ main()
 {
 	ifstream iFile;
 	iFile.open("foo");
-	string speciesName;
+	int speciesName;
 //	getline(iFile, speciesName);
 	iFile >> speciesName;
 	cout << speciesName << endl;
