@@ -11,9 +11,10 @@ main()
 	iFile.open("species");
 	string speciesName;
 	getline(iFile, speciesName);
-//	cout << speciesName << endl;
-	getline(iFile, speciesName);
-	cout << speciesName << endl;
+	while (iFile) {
+		getline(iFile, speciesName);
+		cout << speciesName << endl;
+	}
 	iFile.close();
 	return 0;
 }
