@@ -11,6 +11,7 @@ main()
 	iFile.open("species");
 	string speciesName;
 	getline(iFile, speciesName);
+	iFile.close();
 	cout << speciesName << endl;
 	return 0;
 }
