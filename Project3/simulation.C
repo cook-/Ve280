@@ -13,13 +13,88 @@ bool
 initWorld(world_t &world, const string &speciesFile,
 	const string &worldFile)
 {
+	ifstream iFile;
+	istringstream iStream;
+	string line;
 
+	iFile.open(speciesFile);
+
+	string title
+	getline(iFile, title);
+	int i = 0;
+	while (iFile)
+		getline(iFile, world.species[i++].name);	//initialize name.
+	world.numSpecies = i;		// initialize numSpecies.
+
+	iFile.close();
+
+	for (int i = 0; i != numSpecies; ++i) {
+		iFile.open(world.species[i].name.c_str());
+
+		getline(iFile, line);
+
+		while (line != "\n") {
+			int j = 0
+			iStream.clear();
+			iStream.str(line);
+
+			string opName;
+			iStream >> opName;
+			world.species[i].program[j].op = findOpcode(opName);	// initialize op.
+
+			if (opName == "ifempty" || opName == "ifenemy" || opName == "ifsame"			  || opName == "ifwall" || opName == "go")
+				iStream >> world.species[i].program[j].address;		// initialize address.
+
+			j++;
+		}
+
+		programSize = j;	// initialize programSize.
+
+		iFile.close();
+	}
+
+	iFile.open(worldFile);
+
+	getline(iFile, line);
+	iStream.clear();
+	iStream.str(line);
+	iStream >> world.grid.height;	// initialize height.
+
+	getline(iFile, line);
+	iStream.clear();
+	iStream.str(line);
+	iStream >> world.grid.width;	// initialize width.
+
+	while (iFile) {
+		int i = 0;
+		getline(iFile, line);
+		iStream.clear();
+		iStream.str(line);
+		iStream >> name >> dir >> creatures[i].location.r >> creatures[i].location.c;	// initialize r& c.
+		creatures[i].direction = fineDir(dir);	// initialize direction.
+		creatures[i].species = world.species + findSpeciesIndex(name);	// initialize *species.
+		programID = 1;	// initialize programID.
+		square[r][c] = creature + i;	// initialize squares.
+		i++;
+	}
 }
 
 void 
 simulateCreature(creature_t &creature, grid_t &grid, bool verbose)
 {
-	cout << "Creature (" <<   <<   <<   <<   << ") takes action: " <<    << endl;
+	// update the creature(program is always updated)
+	
+	// update the infected creature
+	// update the grid
+	// print to the stdout
+	cout << "Creature (" 
+		 << (creature -> species) -> name 
+		 << directName[creature.direction] 
+		 << creature.location.r 
+		 << creature.location.c
+		 << ") takes action: " 
+		 << 
+		 << endl;
 	if (verbose)
 		printGrid(grid);
 }
