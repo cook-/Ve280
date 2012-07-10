@@ -19,7 +19,9 @@ struct creature_t
 int
 main()
 {
-	struct species_t sp{ "food", 10 };
-	struct species_t cr{ 30, &sp};
+	struct species_t sp;
+	struct creature_t cr;
+	cr.species->name = "food";
+	cout << sp.name << endl;
 	return 0;
 }
