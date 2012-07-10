@@ -30,7 +30,7 @@ main(int argc, char *argv[])
 //	cout << "worldFile succeed?: " << iFile.is_open() << endl;
 //	iFile.close();
 	initWorld(world, speciesFile, worldFile);
-	printGrid(world.grid);
+//	printGrid(world.grid);
 
 	return 0;
 }
@@ -121,7 +121,7 @@ initWorld(world_t &world, const string &speciesFile,
 
 	return true;
 }
-
+/*
 void 
 printGrid(const grid_t &grid)
 {
@@ -138,7 +138,7 @@ printGrid(const grid_t &grid)
 		cout << endl;
 	}
 }
-
+*/
 opcode_t
 findOpcode(const string &operName)
 {
