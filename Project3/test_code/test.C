@@ -83,7 +83,7 @@ initWorld(world_t &world, const string &speciesFile,
 	}
 
 	iFile.open(worldFile.c_str());
-	cout << "worldFile is open?: " << iFile.is_open() << endl;
+	cout << worldFile << " is open?: " << iFile.is_open() << endl;
 
 	getline(iFile, line);
 	iStream.clear();
