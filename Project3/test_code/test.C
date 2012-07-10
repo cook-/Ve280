@@ -117,21 +117,21 @@ printGrid(const grid_t &grid)
 opcode_t
 findOpcode(const string operName)
 {
-	int offset;
+	int opcode;
 	for (int i = 0; i != 9; ++i)
 		if (operName == opName[i])
-			offset = i;
-	return HOP + offset;
+			opcode = i;
+	return (opcode_t)opcode;
 }
 
 direction_t
 findDir(const string dir)
 {
-	int offset;
+	int direction;
 	for (int i = 0; i != 4; ++i)
 		if (dir == directName[i])
-			offset = i;
-	return EAST + offset;
+			direction = i;
+	return (direction_t)direction;
 }
 
 unsigned int
