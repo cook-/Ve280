@@ -20,8 +20,9 @@ main(int argc, char *argv[])
 	string speciesFile = argv[1];
 	string worldFile = argv[2];
 
-	struct world_t world;
+	world_t world;
 	initWorld(world, speciesFile, worldFile);
+	printGrid(world.grid);
 
 	return 0;
 }
