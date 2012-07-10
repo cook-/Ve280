@@ -69,7 +69,7 @@ initWorld(world_t &world, const string &speciesFile,
 
 			string operName;
 			iStream >> operName;
-			cout << operName << " ";
+			cout << operName << endl;
 			world.species[i].program[j].op = findOpcode(operName);	// initialize op.
 
 			if (operName == "ifempty" || operName == "ifenemy" || operName == "ifsame" || operName == "ifwall" || operName == "go")
