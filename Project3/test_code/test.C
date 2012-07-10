@@ -9,7 +9,7 @@
 using namespace std;
 
 void initWorld(world_t &, const string &, const string &);
-//void printGrid(const grid_t &);
+void printGrid(const grid_t &);
 opcode_t findOpcode(const string &);
 direction_t findDir(const string &);
 species_t *findSpecies(world_t &, const string &);
@@ -111,7 +111,7 @@ initWorld(world_t &world, const string &speciesFile,
 
 	iFile.close();
 }
-/*
+
 void 
 printGrid(const grid_t &grid)
 {
@@ -120,15 +120,15 @@ printGrid(const grid_t &grid)
 			if (grid.squares[i][j] == NULL)
 				cout << "____ ";
 			else
-				cout << (grid.squares[i][j] -> species) -> name[0] 
-				     << (grid.squares[i][j] -> species) -> name[1]
+				cout << grid.squares[i][j] -> species -> name[0] 
+				     << grid.squares[i][j] -> species -> name[1]
 					 << "_"
-					 << directShortName[(grid.squares[i][j] -> direction)];
+					 << directShortName[grid.squares[i][j] -> direction];
 		}
 		cout << endl;
 	}
 }
-*/
+
 opcode_t
 findOpcode(const string &operName)
 {
