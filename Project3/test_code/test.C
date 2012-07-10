@@ -8,8 +8,8 @@ using namespace std;
 
 bool initWorld(world_t &, const string &, const string &);
 void printGrid(const grid_t &);
-opcode_t findOpcode(const string);
-direction_t findDir(const string);
+opcode_t findOpcode(const string &);
+direction_t findDir(const string &);
 species_t *findSpecies(world_t &, const string &);
 
 int
@@ -118,7 +118,7 @@ printGrid(const grid_t &grid)
 }
 
 opcode_t
-findOpcode(const string operName)
+findOpcode(const string &operName)
 {
 	int opcode;
 	for (int i = 0; i != 9; ++i)
@@ -128,7 +128,7 @@ findOpcode(const string operName)
 }
 
 direction_t
-findDir(const string dir)
+findDir(const string &dir)
 {
 	int direction;
 	for (int i = 0; i != 4; ++i)
