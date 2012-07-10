@@ -6,7 +6,7 @@
 #include <sstream>
 using namespace std;
 
-bool initWorld(world_t &, const string &);
+bool initWorld(world_t &, const string &, const string &);
 void printGrid(const grid_t &);
 opcode_t findOpcode(const string);
 direction_t findDir(const string);
