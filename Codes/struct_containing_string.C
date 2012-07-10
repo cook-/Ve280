@@ -11,9 +11,9 @@ main()
 	{
 		int ival;
 		string str;
-	}
+	};
 
-	world_t world{ 1, "abc"};
+	world_t world;
 	cout << world.ival << " " << world.str << endl;
 
 	return 0;
