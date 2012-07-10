@@ -10,7 +10,7 @@ using namespace std;
 int
 main()
 {
-	string dir = west;
+	string dir = "west";
 	int offset;
 	for (int i = 0; i != 4; ++i)
 		if (dir == directName[i])
