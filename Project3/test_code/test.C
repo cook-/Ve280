@@ -69,11 +69,13 @@ initWorld(world_t &world, const string &speciesFile,
 
 			string operName;
 			iStream >> operName;
+			cout << operName << " ";
 			world.species[i].program[j].op = findOpcode(operName);	// initialize op.
 
 			if (operName == "ifempty" || operName == "ifenemy" || operName == "ifsame" || operName == "ifwall" || operName == "go")
 				iStream >> world.species[i].program[j].address;		// initialize address.
 
+			cout << world.species[i].program[j].operName << " " << world.species[i].program[j].address << endl; 
 			j++;
 			getline(iFile, line);
 		}
@@ -128,8 +130,7 @@ printGrid(const grid_t &grid)
 				cout << (grid.squares[i][j] -> species) -> name[0] 
 				     << (grid.squares[i][j] -> species) -> name[1]
 					 << "_"
-//					 << directShortName[(grid.squares[i][j] -> direction)];
-					 << "e";
+					 << directShortName[(grid.squares[i][j] -> direction)];
 		}
 		cout << endl;
 	}
