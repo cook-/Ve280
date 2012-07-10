@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <string>
+#include <cstdlib>
 using namespace std;
 
 struct species_t
@@ -21,6 +22,7 @@ main()
 {
 	struct species_t sp;
 	struct creature_t cr;
+	cr.species = (species_t*)malloc(sizeof(species_t));
 	cr.species->name = "food";
 	cout << sp.name << endl;
 	return 0;
