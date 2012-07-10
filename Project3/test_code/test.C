@@ -103,7 +103,9 @@ initWorld(world_t &world, const string &speciesFile,
 		world.creatures[i].species = (species_t*)malloc(sizeof(species_t));
 		world.creatures[i].species = findSpecies(world, name);	// initialize *species.
 		world.creatures[i].programID = 1;	// initialize programID.
+
 		cout << "creature[" << i << "]: " << " " << world.creatures[i].species->name /*<< " " << directName[world.creatures[i].direction] << " " << world.creatures[i].location.r << " " << world.creatures[i].location.c*/ << endl;
+
 		world.grid.squares[world.creatures[i].location.r][world.creatures[i].location.c] = world.creatures + i;	// initialize squares.
 		i++;
 	}
@@ -155,5 +157,5 @@ findSpecies(world_t &world, const string &name)
 	for (int i = 0; i != world.numSpecies; i++)
 		if (name == world.species[i].name)
 			index = i;
-	return world.species + index;
+	return &(world.species[index]);
 }
