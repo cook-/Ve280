@@ -48,9 +48,9 @@ initWorld(world_t &world, const string &speciesFile,
 		iFile.open(world.species[i].name.c_str());
 
 		getline(iFile, line);
-
+		
+		int j = 0;
 		while (line != "\n") {
-			int j = 0
 			iStream.clear();
 			iStream.str(line);
 
@@ -87,7 +87,7 @@ initWorld(world_t &world, const string &speciesFile,
 		iStream.clear();
 		iStream.str(line);
 		iStream >> name >> dir >> creatures[i].location.r >> creatures[i].location.c;	// initialize r& c.
-		creatures[i].direction = fineDir(dir);	// initialize direction.
+		creatures[i].direction = findDir(dir);	// initialize direction.
 		creatures[i].species = world.species + findSpeciesIndex(name);	// initialize *species.
 		programID = 1;	// initialize programID.
 		square[r][c] = creature + i;	// initialize squares.
