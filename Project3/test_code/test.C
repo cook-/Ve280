@@ -7,8 +7,8 @@
 #include <string>
 using namespace std;
 
-bool initWorld(world_t &, const string &, const string &);
-void printGrid(const grid_t &);
+void initWorld(world_t &, const string &, const string &);
+//void printGrid(const grid_t &);
 opcode_t findOpcode(const string &);
 direction_t findDir(const string &);
 species_t *findSpecies(world_t &, const string &);
@@ -35,7 +35,7 @@ main(int argc, char *argv[])
 	return 0;
 }
 
-bool 
+void 
 initWorld(world_t &world, const string &speciesFile,
 	const string &worldFile)
 {
@@ -118,8 +118,6 @@ initWorld(world_t &world, const string &speciesFile,
 	}
 
 	iFile.close();
-
-	return true;
 }
 /*
 void 
