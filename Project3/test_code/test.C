@@ -20,15 +20,15 @@ main(int argc, char *argv[])
 	string worldFile = argv[2];
 
 	struct world_t world;
-	cout << "numSpecies: " << world.numSpecies << endl;
-	cout << "name: " << world.species[3].name << endl;
-	ifstream iFile;
-	iFile.open(speciesFile.c_str());
-	cout << "speciesFile succeed?: " << iFile.is_open() << endl;
-	iFile.close();
-	iFile.open(worldFile.c_str());
-	cout << "worldFile succeed?: " << iFile.is_open() << endl;
-	iFile.close();
+//	cout << "numSpecies: " << world.numSpecies << endl;
+//	cout << "name: " << world.species[3].name << endl;
+//	ifstream iFile;
+//	iFile.open(speciesFile.c_str());
+//	cout << "speciesFile succeed?: " << iFile.is_open() << endl;
+//	iFile.close();
+//	iFile.open(worldFile.c_str());
+//	cout << "worldFile succeed?: " << iFile.is_open() << endl;
+//	iFile.close();
 	initWorld(world, speciesFile, worldFile);
 	printGrid(world.grid);
 
@@ -44,6 +44,7 @@ initWorld(world_t &world, const string &speciesFile,
 	string line;
 
 	iFile.open(speciesFile.c_str());
+	cout << "speciesFile is open?: " << iFile.is_open() << endl;
 
 	string title;
 	getline(iFile, title);
@@ -56,6 +57,7 @@ initWorld(world_t &world, const string &speciesFile,
 
 	for (int i = 0; i != world.numSpecies; ++i) {
 		iFile.open(world.species[i].name.c_str());
+		cout < "worldFile is open?: " << iFile.is_open() << endl;
 
 		getline(iFile, line);
 		
@@ -80,6 +82,7 @@ initWorld(world_t &world, const string &speciesFile,
 	}
 
 	iFile.open(worldFile.c_str());
+	cout << "worldFile is open?: " << iFile.is_open() << endl;
 
 	getline(iFile, line);
 	iStream.clear();
