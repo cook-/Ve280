@@ -20,7 +20,7 @@ main(int argc, char *argv[])
 	string worldFile = argv[2];
 
 	struct world_t world;
-	initWorld(world, speciesFile, worldFile);
+//	initWorld(world, speciesFile, worldFile);
 	printGrid(world.grid);
 
 	return 0;
@@ -57,8 +57,7 @@ initWorld(world_t &world, const string &speciesFile,
 
 			string operName;
 			iStream >> operName;
-//			world.species[i].program[j].op = findOpcode(operName);	// initialize op.
-			world.species[i].program[j].op = HOP;
+			world.species[i].program[j].op = findOpcode(operName);	// initialize op.
 
 			if (operName == "ifempty" || operName == "ifenemy" || operName == "ifsame" || operName == "ifwall" || operName == "go")
 				iStream >> world.species[i].program[j].address;		// initialize address.
