@@ -8,13 +8,13 @@ struct species_t
 {
 	string name;
 	int size;	
-}
+};
 
 struct creature_t
 {
 	int location;
 	species_t *species;
-}
+};
 
 int
 main()
