@@ -69,14 +69,13 @@ initWorld(world_t &world, const string &speciesFile,
 
 			string operName;
 			iStream >> operName;
-			cout << operName << endl;
+//			cout << operName << endl;
 			world.species[i].program[j].op = findOpcode(operName);	// initialize op.
 
 			if (operName == "ifempty" || operName == "ifenemy" || operName == "ifsame" || operName == "ifwall" || operName == "go")
 				iStream >> world.species[i].program[j].address;		// initialize address.
 
-//			cout << world.species[i].program[j].op << endl;
-//			" " << world.species[i].program[j].address << endl; 
+			cout << opName[world.species[i].program[j].op] << " " << world.species[i].program[j].address << endl; 
 			j++;
 			getline(iFile, line);
 		}
