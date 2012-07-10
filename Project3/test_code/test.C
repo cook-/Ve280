@@ -26,9 +26,9 @@ main(int argc, char *argv[])
 	iFile.open(speciesFile.c_str());
 	cout << "speciesFile succeed?: " << iFile.is_open() << endl;
 	iFile.close();
-	iFile.open(worldFile.c_str());
-	cout << "worldFile succeed?: " << iFile.is_open() << endl;
-	iFile.close();
+//	iFile.open(worldFile.c_str());
+//	cout << "worldFile succeed?: " << iFile.is_open() << endl;
+//	iFile.close();
 //	initWorld(world, speciesFile, worldFile);
 	printGrid(world.grid);
 
