@@ -13,7 +13,7 @@ main()
 		string str;
 	};
 
-	world_t world;
+	world_t world{ 100, "abc"};
 	cout << world.ival << " " << world.str << endl;
 
 	return 0;
