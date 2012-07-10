@@ -89,7 +89,7 @@ initWorld(world_t &world, const string &speciesFile,
 		string name, dir;
 		iStream >> name >> dir >> world.creatures[i].location.r >> world.creatures[i].location.c;	// initialize r& c.
 		world.creatures[i].direction = findDir(dir);	// initialize direction.
-		world.creatures[i].species = world.species + findSpecies(name);	// initialize *species.
+		world.creatures[i].species = world.species + findSpecies(world, name);	// initialize *species.
 		world.creatures[i].programID = 1;	// initialize programID.
 		world.grid.squares[world.creatures[i].location.r][world.creatures[i].location.c] = world.creatures + i;	// initialize squares.
 		i++;
