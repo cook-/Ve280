@@ -10,7 +10,7 @@ bool initWorld(world_t &, const string &, const string &);
 void printGrid(const grid_t &);
 opcode_t findOpcode(const string);
 direction_t findDir(const string);
-unsigned int findSpecies(world_t &, const string &);
+species *findSpecies(world_t &, const string &);
 
 int
 main(int argc, char *argv[])
@@ -89,7 +89,7 @@ initWorld(world_t &world, const string &speciesFile,
 		string name, dir;
 		iStream >> name >> dir >> world.creatures[i].location.r >> world.creatures[i].location.c;	// initialize r& c.
 		world.creatures[i].direction = findDir(dir);	// initialize direction.
-		world.creatures[i].species = world.species + findSpecies(world, name);	// initialize *species.
+		world.creatures[i].species = findSpecies(world, name);	// initialize *species.
 		world.creatures[i].programID = 1;	// initialize programID.
 		world.grid.squares[world.creatures[i].location.r][world.creatures[i].location.c] = world.creatures + i;	// initialize squares.
 		i++;
@@ -134,12 +134,12 @@ findDir(const string dir)
 	return (direction_t)direction;
 }
 
-unsigned int
+species_t *
 findSpecies(world_t &world, const string &name)
 {
 	unsigned int index;
 	for (int i = 0; i != world.numSpecies; i++)
 		if (name == world.species[i].name)
 			index = i;
-	return index;
+	return world.species + index;
 }
