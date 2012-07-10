@@ -29,7 +29,7 @@ main(int argc, char *argv[])
 	iFile.open(worldFile.c_str());
 	cout << "worldFile succeed?: " << iFile.is_open() << endl;
 	iFile.close();
-//	initWorld(world, speciesFile, worldFile);
+	initWorld(world, speciesFile, worldFile);
 	printGrid(world.grid);
 
 	return 0;
