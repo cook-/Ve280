@@ -13,8 +13,9 @@ main()
 		string str;
 	};
 
-	world_t world{ 100, "abc"};
-	cout << world.ival << " " << world.str << endl;
+	world_t world;
+	cout << world.ival << endl 
+		<< world.str << endl;
 
 	return 0;
 }
