@@ -23,10 +23,10 @@ main(int argc, char *argv[])
 	cout << "numSpecies: " << world.numSpecies << endl;
 	cout << "name: " << world.species[3].name << endl;
 	ifstream iFile;
-	iFile.open(speciesFile);
+	iFile.open(speciesFile.c_str());
 	cout << "speciesFile succeed?: " << iFile << endl;
-	iFile.close(speciesFile);
-	iFile.open(worldFile);
+	iFile.close();
+	iFile.open(worldFile.c_str());
 	cout << "worldFile succeed?: " << iFile << endl;
 	iFile.close();
 //	initWorld(world, speciesFile, worldFile);
