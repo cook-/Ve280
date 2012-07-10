@@ -52,7 +52,7 @@ initWorld(world_t &world, const string &speciesFile,
 	while (iFile)
 		getline(iFile, world.species[i++].name);	//initialize name.
 	world.numSpecies = i;		// initialize numSpecies.
-	cout << "numSpecies = " << numSpecies << endl;
+	cout << "numSpecies = " << world.numSpecies << endl;
 
 	iFile.close();
 
