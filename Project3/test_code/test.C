@@ -154,7 +154,7 @@ species_t *
 findSpecies(world_t &world, const string &name)
 {
 	unsigned int index;
-	for (int i = 0; i != world.numSpecies; i++)
+	for (int i = 0; i != world.numSpecies; ++i)
 		if (name == world.species[i].name)
 			index = i;
 	return world.species + index;
