@@ -21,17 +21,7 @@ main(int argc, char *argv[])
 	string worldFile = argv[2];
 
 	struct world_t world;
-//	cout << "numSpecies: " << world.numSpecies << endl;
-//	cout << "name: " << world.species[3].name << endl;
-//	ifstream iFile;
-//	iFile.open(speciesFile.c_str());
-//	cout << "speciesFile succeed?: " << iFile.is_open() << endl;
-//	iFile.close();
-//	iFile.open(worldFile.c_str());
-//	cout << "worldFile succeed?: " << iFile.is_open() << endl;
-//	iFile.close();
 	initWorld(world, speciesFile, worldFile);
-//	printGrid(world.grid);
 
 	return 0;
 }
@@ -113,7 +103,7 @@ initWorld(world_t &world, const string &speciesFile,
 		world.creatures[i].species = findSpecies(world, name);	// initialize *species.
 		world.creatures[i].programID = 1;	// initialize programID.
 		
-		world.creatures[i].species = (struct species_t*)malloc(sizeof(struct species_t));
+//		world.creatures[i].species = (struct species_t*)malloc(sizeof(struct species_t));
 		cout << "creature[" << i << "]: " << " " << world.creatures[i].species->name << " " << directName[world.creatures[i].direction] << " " << world.creatures[i].location.r << " " << world.creatures[i].location.c << endl;
 		world.grid.squares[world.creatures[i].location.r][world.creatures[i].location.c] = world.creatures + i;	// initialize squares.
 		i++;
