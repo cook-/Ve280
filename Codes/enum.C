@@ -17,4 +17,6 @@ main()
 			offset = i;
 	direction_t result;
 	result = EAST + offset;
+
+	return 0;
 }
