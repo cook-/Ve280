@@ -12,7 +12,7 @@ void initWorld(world_t &, const string &, const string &);
 //void printGrid(const grid_t &);
 opcode_t findOpcode(const string &);
 direction_t findDir(const string &);
-species_t *findSpecies(world_t &, const string &);
+unsigned int findSpecies(world_t &, const string &);
 
 int
 main(int argc, char *argv[])
@@ -100,8 +100,8 @@ initWorld(world_t &world, const string &speciesFile,
 		string name, dir;
 		iStream >> name >> dir >> world.creatures[i].location.r >> world.creatures[i].location.c;	// initialize r& c.
 		world.creatures[i].direction = findDir(dir);	// initialize direction.
-		world.creatures[i].species = (species_t*)malloc(sizeof(species_t));
-		world.creatures[i].species = findSpecies(world, name);	// initialize *species.
+//		world.creatures[i].species = (species_t*)malloc(sizeof(species_t));
+		world.creatures[i].species = &(world.species[findSpeciesIndex(world, name)]);	// initialize *species.
 		world.creatures[i].programID = 1;	// initialize programID.
 
 		cout << "creature[" << i << "]: " << " " << world.creatures[i].species->name /*<< " " << directName[world.creatures[i].direction] << " " << world.creatures[i].location.r << " " << world.creatures[i].location.c*/ << endl;
@@ -150,12 +150,12 @@ findDir(const string &dir)
 	return (direction_t)direction;
 }
 
-species_t *
-findSpecies(world_t &world, const string &name)
+unsigned int
+findSpeciesIndex(world_t &world, const string &name)
 {
 	unsigned int index;
 	for (int i = 0; i != world.numSpecies; i++)
 		if (name == world.species[i].name)
 			index = i;
-	return &(world.species[index]);
+	return index;
 }
