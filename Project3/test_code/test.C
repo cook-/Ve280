@@ -21,6 +21,7 @@ main(int argc, char *argv[])
 
 	struct world_t world;
 	cout << "numSpecies: " << world.numSpecies << endl;
+	cout << "name: " << world.species[3].name << endl;
 //	initWorld(world, speciesFile, worldFile);
 	printGrid(world.grid);
 
