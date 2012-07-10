@@ -81,7 +81,7 @@ initWorld(world_t &world, const string &speciesFile,
 		}
 
 		world.species[i].programSize = j;	// initialize programSize.
-		cout << "programSize: " << world.species[i].programSize << endl;
+		cout << "programSize: " << world.species[i].programSize << endl << endl;
 
 		iFile.close();
 	}
