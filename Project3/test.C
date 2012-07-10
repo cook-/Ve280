@@ -4,13 +4,21 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+using namespace std;
 
 bool initWorld(world_t &, const string &);
 void printGrid(const grid_t &);
 
 int
-main()
+main(int argc, char *argv[])
 {
+	string speciesFile = argv[1];
+	string worldFile = argv[2];
+
+	struct world_t world;
+	initWorld(world, speciesFile, worldFile);
+	printGrid(world.grid);
+
 	return 0;
 }
 
@@ -82,6 +90,7 @@ initWorld(world_t &world, const string &speciesFile,
 		square[r][c] = creature + i;	// initialize squares.
 		i++;
 	}
+	return true;
 }
 
 void 
