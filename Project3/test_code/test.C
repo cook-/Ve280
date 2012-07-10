@@ -91,7 +91,7 @@ initWorld(world_t &world, const string &speciesFile,
 		world.creatures[i].direction = findDir(dir);	// initialize direction.
 		world.creatures[i].species = findSpecies(name);	// initialize *species.
 		world.creatures[i].programID = 1;	// initialize programID.
-		world.grid.square[world.creature[i].location.r][world.creature[i].location.c] = world.creature + i;	// initialize squares.
+		world.grid.squares[world.creatures[i].location.r][world.creatures[i].location.c] = world.creatures + i;	// initialize squares.
 		i++;
 	}
 	return true;
