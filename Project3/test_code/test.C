@@ -35,7 +35,7 @@ initWorld(world_t &world, const string &speciesFile,
 
 	iFile.open(speciesFile);
 
-	string title
+	string title;
 	getline(iFile, title);
 	int i = 0;
 	while (iFile)
@@ -44,7 +44,7 @@ initWorld(world_t &world, const string &speciesFile,
 
 	iFile.close();
 
-	for (int i = 0; i != numSpecies; ++i) {
+	for (int i = 0; i != world.numSpecies; ++i) {
 		iFile.open(world.species[i].name.c_str());
 
 		getline(iFile, line);
@@ -64,7 +64,7 @@ initWorld(world_t &world, const string &speciesFile,
 			j++;
 		}
 
-		programSize = j;	// initialize programSize.
+		world.species[i].programSize = j;	// initialize programSize.
 
 		iFile.close();
 	}
@@ -86,11 +86,12 @@ initWorld(world_t &world, const string &speciesFile,
 		getline(iFile, line);
 		iStream.clear();
 		iStream.str(line);
-		iStream >> name >> dir >> creatures[i].location.r >> creatures[i].location.c;	// initialize r& c.
+		string name, dir;
+		iStream >> name >> dir >> world.creatures[i].location.r >> world.creatures[i].location.c;	// initialize r& c.
 		creatures[i].direction = findDir(dir);	// initialize direction.
 		creatures[i].species = world.species + findSpeciesIndex(name);	// initialize *species.
-		programID = 1;	// initialize programID.
-		square[r][c] = creature + i;	// initialize squares.
+		world.creatures[i].programID = 1;	// initialize programID.
+		world.grid.square[r][c] = creature + i;	// initialize squares.
 		i++;
 	}
 	return true;
@@ -128,7 +129,7 @@ findDir(const string dir)
 {
 	direction_t direction;
 	for (int i = 0; i != 4; ++i)
-		if (dir == direcName[i])
+		if (dir == directName[i])
 			direction = i;
 	return direction;
 }
