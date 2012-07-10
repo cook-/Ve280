@@ -50,7 +50,7 @@ initWorld(world_t &world, const string &speciesFile,
 		getline(iFile, line);
 		
 		int j = 0;
-		while (line != "\n") {
+		while (!line.empty()) {
 			iStream.clear();
 			iStream.str(line);
 
