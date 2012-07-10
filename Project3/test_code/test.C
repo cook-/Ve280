@@ -33,7 +33,7 @@ initWorld(world_t &world, const string &speciesFile,
 	istringstream iStream;
 	string line;
 
-	iFile.open(speciesFile);
+	iFile.open(speciesFile.c_str());
 
 	string title;
 	getline(iFile, title);
@@ -69,7 +69,7 @@ initWorld(world_t &world, const string &speciesFile,
 		iFile.close();
 	}
 
-	iFile.open(worldFile);
+	iFile.open(worldFile.c_str());
 
 	getline(iFile, line);
 	iStream.clear();
