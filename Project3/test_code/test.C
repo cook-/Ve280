@@ -99,10 +99,10 @@ initWorld(world_t &world, const string &speciesFile,
 		string name, dir;
 		iStream >> name >> dir >> world.creatures[i].location.r >> world.creatures[i].location.c;	// initialize r& c.
 		world.creatures[i].direction = findDir(dir);	// initialize direction.
+		world.creatures[i].species = (species_t*)malloc(sizeof(species_t));
 		world.creatures[i].species = findSpecies(world, name);	// initialize *species.
 		world.creatures[i].programID = 1;	// initialize programID.
-		
-//		cout << "creature[" << i << "]: " << " " << world.creatures[i].species->name /*<< " " << directName[world.creatures[i].direction] << " " << world.creatures[i].location.r << " " << world.creatures[i].location.c*/ << endl;
+		cout << "creature[" << i << "]: " << " " << world.creatures[i].species->name /*<< " " << directName[world.creatures[i].direction] << " " << world.creatures[i].location.r << " " << world.creatures[i].location.c*/ << endl;
 		world.grid.squares[world.creatures[i].location.r][world.creatures[i].location.c] = world.creatures + i;	// initialize squares.
 		i++;
 	}
