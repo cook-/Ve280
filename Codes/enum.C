@@ -16,8 +16,8 @@ main()
 	for (int i = 0; i != 4; ++i)
 		if (dir == directName[i])
 			offset = i;
-	direction_t result;
-	result = EAST + offset;
+	direction_t result = EAST;
+	result += offset;
 
 	return 0;
 }
