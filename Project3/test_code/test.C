@@ -24,10 +24,10 @@ main(int argc, char *argv[])
 	cout << "name: " << world.species[3].name << endl;
 	ifstream iFile;
 	iFile.open(speciesFile.c_str());
-	cout << "speciesFile succeed?: " << iFile << endl;
+	cout << "speciesFile succeed?: " << (bool)iFile << endl;
 	iFile.close();
 	iFile.open(worldFile.c_str());
-	cout << "worldFile succeed?: " << iFile << endl;
+	cout << "worldFile succeed?: " << (bool)iFile << endl;
 	iFile.close();
 //	initWorld(world, speciesFile, worldFile);
 	printGrid(world.grid);
