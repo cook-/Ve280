@@ -90,11 +90,13 @@ initWorld(world_t &world, const string &speciesFile,
 	iStream.clear();
 	iStream.str(line);
 	iStream >> world.grid.height;	// initialize height.
+	cout << "grid height is: " << world.grid.height << endl;
 
 	getline(iFile, line);
 	iStream.clear();
 	iStream.str(line);
 	iStream >> world.grid.width;	// initialize width.
+	cout << "grid width is: " << world.grid.width << endl;
 
 	while (iFile) {
 		int i = 0;
