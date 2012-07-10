@@ -101,8 +101,8 @@ initWorld(world_t &world, const string &speciesFile,
 	iStream >> world.grid.width;	// initialize width.
 	cout << "grid width is: " << world.grid.width << endl;
 
+	i = 0;
 	while (iFile) {
-		int i = 0;
 		getline(iFile, line);
 		iStream.clear();
 		iStream.str(line);
@@ -112,7 +112,7 @@ initWorld(world_t &world, const string &speciesFile,
 		world.creatures[i].species = findSpecies(world, name);	// initialize *species.
 		world.creatures[i].programID = 1;	// initialize programID.
 
-		cout << "creature[" << i << "]: " << world.creatures[i].species -> name << directName[world.creatures[i].direction] << world.creatures[i].location.r << world.creatures[i].location.c << endl;
+		cout << "creature[" << i << "]: " << " " << world.creatures[i].species -> name << " " << directName[world.creatures[i].direction] << " " << world.creatures[i].location.r << " " << world.creatures[i].location.c << endl;
 		world.grid.squares[world.creatures[i].location.r][world.creatures[i].location.c] = world.creatures + i;	// initialize squares.
 		i++;
 	}
