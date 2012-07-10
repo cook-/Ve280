@@ -20,7 +20,7 @@ main(int argc, char *argv[])
 	string worldFile = argv[2];
 
 	struct world_t world;
-	cout << "numSpecies: " << world.numSpecie << endl;
+	cout << "numSpecies: " << world.numSpecies << endl;
 //	initWorld(world, speciesFile, worldFile);
 	printGrid(world.grid);
 
