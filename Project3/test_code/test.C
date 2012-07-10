@@ -22,6 +22,13 @@ main(int argc, char *argv[])
 	struct world_t world;
 	cout << "numSpecies: " << world.numSpecies << endl;
 	cout << "name: " << world.species[3].name << endl;
+	ifstream iFile;
+	iFile.open(speciesFile);
+	cout << "speciesFile succeed?: " << iFile << endl;
+	iFile.close(speciesFile);
+	iFile.open(worldFile);
+	cout << "worldFile succeed?: " << iFile << endl;
+	iFile.close();
 //	initWorld(world, speciesFile, worldFile);
 	printGrid(world.grid);
 
