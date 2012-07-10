@@ -44,7 +44,7 @@ initWorld(world_t &world, const string &speciesFile,
 	string line;
 
 	iFile.open(speciesFile.c_str());
-	cout << "speciesFile is open?: " << iFile.is_open() << endl;
+	cout << speciesFile << " is open?: " << iFile.is_open() << endl;
 
 	string title;
 	getline(iFile, title);
@@ -57,7 +57,7 @@ initWorld(world_t &world, const string &speciesFile,
 
 	for (int i = 0; i != world.numSpecies; ++i) {
 		iFile.open(world.species[i].name.c_str());
-		cout << "worldFile is open?: " << iFile.is_open() << endl;
+		cout << world.species[i].name << " is open?: " << iFile.is_open() << endl;
 
 		getline(iFile, line);
 		
@@ -74,6 +74,7 @@ initWorld(world_t &world, const string &speciesFile,
 				iStream >> world.species[i].program[j].address;		// initialize address.
 
 			j++;
+			getline(iFile, line);
 		}
 
 		world.species[i].programSize = j;	// initialize programSize.
