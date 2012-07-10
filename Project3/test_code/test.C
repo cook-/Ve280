@@ -12,7 +12,7 @@ void initWorld(world_t &, const string &, const string &);
 //void printGrid(const grid_t &);
 opcode_t findOpcode(const string &);
 direction_t findDir(const string &);
-unsigned int findSpecies(world_t &, const string &);
+unsigned int findSpeciesIndex(world_t &, const string &);
 
 int
 main(int argc, char *argv[])
