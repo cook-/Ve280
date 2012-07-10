@@ -94,6 +94,9 @@ initWorld(world_t &world, const string &speciesFile,
 		world.grid.squares[world.creatures[i].location.r][world.creatures[i].location.c] = world.creatures + i;	// initialize squares.
 		i++;
 	}
+
+	iFile.close();
+
 	return true;
 }
 
