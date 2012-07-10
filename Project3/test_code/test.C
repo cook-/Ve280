@@ -75,7 +75,7 @@ initWorld(world_t &world, const string &speciesFile,
 			if (operName == "ifempty" || operName == "ifenemy" || operName == "ifsame" || operName == "ifwall" || operName == "go")
 				iStream >> world.species[i].program[j].address;		// initialize address.
 
-			cout << world.species[i].program[j].operName << " " << world.species[i].program[j].address << endl; 
+			cout << world.species[i].program[j].op << " " << world.species[i].program[j].address << endl; 
 			j++;
 			getline(iFile, line);
 		}
