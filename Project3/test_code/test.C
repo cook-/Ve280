@@ -10,7 +10,7 @@ bool initWorld(world_t &, const string &, const string &);
 void printGrid(const grid_t &);
 opcode_t findOpcode(const string);
 direction_t findDir(const string);
-species *findSpecies(world_t &, const string &);
+species_t *findSpecies(world_t &, const string &);
 
 int
 main(int argc, char *argv[])
