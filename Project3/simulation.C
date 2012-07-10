@@ -136,7 +136,7 @@ findDir(const string dir)
 }
 
 unsigned int
-findSpeciesIndex(world_t &world, string name)
+findSpeciesIndex(world_t &world, const string name)
 {
 	unsigned int index;
 	for (int i = 0; i != world.numSpecies; i++)
