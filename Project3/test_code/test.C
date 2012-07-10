@@ -57,7 +57,7 @@ initWorld(world_t &world, const string &speciesFile,
 
 	for (int i = 0; i != world.numSpecies; ++i) {
 		iFile.open(world.species[i].name.c_str());
-		cout < "worldFile is open?: " << iFile.is_open() << endl;
+		cout << "worldFile is open?: " << iFile.is_open() << endl;
 
 		getline(iFile, line);
 		
