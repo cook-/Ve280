@@ -5,6 +5,7 @@
 #include <fstream>
 #include <sstream>
 #include <string>
+#include <cstdlib>
 using namespace std;
 
 void initWorld(world_t &, const string &, const string &);
