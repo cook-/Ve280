@@ -21,7 +21,7 @@ main(int argc, char *argv[])
 	string worldFile = argv[2];
 
 	world_t world;
-	initWorld(world, speciesFile, worldFile);
+//	initWorld(world, speciesFile, worldFile);
 	printGrid(world.grid);
 
 	return 0;
