@@ -5,6 +5,7 @@ enum direction_t { EAST, SOUTH, WEST, NORTH };
 const string directName[] = { "east", "south", "west", "north" };
 
 #include <iostream>
+#include <string>
 using namespace std;
 
 int
