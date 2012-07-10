@@ -57,7 +57,8 @@ initWorld(world_t &world, const string &speciesFile,
 
 			string operName;
 			iStream >> operName;
-			world.species[i].program[j].op = findOpcode(operName);	// initialize op.
+//			world.species[i].program[j].op = findOpcode(operName);	// initialize op.
+			world.species[i].program[j].op = HOP;
 
 			if (operName == "ifempty" || operName == "ifenemy" || operName == "ifsame" || operName == "ifwall" || operName == "go")
 				iStream >> world.species[i].program[j].address;		// initialize address.
