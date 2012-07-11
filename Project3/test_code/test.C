@@ -6,6 +6,7 @@
 #include <sstream>
 #include <string>
 #include <cstdlib>
+#include <cstdio>
 using namespace std;
 
 void initWorld(world_t &, const string &, const string &);
@@ -121,12 +122,14 @@ printGrid(const grid_t &grid)
 			if (grid.squares[i][j] == NULL)
 				cout << "____ ";
 			else
-				cout //<< (grid.squares[i][j] -> species -> name)[0] 
+			/*	cout //<< (grid.squares[i][j] -> species -> name)[0] 
 				     //<< (grid.squares[i][j] -> species -> name)[1]
 					 << "__"
 					 << "_"
 					 << directShortName[grid.squares[i][j]->direction];
 					 //<< "_?";
+			*/
+				printf("___%s", directShortName[grid.squares[i][j]->direction]);
 		}
 		cout << endl;
 	}
