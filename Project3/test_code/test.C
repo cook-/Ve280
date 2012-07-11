@@ -41,7 +41,7 @@ initWorld(world_t &world, const string &speciesFile,
 
 	getline(iFile, line);
 	int i = 0;
-	while (!iFile.eof())
+	while (iFile)
 		getline(iFile, world.species[i++].name);	//initialize name.
 	world.numSpecies = i - 1;		// initialize numSpecies.
 
