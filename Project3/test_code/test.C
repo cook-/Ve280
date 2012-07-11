@@ -26,7 +26,6 @@ main(int argc, char *argv[])
 	for (int i = 0; i != MAXHEIGHT; ++i)
 		for (int j = 0; j != MAXWIDTH; ++j) 
 			world.grid.squares[i][j] = NULL;
-	world.grid.squares[][]
 	initWorld(world, speciesFile, worldFile);
 	printGrid(world.grid);
 
