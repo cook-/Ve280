@@ -10,7 +10,7 @@ main()
 	iFile.open("eof_test");
 	int i = 0;
 	string line;
-	while (!iFile.eof()) {
+	while (iFile) {
 		getline(iFile, line);
 		i++;
 	}
