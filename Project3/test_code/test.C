@@ -51,10 +51,8 @@ initWorld(world_t &world, const string &speciesFile,
 		iFile.open(world.species[i].name.c_str());
 
 		int j = 0;
-		while (!iFile.eof()) {
-			getline(iFile, line);
-			if (line.empty())
-				break;
+		getline(iFile, line);
+		while (!line.empty()) {
 			iStream.clear();
 			iStream.str(line);
 
@@ -66,6 +64,7 @@ initWorld(world_t &world, const string &speciesFile,
 				iStream >> world.species[i].program[j].address;		// initialize address.
 
 			j++;
+			getline(iFile, line);
 		}
 
 		world.species[i].programSize = j;	// initialize programSize.
