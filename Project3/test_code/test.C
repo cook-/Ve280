@@ -18,9 +18,8 @@ species_t *findSpecies(world_t &, const string &);
 int
 main(int argc, char *argv[])
 {
-	string speciesFile, worldFile;
-	speciesFile = argv[1];
-	worldFile = argv[2];
+	string speciesFile(argv[1]);
+	string worldFile(argv[2]);
 
 	world_t world;
 	initWorld(world, speciesFile, worldFile);
