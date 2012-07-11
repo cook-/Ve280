@@ -37,8 +37,9 @@ initWorld(world_t &world, const string &speciesFile,
 	for (int i = 0; i != MAXSPECIES; ++i) {
 		world.species[i].name = "";
 		world.species[i].programSize = 0;
-		world.species[i].program.op = HOP;
-		world.species[i].program.address = 0;
+		for (int j = 0; j != MAXPROGRAM; ++j) {
+			world.species[i].program[j].op = HOP;
+			world.species[i].program[j].address = 0;
 	}
 	world.numCreatures = 0;
 	for (int i = 0; i != MAXCREATURES; ++i) {
