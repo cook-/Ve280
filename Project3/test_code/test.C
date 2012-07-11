@@ -10,10 +10,10 @@
 using namespace std;
 
 void initWorld(world_t &, const string &, const string &);
-void printGrid(const grid_t &);
+//void printGrid(const grid_t &);
 opcode_t findOpcode(const string &);
 direction_t findDir(const string &);
-species_t *findSpecies(world_t &, const string &);
+species_t *findSpecies(const world_t &, const string &);
 
 int
 main(int argc, char *argv[])
@@ -23,7 +23,7 @@ main(int argc, char *argv[])
 
 	world_t world;
 	initWorld(world, speciesFile, worldFile);
-	printGrid(world.grid);
+//	printGrid(world.grid);
 
 	return 0;
 }
@@ -113,7 +113,7 @@ initWorld(world_t &world, const string &speciesFile,
 
 	iFile.close();
 }
-
+/*
 void 
 printGrid(const grid_t &grid)
 {
@@ -122,19 +122,17 @@ printGrid(const grid_t &grid)
 			if (grid.squares[i][j] == NULL)
 				cout << "____ ";
 			else
-			/*	cout //<< (grid.squares[i][j] -> species -> name)[0] 
-				     //<< (grid.squares[i][j] -> species -> name)[1]
+				cout << grid.squares[i][j] -> species -> name[0] 
+				     << grid.squares[i][j] -> species -> name[1]
 					 << "__"
 					 << "_"
 					 << directShortName[grid.squares[i][j]->direction];
 					 //<< "_?";
-			*/
-				printf("___%s", directShortName[grid.squares[i][j]->direction].c_str());
 		}
 		cout << endl;
 	}
 }
-
+*/
 opcode_t
 findOpcode(const string &operName)
 {
@@ -156,7 +154,7 @@ findDir(const string &dir)
 }
 
 species_t *
-findSpecies(world_t &world, const string &name)
+findSpecies(const world_t &world, const string &name)
 {
 	unsigned int index;
 	for (int i = 0; i != world.numSpecies; ++i)
