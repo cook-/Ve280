@@ -4,9 +4,10 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include <iomanip>
 #include <string>
 #include <cstdlib>
-#include <cstdio>
+#include <cassert>
 using namespace std;
 
 void initWorld(world_t &, const string &, const string &);
