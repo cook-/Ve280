@@ -130,7 +130,8 @@ printGrid(const grid_t &grid)
 				cout << grid.squares[i][j] -> species -> name[0] 
 				     << grid.squares[i][j] -> species -> name[1]
 					 << "_"
-					 << directShortName[grid.squares[i][j]->direction];
+					 << directShortName[grid.squares[i][j]->direction]
+					 << " ";
 		}
 		cout << endl;
 	}
