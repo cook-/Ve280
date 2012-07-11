@@ -39,8 +39,7 @@ initWorld(world_t &world, const string &speciesFile,
 
 	iFile.open(speciesFile.c_str());
 
-	string title;
-	getline(iFile, title);
+	getline(iFile, line);
 	int i = 0;
 	while (!iFile.eof())
 		getline(iFile, world.species[i++].name);	//initialize name.
@@ -54,6 +53,8 @@ initWorld(world_t &world, const string &speciesFile,
 		int j = 0;
 		while (!iFile.eof()) {
 			getline(iFile, line);
+			if (line.empty())
+				break;
 			iStream.clear();
 			iStream.str(line);
 
