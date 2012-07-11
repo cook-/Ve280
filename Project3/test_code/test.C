@@ -126,7 +126,7 @@ printGrid(const grid_t &grid)
 					 << "__"
 					 << "_"
 					 //<< directShortName[grid.squares[i][j] -> direction];
-					 << "_";
+					 << "_?";
 		}
 		cout << endl;
 	}
