@@ -106,7 +106,7 @@ initWorld(world_t &world, const string &speciesFile,
 		world.creatures[i].species = findSpecies(world, name);	// initialize *species.
 		world.creatures[i].programID = 1;	// initialize programID.
 
-		cout << "creature[" << i << "]: " << " " << world.creatures[i].species->name << " " << directName[world.creatures[i].direction] << " " << world.creatures[i].location.r << " " << world.creatures[i].location.c << endl;
+//		cout << "creature[" << i << "]: " << " " << world.creatures[i].species->name << " " << directName[world.creatures[i].direction] << " " << world.creatures[i].location.r << " " << world.creatures[i].location.c << endl;
 
 		world.grid.squares[world.creatures[i].location.r][world.creatures[i].location.c] = world.creatures + i;	// initialize squares.
 		i++;
@@ -114,26 +114,24 @@ initWorld(world_t &world, const string &speciesFile,
 
 	iFile.close();
 }
-/*
+
 void 
 printGrid(const grid_t &grid)
 {
 	for (int i = 0; i != grid.height; ++i) {
 		for (int j = 0; j != grid.width; ++j) {
-			if (grid.squares[i][j] == NULL)
+			if (!grid.squares[i][j])
 				cout << "____ ";
 			else
 				cout << grid.squares[i][j] -> species -> name[0] 
 				     << grid.squares[i][j] -> species -> name[1]
-					 << "__"
 					 << "_"
 					 << directShortName[grid.squares[i][j]->direction];
-					 //<< "_?";
 		}
 		cout << endl;
 	}
 }
-*/
+
 opcode_t
 findOpcode(const string &operName)
 {
