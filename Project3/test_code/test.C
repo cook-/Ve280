@@ -37,14 +37,14 @@ initWorld(world_t &world, const string &speciesFile,
 	for (int i = 0; i != MAXSPECIES; ++i) {
 		world.species[i].name = "";
 		world.species[i].programSize = 0;
-		world.species[i].program.op = 0;
+		world.species[i].program.op = HOP;
 		world.species[i].program.address = 0;
 	}
 	world.numCreatures = 0;
 	for (int i = 0; i != MAXCREATURES; ++i) {
 		world.creatures[i].location.r = 0;
 		world.creatures[i].location.c = 0;
-		world.creatures[i].direction = 0;
+		world.creatures[i].direction = EAST;
 		world.creatures[i].species = NULL;
 		world.creatures[i].programID = 0;
 	}
