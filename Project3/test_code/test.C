@@ -129,7 +129,7 @@ printGrid(const grid_t &grid)
 					 << directShortName[grid.squares[i][j]->direction];
 					 //<< "_?";
 			*/
-				printf("___%s", directShortName[grid.squares[i][j]->direction]);
+				printf("___%s", directShortName[grid.squares[i][j]->direction].c_str());
 		}
 		cout << endl;
 	}
