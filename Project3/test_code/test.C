@@ -23,9 +23,6 @@ main(int argc, char *argv[])
 	string worldFile(argv[2]);
 
 	world_t world;
-	for (int i = 0; i != MAXHEIGHT; ++i)
-		for (int j = 0; j != MAXWIDTH; ++j) 
-			world.grid.squares[i][j] = NULL;
 	initWorld(world, speciesFile, worldFile);
 	printGrid(world.grid);
 
@@ -41,66 +38,55 @@ initWorld(world_t &world, const string &speciesFile,
 	string line;
 
 	iFile.open(speciesFile.c_str());
-	cout << speciesFile << " is open?: " << iFile.is_open() << endl;
 
 	string title;
 	getline(iFile, title);
 	int i = 0;
-	while (iFile)
+	while (!iFile.eof())
 		getline(iFile, world.species[i++].name);	//initialize name.
 	world.numSpecies = i - 1;		// initialize numSpecies.
-	cout << "numSpecies = " << world.numSpecies << endl;
 
 	iFile.close();
 
 	for (int i = 0; i != world.numSpecies; ++i) {
 		iFile.open(world.species[i].name.c_str());
-		cout << world.species[i].name << " is open?: " << iFile.is_open() << endl;
 
-		getline(iFile, line);
-		
 		int j = 0;
-		while (!line.empty()) {
+		while (!iFile.eof()) {
+			getline(iFile, line);
 			iStream.clear();
 			iStream.str(line);
 
 			string operName;
 			iStream >> operName;
-//			cout << operName << endl;
 			world.species[i].program[j].op = findOpcode(operName);	// initialize op.
 
 			if (operName == "ifempty" || operName == "ifenemy" || operName == "ifsame" || operName == "ifwall" || operName == "go")
 				iStream >> world.species[i].program[j].address;		// initialize address.
 
-			cout << opName[world.species[i].program[j].op] << " " << world.species[i].program[j].address << endl; 
 			j++;
-			getline(iFile, line);
 		}
 
 		world.species[i].programSize = j;	// initialize programSize.
-		cout << "programSize: " << world.species[i].programSize << endl << endl;
 
 		iFile.close();
 	}
 
 	iFile.open(worldFile.c_str());
-	cout << worldFile << " is open?: " << iFile.is_open() << endl;
 
 	getline(iFile, line);
 	iStream.clear();
 	iStream.str(line);
 	iStream >> world.grid.height;	// initialize height.
-	cout << "grid height is: " << world.grid.height << endl;
 
 	getline(iFile, line);
 	iStream.clear();
 	iStream.str(line);
 	iStream >> world.grid.width;	// initialize width.
-	cout << "grid width is: " << world.grid.width << endl;
 
-	getline(iFile, line);
 	i = 0;
-	while (!line.empty()) {
+	while (!iFile.eof()) {
+		getline(iFile, line);
 		iStream.clear();
 		iStream.str(line);
 		string name, dir;
@@ -109,11 +95,8 @@ initWorld(world_t &world, const string &speciesFile,
 		world.creatures[i].species = findSpecies(world, name);	// initialize *species.
 		world.creatures[i].programID = 1;	// initialize programID.
 
-//		cout << "creature[" << i << "]: " << " " << world.creatures[i].species->name << " " << directName[world.creatures[i].direction] << " " << world.creatures[i].location.r << " " << world.creatures[i].location.c << endl;
-
 		world.grid.squares[world.creatures[i].location.r][world.creatures[i].location.c] = world.creatures + i;	// initialize squares.
 		i++;
-		getline(iFile, line);
 	}
 
 	iFile.close();
