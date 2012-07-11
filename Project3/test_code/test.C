@@ -85,8 +85,8 @@ initWorld(world_t &world, const string &speciesFile,
 	iStream >> world.grid.width;	// initialize width.
 
 	i = 0;
+	getline(iFile, line);
 	while (!iFile.eof()) {
-		getline(iFile, line);
 		iStream.clear();
 		iStream.str(line);
 		string name, dir;
@@ -97,6 +97,7 @@ initWorld(world_t &world, const string &speciesFile,
 
 		world.grid.squares[world.creatures[i].location.r][world.creatures[i].location.c] = world.creatures + i;	// initialize squares.
 		i++;
+		getline(iFile, line);
 	}
 
 	iFile.close();
