@@ -14,7 +14,7 @@ main()
 		getline(iFile, line);
 		i++;
 	}
-	cout << "There are " << i << " lines in th file." << endl;
+	cout << "There are " << i << " lines in the file." << endl;
 
 	return 0;
 }
