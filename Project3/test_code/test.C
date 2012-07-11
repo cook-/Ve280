@@ -23,9 +23,9 @@ main(int argc, char *argv[])
 	string worldFile(argv[2]);
 
 	world_t world;
-//	for (int i = 0; i != MAXHEIGHT; ++i)
-//		for (int j = 0; j != MAXWIDTH; ++j)
-//			world.grid.squares[i][j] = NULL;
+	for (int i = 0; i != MAXHEIGHT; ++i)
+		for (int j = 0; j != MAXWIDTH; ++j)
+			world.grid.squares[i][j] = NULL;
 	initWorld(world, speciesFile, worldFile);
 	printGrid(world.grid);
 
