@@ -22,7 +22,7 @@ main(int argc, char *argv[])
 	string speciesFile(argv[1]);
 	string worldFile(argv[2]);
 
-	world_t world = (world_t*)malloc(sizeof(world_t));
+	world_t world = (world_t)malloc(sizeof(world_t));
 	initWorld(world, speciesFile, worldFile);
 	printGrid(world.grid);
 
