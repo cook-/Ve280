@@ -20,7 +20,7 @@ main(int argc, char *argv[])
 	string speciesFile = argv[1];
 	string worldFile = argv[2];
 
-	world_t world{};
+	world_t world;
 	initWorld(world, speciesFile, worldFile);
 	printGrid(world.grid);
 
