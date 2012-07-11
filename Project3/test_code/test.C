@@ -104,7 +104,7 @@ initWorld(world_t &world, const string &speciesFile,
 		world.creatures[i].species = findSpecies(world, name);	// initialize *species.
 		world.creatures[i].programID = 1;	// initialize programID.
 
-		cout << "creature[" << i << "]: " << " " << world.creatures[i].species->name << " " << directName[world.creatures[i].direction] << " " << world.creatures[i].location.r << " " << world.creatures[i].location.c << endl;
+		cout << "creature[" << i << "]: " << " " << /*world.creatures[i].species->name << " " << directName[world.creatures[i].direction] << " " <<*/ world.creatures[i].location.r << " " << world.creatures[i].location.c << endl;
 
 		world.grid.squares[world.creatures[i].location.r][world.creatures[i].location.c] = world.creatures + i;	// initialize squares.
 		i++;
