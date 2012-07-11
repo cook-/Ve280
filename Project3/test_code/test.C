@@ -23,9 +23,6 @@ main(int argc, char *argv[])
 	string worldFile(argv[2]);
 
 	world_t world;
-	for (int i = 0; i != MAXHEIGHT; ++i)
-		for (int j = 0; j != MAXWIDTH; ++j)
-			world.grid.squares[i][j] = NULL;
 	initWorld(world, speciesFile, worldFile);
 	printGrid(world.grid);
 
@@ -36,6 +33,27 @@ void
 initWorld(world_t &world, const string &speciesFile,
 	const string &worldFile)
 {
+	world.numSpecies = 0;
+	for (int i = 0; i != MAXSPECIES; ++i) {
+		world.species[i].name = "";
+		world.species[i].programSize = 0;
+		world.species[i].program.op = 0;
+		world.species[i].program.address = 0;
+	}
+	world.numCreatures = 0;
+	for (int i = 0; i != MAXCREATURES; ++i) {
+		world.creatures[i].location.r = 0;
+		world.creatures[i].location.c = 0;
+		world.creatures[i].direction = 0;
+		world.creatures[i].species = NULL;
+		world.creatures[i].programID = 0;
+	}
+	world.grid.height = 0;
+	world.grid.width = 0;
+	for (int i = 0; i != MAXHEIGHT; ++i)
+		for (int j = 0; j != MAXWIDTH; ++j)
+			world.grid.squares[i][j] = NULL;
+
 	ifstream iFile;
 	istringstream iStream;
 	string line;
