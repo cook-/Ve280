@@ -313,13 +313,17 @@ hop(world_t &world, unsigned int creatureID)
 void
 left(world_t &world, unsigned int creatureID)
 {
-
+	creature_t *creature = world.creatures + creatureID;
+	creature->direction = leftFrom(creature->direction);
+	creature->programID++;
 }
 
 void
 right(world_t &world, unsigned int creatureID)
 {
-
+	creature_t *creature = world.creatures + creatureID;
+	creature->direction = rightFrom(creature->direction);
+	creature->programID++;
 }
 
 void
@@ -331,7 +335,7 @@ infect(world_t &world, unsigned int creatureID)
 void
 ifempty(world_t &world, unsigned int creatureID, unsigned int address)
 {
-
+	
 }
 
 void
@@ -358,3 +362,26 @@ go(world_t &world, unsigned int creatureID, unsigned int address)
 	creature_t *creature = world.creatures + creatureID;
 	creature->programID = address - 1;
 }
+
+direction_t 
+rightFrom(direction_t dir)
+{
+	if (dir == NORTH)
+		dir = EAST;
+	else
+		dir++;
+	return dir;
+}
+
+instruction_t 
+getInstruction(const creature_t &creature)
+{
+	return creature.species -> program[creature.programID];
+}
+
+creature_t 
+*getCreature(const grid_t &grid, point_t location)
+{
+	return grid.squares[location.r][location.c];
+}
+
