@@ -33,9 +33,7 @@ main(int argc, char *argv[])
 	printGrid(world.grid);
 	for (int i = 0; i != roundNum; ++i) {
 		cout << "Round " << i + 1 << endl;
-		instruction_t instr = getInstruction(world.creature[0]);
-		while (instr != HOP && instr != LEFT && instr != RIGHT && instr != GO)
-			simulateCreature(0, world);
+		simulateCreature(0, world);
 		printGrid(world.grid);
 	}
 
