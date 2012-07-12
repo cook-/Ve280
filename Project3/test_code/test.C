@@ -197,13 +197,13 @@ simulateCreature(world_t &world, unsigned int creatureID/*, bool verbose*/)
 	  instr.op == IFENEMY || instr.op == GO) {
 		switch (instr.op) {
 			case IFEMPTY:
-//				ifempty(world, creatureID, instr.address);
+				ifempty(world, creatureID, instr.address);
 				break;
 			case IFWALL:
-//				ifwall(world, creatureID, instr.address);
+				ifwall(world, creatureID, instr.address);
 				break;
 			case IFSAME:
-//				ifsame(world, creatureID, instr.address);
+				ifsame(world, creatureID, instr.address);
 				break;
 			case IFENEMY:
 				ifenemy(world, creatureID, instr.address);
@@ -325,19 +325,51 @@ infect(world_t &world, unsigned int creatureID)
 void
 ifempty(world_t &world, unsigned int creatureID, unsigned int address)
 {
-	
+	creature_t *creature = world.creatures + creatureID;
+	point_t orgnlPt = creature->location;
+	point_t adjctPt = adjacentPoint(orgnlPt, creature->direction);
+	creature_t *adjctCreature = world.grid.squares[adjctPt.r][adjctPt.c];
+
+	if (adjctPt.r >= 0 && adjctPt.r < world.grid.height && 
+		  adjctPt.c >= 0 && adjctPt.c < world.grid.width && 
+			adjctCreature == NULL) 
+
+		creature->programID = address - 1;
+	else
+		creature->programID++;
 }
 
 void
 ifwall(world_t &world, unsigned int creatureID, unsigned int address)
 {
+	creature_t *creature = world.creatures + creatureID;
+	point_t orgnlPt = creature->location;
+	point_t adjctPt = adjacentPoint(orgnlPt, creature->direction);
 
+	if (adjctPt.r < 0 && adjctPt.r >= world.grid.height && 
+		  adjctPt.c < 0 && adjctPt.c >= world.grid.width) 
+
+		creature->programID = address - 1;
+	else
+		creature->programID++;
 }
 
 void
 ifsame(world_t &world, unsigned int creatureID, unsigned int address)
 {
+	creature_t *creature = world.creatures + creatureID;
+	point_t orgnlPt = creature->location;
+	point_t adjctPt = adjacentPoint(orgnlPt, creature->direction);
+	creature_t *adjctCreature = world.grid.squares[adjctPt.r][adjctPt.c];
 
+	if (adjctPt.r >= 0 && adjctPt.r < world.grid.height && 
+		  adjctPt.c >= 0 && adjctPt.c < world.grid.width && 
+			adjctCreature != NULL && 
+			  adjctCreature->species == creature->species)
+
+		creature->programID = address - 1;
+	else
+		creature->programID++;
 }
 
 void
