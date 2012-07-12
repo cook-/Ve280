@@ -40,7 +40,7 @@ main(int argc, char *argv[])
 	printGrid(world.grid);
 	for (int i = 0; i != roundNum; ++i) {
 		cout << "Round " << i + 1 << endl;
-		simulateCreature(0, world);
+		simulateCreature(world, 0);
 		printGrid(world.grid);
 	}
 
