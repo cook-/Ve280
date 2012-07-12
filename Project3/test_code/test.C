@@ -16,7 +16,6 @@ void simulateCreature(world_t &, unsigned int/*, bool*/);
 opcode_t findOpcode(const string &);
 direction_t findDir(const string &);
 species_t *findSpecies(world_t &, const string &);
-instruction_t getInstruction(const creature_t &);
 void hop(world_t &, unsigned int);
 void left(world_t &, unsigned int);
 void right(world_t &, unsigned int);
@@ -26,8 +25,11 @@ void ifwall(world_t &, unsigned int, unsigned int);
 void ifsame(world_t &, unsigned int, unsigned int);
 void ifenemy(world_t &, unsigned int, unsigned int);
 void go(world_t &, unsigned int, unsigned int);
+point_t adjacentPoint(point_t, direction_t);
 direction_t leftFrom(direction_t);
 direction_t rightFrom(direction_t);
+instruction_t getInstruction(const creature_t);
+creature_t *getCreature(const grid_t &, point_t);
 
 int
 main(int argc, char *argv[])
