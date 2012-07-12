@@ -277,8 +277,8 @@ void
 hop(world_t &world, unsigned int creatureID)
 {
 	creature_t *creature = world.creatures + creatureID;
-	point_t orgnlPt = creature->location;
-	point_t adjctPt = adjacentPoint(orgnlPt, creature->direction);
+//	point_t orgnlPt = creature->location;
+	point_t adjctPt = adjacentPoint(creature->location, creature->direction);
 	creature_t *adjctCreature = getCreature(world.grid, adjctPt);
 
 	if (adjctPt.r >= 0 && adjctPt.r < world.grid.height && 
@@ -286,7 +286,7 @@ hop(world_t &world, unsigned int creatureID)
 				adjctCreature == NULL) {
 
 		creature->location = adjctPt;
-		world.grid.squares[orgnlPt.r][orgnlPt.c] = NULL;
+		getCreature(world.grid, creature->location) = NULL;
 		adjctCreature = creature;
 
 	}
@@ -314,8 +314,7 @@ void
 infect(world_t &world, unsigned int creatureID)
 {
 	creature_t *creature = world.creatures + creatureID;
-	point_t orgnlPt = creature->location;
-	point_t adjctPt = adjacentPoint(orgnlPt, creature->direction);
+	point_t adjctPt = adjacentPoint(creature->location, creature->direction);
 	creature_t *adjctCreature = getCreature(world.grid, adjctPt);
 
 	if (adjctPt.r >= 0 && adjctPt.r < world.grid.height && 
@@ -334,7 +333,7 @@ void
 ifempty(world_t &world, unsigned int creatureID, unsigned int address)
 {
 	creature_t *creature = world.creatures + creatureID;
-	point_t adjctPt = adjacentPoint(orgnlPt, creature->direction);
+	point_t adjctPt = adjacentPoint(creature->location, creature->direction);
 	creature_t *adjctCreature = getCreature(world.grid, adjctPt);
 
 	if (adjctPt.r >= 0 && adjctPt.r < world.grid.height && 
@@ -350,7 +349,7 @@ void
 ifwall(world_t &world, unsigned int creatureID, unsigned int address)
 {
 	creature_t *creature = world.creatures + creatureID;
-	point_t adjctPt = adjacentPoint(orgnlPt, creature->direction);
+	point_t adjctPt = adjacentPoint(creature->location, creature->direction);
 
 	if (adjctPt.r < 0 || adjctPt.r >= world.grid.height || 
 		  adjctPt.c < 0 || adjctPt.c >= world.grid.width) 
@@ -364,7 +363,7 @@ void
 ifsame(world_t &world, unsigned int creatureID, unsigned int address)
 {
 	creature_t *creature = world.creatures + creatureID;
-	point_t adjctPt = adjacentPoint(orgnlPt, creature->direction);
+	point_t adjctPt = adjacentPoint(creature->location, creature->direction);
 	creature_t *adjctCreature = getCreature(world.grid, adjctPt);
 
 	if (adjctPt.r >= 0 && adjctPt.r < world.grid.height && 
@@ -381,7 +380,7 @@ void
 ifenemy(world_t &world, unsigned int creatureID, unsigned int address)
 {
 	creature_t *creature = world.creatures + creatureID;
-	point_t adjctPt = adjacentPoint(orgnlPt, creature->direction);
+	point_t adjctPt = adjacentPoint(creature->location, creature->direction);
 	creature_t *adjctCreature = getCreature(world.grid, adjctPt);
 
 	if (adjctPt.r >= 0 && adjctPt.r < world.grid.height && 
