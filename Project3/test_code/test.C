@@ -278,7 +278,7 @@ hop(world_t &world, unsigned int creatureID)
 {
 	creature_t *creature = world.creatures + creatureID;
 	point_t adjctPt = adjacentPoint(creature->location, creature->direction);
-	creature_t *adjctCreature = getCreature(world.grid, adjctPt);
+	creature_t *adjctCreature = &getCreature(world.grid, adjctPt);
 
 	if (adjctPt.r >= 0 && adjctPt.r < world.grid.height && 
 			adjctPt.c >= 0 && adjctPt.c < world.grid.width &&
@@ -287,7 +287,7 @@ hop(world_t &world, unsigned int creatureID)
 		adjctCreature = creature;
 		adjctCreature->location = adjctPt;
 		world.grid.squares[creature->location.r][creature->location.c] = NULL;
-
+//		world.grid.squares[][] = adjctCreature;
 	}
 
 	creature->programID++;
