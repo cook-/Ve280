@@ -185,21 +185,21 @@ simulateCreature(unsigned int creatureID, world_t &world/*, bool verbose*/)
 			hop(world, creatureID);
 			break;
 		case LEFT:
-			hop(world, creatureID);
+//			left(world, creatureID);
 			break;
 		case RIGHT:
-			right(world, creatureID);
+//			right(world, creatureID);
 			break;
 		case INFECT:
-			infect(world, creatureID);
+//			infect(world, creatureID);
 			break;
 		default:
 			;
 	}
 
 	instr = getInstruction(world.creatures[creatureID]);
-	while (instr == IFEMPTY || instr == IFWALL || instr == IFSAME || 
-	  instr == IFENEMY || instr == GO) {
+	while (instr.op == IFEMPTY || instr.op == IFWALL || instr.op == IFSAME || 
+	  instr.op == IFENEMY || instr.op == GO) {
 
 		switch (instr.op) {
 			case IFEMPTY:
@@ -269,19 +269,15 @@ adjacentPoint(point_t pt, direction_t dir)
 		case (EAST):
 			pt.c++;
 			break;
-
 		case (SOUTH):
 			pt.r--;
 			break;
-
 		case (WEST):
 			pt.c--;
 			break;
-
 		case (NORTH):
 			pt.r++;
 			break;
-
 		default:
 			;
 	}
