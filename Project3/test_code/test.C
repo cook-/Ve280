@@ -203,10 +203,10 @@ simulateCreature(world_t &world, unsigned int creatureID, bool verbose)
 	  instr.op == IFENEMY || instr.op == GO) {
 
 	  	if (verbose) {
-			cout << "Instruction " 
+			cout << endl << "Instruction " 
 				 << creature->programID + 1 << ": " 
 				 << opName[instr.op] << " " 
-				 << instr.address << endl;
+				 << instr.address;
 		}
 
 		switch (instr.op) {
@@ -234,7 +234,7 @@ simulateCreature(world_t &world, unsigned int creatureID, bool verbose)
 	}
 
   	if (verbose) {
-		cout << "Instruction " 
+		cout << endl << "Instruction " 
 			 << creature->programID + 1 << ": " 
 			 << opName[instr.op] << endl;
 	}
@@ -259,12 +259,8 @@ simulateCreature(world_t &world, unsigned int creatureID, bool verbose)
 			;
 	}
 
-	if (verbose)
+	if (verbose || creatureID == world.numCreatures - 1)
 		printGrid(world.grid);
-	else
-		if (creatureID == world.numCreatures - 1)
-			printGrid(world.grid);
-
 }
 
 opcode_t
