@@ -33,7 +33,9 @@ main(int argc, char *argv[])
 	printGrid(world.grid);
 	for (int i = 0; i != roundNum; ++i) {
 		cout << "Round " << i + 1 << endl;
-		simulateCreature(0, world);
+		instruction_t instr = getInstruction(world.creature[0]);
+		while (instr != HOP && instr != LEFT && instr != RIGHT && instr != GO)
+			simulateCreature(0, world);
 		printGrid(world.grid);
 	}
 
@@ -184,19 +186,45 @@ simulateCreature(unsigned int creatureID, world_t &world/*, bool verbose*/)
 		case HOP:
 			hop(world, creatureID);
 			break;
-		
-		case GO:
-			go(world, creatureID, instr.address);
+		case LEFT:
+			hop(world, creatureID);
 			break;
-
-		default: 
+		case RIGHT:
+			right(world, creatureID);
+			break;
+		case INFECT:
+			infect(world, creatureID);
+			break;
+		default:
 			;
 	}
 
+	instr = getInstruction(world.creatures[creatureID]);
+	while (instr == IFEMPTY || instr == IFWALL || instr == IFSAME || 
+	  instr == IFENEMY || instr == GO) {
 
+		switch (instr.op) {
+			case IFEMPTY:
+//				ifempty(world, creatureID, instr.address);
+				break;
+			case IFWALL:
+//				ifwall(world, creatureID, instr.address);
+				break;
+			case IFSAME:
+//				ifsame(world, creatureID, instr.address);
+				break;
+			case IFENEMY:
+//				ifenemy(world, creatureID, instr.address);
+				break;
+			case GO:
+				go(world, creatureID, instr.address);
+				break;
+			default:
+				;
+		}
 
-
-
+		instr = getInstruction(world.creatures[creatureID]);
+	}
 }
 
 opcode_t
