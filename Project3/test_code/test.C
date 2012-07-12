@@ -193,24 +193,6 @@ void
 simulateCreature(world_t &world, unsigned int creatureID/*, bool verbose*/)
 {
 	instruction_t instr = getInstruction(world.creatures[creatureID]);
-	switch (instr.op) {
-		case HOP:
-			hop(world, creatureID);
-			break;
-		case LEFT:
-			left(world, creatureID);
-			break;
-		case RIGHT:
-			right(world, creatureID);
-			break;
-		case INFECT:
-			infect(world, creatureID);
-			break;
-		default:
-			;
-	}
-
-	instr = getInstruction(world.creatures[creatureID]);
 	while (instr.op == IFEMPTY || instr.op == IFWALL || instr.op == IFSAME || 
 	  instr.op == IFENEMY || instr.op == GO) {
 		switch (instr.op) {
@@ -233,7 +215,22 @@ simulateCreature(world_t &world, unsigned int creatureID/*, bool verbose*/)
 				;
 		}
 
-		instr = getInstruction(world.creatures[creatureID]);
+	instruction_t instr = getInstruction(world.creatures[creatureID]);
+	switch (instr.op) {
+		case HOP:
+			hop(world, creatureID);
+			break;
+		case LEFT:
+			left(world, creatureID);
+			break;
+		case RIGHT:
+			right(world, creatureID);
+			break;
+		case INFECT:
+			infect(world, creatureID);
+			break;
+		default:
+			;
 	}
 }
 
