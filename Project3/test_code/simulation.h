@@ -15,7 +15,7 @@ initWorld(world_t &world, const string &speciesFile,
 // 			"world". Return true if initialization is successful.
 
 void 
-simulateCreature(unsigned int i, world_t &world, bool verbose);
+simulateCreature(world_t &world, unsigned int creatureID, bool verbose);
 // MODIFIES: world, cout
 // EFFECTS: Simulate one turn of creature indexed by i and update 
 // 			the creature,the infected creature, and the grid if 
@@ -27,6 +27,20 @@ void
 printGrid(const grid_t &grid);
 // MODIFIES: cout.
 // EFFECTS: Print a grid representation of the creature world.
+
+opcode_t
+fineOpcode(const string &operName);
+// EFFECTS: Returns a opcode that has the same name as string
+// 			"operName".
+
+direction_t
+findDir(const string &dir);
+// EFFECTS: Returns a direction that has the same name as string 
+// 			"dir".
+
+species_t *
+findSpecies(world_t &world, const string &name);
+// EFFECTS: Returns a pointer that points to species named "name".
 
 point_t 
 adjacentPoint(point_t pt, direction_t dir);
@@ -51,5 +65,32 @@ creature_t
 *getCreature(const grid_t &grid, point_t location);
 // REQUIRES: location is inside the grid.
 // EFFECTS: Returns a pointer to the creature at "location" in "grid".
+
+void
+hop(world_t world, unsigned int creatureID);
+
+void
+left(world_t world, unsigned int creatureID);
+
+void
+right(world_t world, unsigned int creatureID);
+
+void
+infect(world_t world, unsigned int creatureID);
+
+void
+isempty(world_t world, unsigned int creatureID, unsigned int address);
+
+void
+iswall(world_t world, unsigned int creatureID, unsigned int address);
+
+void
+issame(world_t world, unsigned int creatureID, unsigned int address);
+
+void
+isenemy(world_t world, unsigned int creatureID, unsigned int address);
+
+void
+go(world_t world, unsigned int creatureID, unsigned int address);
 
 #endif
