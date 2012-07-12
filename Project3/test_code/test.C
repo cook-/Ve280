@@ -215,7 +215,9 @@ simulateCreature(world_t &world, unsigned int creatureID/*, bool verbose*/)
 				;
 		}
 
-	instruction_t instr = getInstruction(world.creatures[creatureID]);
+		instr = getInstruction(world.creatures[creatureID]);
+	}
+
 	switch (instr.op) {
 		case HOP:
 			hop(world, creatureID);
