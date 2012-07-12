@@ -370,7 +370,7 @@ leftFrom(direction_t dir)
 	if (dir == EAST)
 		dir = NORTH;
 	else
-		dir--;
+		(int)dir--;
 	return dir;
 }
 
@@ -380,7 +380,7 @@ rightFrom(direction_t dir)
 	if (dir == NORTH)
 		dir = EAST;
 	else
-		dir++;
+		(int)dir++;
 	return dir;
 }
 
