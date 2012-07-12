@@ -367,21 +367,23 @@ adjacentPoint(point_t pt, direction_t dir)
 direction_t 
 leftFrom(direction_t dir)
 {
+	int direction = (int)dir;
 	if (dir == EAST)
-		dir = NORTH;
+		direction = 3;
 	else
-		(int)dir--;
-	return dir;
+		direction--;
+	return (direction_t)direction;
 }
 
 direction_t 
 rightFrom(direction_t dir)
 {
+	int direction = (int)dir;
 	if (dir == NORTH)
-		dir = EAST;
+		direction = 0;
 	else
-		(int)dir++;
-	return dir;
+		direction++;
+	return (direction_t)direction;
 }
 
 instruction_t 
