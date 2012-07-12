@@ -229,7 +229,8 @@ simulateCreature(world_t &world, unsigned int creatureID, bool verbose)
 				;
 		}
 
-		printGrid(world.grid);
+		if (verbose)
+			printGrid(world.grid);
 		instr = getInstruction(world.creatures[creatureID]);
 	}
 
