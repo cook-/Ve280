@@ -35,7 +35,8 @@ main(int argc, char *argv[])
 	string speciesFile = argv[1];
 	string worldFile = argv[2];
 	int roundNum = atoi(argv[3]);
-	bool verbose = ((string)argv[4] == "v" || (string)argv[4] == "verbose");
+	string verbose = argv[4];
+	bool isVerbose = (verbose == "v" || verbose == "verbose");
 
 	world_t world;
 	initWorld(world, speciesFile, worldFile);
