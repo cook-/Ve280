@@ -252,15 +252,15 @@ void
 hop(world_t &world, unsigned int creatureID)
 {
 	creature_t *creature = world.creatures + creatureID;
-	originalPt = creature->location;
-	adjctPt = adjacentPoint(originalPt, creature->direction);
+	point_t orgnlPt = creature->location;
+	point_t adjctPt = adjacentPoint(orgnlPt, creature->direction);
 
 	if (adjctPt.r >= 0 && adjctPt.r < world.grid.height && 
 			adjctPt.c >= 0 && adjctPt.c < world.grid.width &&
 				grid.squares[adjctPt.r][adjctPt.c] == NULL) {
 
 		creature->location = adjctPt;
-		world.grid.squares[originalPt.r][originalPt.c] = NULL;
+		world.grid.squares[orgnlPt.r][orgnlPt.c] = NULL;
 		world.grid.squares[adjctPt.r][adjctPt.c] = creature;
 
 	}
