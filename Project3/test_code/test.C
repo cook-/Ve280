@@ -16,7 +16,7 @@ void simulateiCreature(unsigned int, world_t &/*, bool*/);
 opcode_t findOpcode(const string &);
 direction_t findDir(const string &);
 species_t *findSpecies(world_t &, const string &);
-instruction_t getInstruction(const creature_t);
+instruction_t getInstruction(const creature_t &);
 void hop(world_t &, unsigned int);
 
 int
