@@ -406,7 +406,7 @@ adjacentPoint(point_t pt, direction_t dir)
 		break;
 
 		case (SOUTH):
-			pt.r--;
+			pt.r++;
 		break;
 
 		case (WEST):
@@ -414,7 +414,7 @@ adjacentPoint(point_t pt, direction_t dir)
 		break;
 
 		case (NORTH):
-			pt.r++;
+			pt.r--;
 		break;
 		default:
 			;
