@@ -141,7 +141,7 @@ initWorld(world_t &world, const string &speciesFile,
 
 		world.creatures[i].direction = findDir(dir);
 		world.creatures[i].species = findSpecies(world, name);
-		world.creatures[i].programID = 1;
+		world.creatures[i].programID = 0;
 		world.grid.squares[world.creatures[i].location.r]\
 						[world.creatures[i].location.c] = world.creatures + i;
 
