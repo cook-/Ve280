@@ -46,6 +46,7 @@ main(int argc, char *argv[])
 		cout << "Round " << i + 1 << endl;
 		simulateCreature(world, 0);
 		simulateCreature(world, 1);
+		simulateCreature(world, 2);
 		printGrid(world.grid);
 	}
 
