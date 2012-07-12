@@ -79,8 +79,9 @@ initWorld(world_t &world, const string &speciesFile,
 		iFile.open(world.species[i].name.c_str());
 
 		int j = 0;
-		getline(iFile, line);
-		while (!line.empty()) {
+//		getline(iFile, line);
+		while (iFile) {
+			getline(iFile, line);
 			iStream.clear();
 			iStream.str(line);
 
@@ -92,7 +93,7 @@ initWorld(world_t &world, const string &speciesFile,
 		   	   operName == "ifsame" || operName == "ifwall" || operName == "go")
 				iStream >> world.species[i].program[j].address;
 
-			getline(iFile, line);
+//			getline(iFile, line);
 			j++;
 		}
 		world.species[i].programSize = j;
