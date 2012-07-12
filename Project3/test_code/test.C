@@ -257,7 +257,7 @@ hop(world_t &world, unsigned int creatureID)
 
 	if (adjctPt.r >= 0 && adjctPt.r < world.grid.height && 
 			adjctPt.c >= 0 && adjctPt.c < world.grid.width &&
-				grid.squares[adjctPt.r][adjctPt.c] == NULL) {
+				world.grid.squares[adjctPt.r][adjctPt.c] == NULL) {
 
 		creature->location = adjctPt;
 		world.grid.squares[orgnlPt.r][orgnlPt.c] = NULL;
