@@ -224,7 +224,7 @@ simulateCreature(world_t &world, unsigned int creatureID/*, bool verbose*/)
 //				ifsame(world, creatureID, instr.address);
 				break;
 			case IFENEMY:
-//				ifenemy(world, creatureID, instr.address);
+				ifenemy(world, creatureID, instr.address);
 				break;
 			case GO:
 				go(world, creatureID, instr.address);
