@@ -207,7 +207,6 @@ simulateCreature(world_t &world, unsigned int creatureID, bool verbose)
 				 << creature->programID + 1 << ": " 
 				 << opName[instr.op] << " " 
 				 << instr.address << endl;
-			printGrid(world.grid);
 		}
 
 		switch (instr.op) {
@@ -230,20 +229,18 @@ simulateCreature(world_t &world, unsigned int creatureID, bool verbose)
 				;
 		}
 
+		printGrid(world.grid);
+
 		instr = getInstruction(world.creatures[creatureID]);
 	}
 
   	if (verbose) {
 		cout << "Instruction " 
 			 << creature->programID + 1 << ": " 
-			 << opName[instr.op] << " " 
-			 << instr.address << endl;
-		printGrid(world.grid);
+			 << opName[instr.op] << endl;
 	}
 	else {
 		cout << " " << opName[instr.op] << endl;
-		if (creatureID == world.numCreatures - 1)
-			printGrid(world.grid);
 	}
 
 	switch (instr.op) {
@@ -261,6 +258,13 @@ simulateCreature(world_t &world, unsigned int creatureID, bool verbose)
 			break;
 		default:
 			;
+	}
+
+	if (verbose)
+		printGrid(world.grid);
+	else {
+		if (creatureID == world.numCreatures - 1)
+			printGrid(world.grid);
 	}
 }
 
