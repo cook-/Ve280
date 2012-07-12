@@ -230,7 +230,6 @@ simulateCreature(world_t &world, unsigned int creatureID, bool verbose)
 		}
 
 		printGrid(world.grid);
-
 		instr = getInstruction(world.creatures[creatureID]);
 	}
 
@@ -262,10 +261,10 @@ simulateCreature(world_t &world, unsigned int creatureID, bool verbose)
 
 	if (verbose)
 		printGrid(world.grid);
-	else {
+	else
 		if (creatureID == world.numCreatures - 1)
 			printGrid(world.grid);
-	}
+
 }
 
 opcode_t
