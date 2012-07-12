@@ -27,6 +27,8 @@ main(int argc, char *argv[])
 
 	world_t world;
 	initWorld(world, speciesFile, worldFile);
+	printGrid(world.grid);
+	cout << endl;
 	simulateCreature(0, world);
 	printGrid(world.grid);
 
