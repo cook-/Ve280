@@ -142,6 +142,7 @@ initWorld(world_t &world, const string &speciesFile,
 		getline(iFile, line);
 		i++;
 	}
+	world.numCreatures = i;
 
 	iFile.close();
 }
