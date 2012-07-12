@@ -22,15 +22,19 @@ void hop(world_t &, unsigned int);
 int
 main(int argc, char *argv[])
 {
-	string speciesFile(argv[1]);
-	string worldFile(argv[2]);
+	string speciesFile = argv[1];
+	string worldFile = argv[2];
+	int roundNum = atoi(argv[3]);
 
 	world_t world;
 	initWorld(world, speciesFile, worldFile);
+	cout << "Initial state" << endl;
 	printGrid(world.grid);
-	cout << endl;
-	simulateCreature(0, world);
-	printGrid(world.grid);
+	for (int i = 0; i != roundNum; ++i) {
+		cout << "Round " << roundNum - 1 << endl;
+		simulateCreature(0, world);
+		printGrid(world.grid);
+	}
 
 	return 0;
 }
@@ -180,6 +184,10 @@ simulateCreature(unsigned int creatureID, world_t &world/*, bool verbose*/)
 			hop(world, creatureID);
 			break;
 		
+		case GO:
+			go(world, creatureID, instr.address);
+			break;
+
 		default: 
 			;
 	}
@@ -270,5 +278,12 @@ hop(world_t &world, unsigned int creatureID)
 
 	}
 
-	(creature->programID)++;
+	creature->programID++;
+}
+
+void
+go(world_t &world, unsigned int creatureID, unsigned int address)
+{
+	creature_t *creature = world.creature + creatureID;
+	creature->programID = address - 1;
 }
