@@ -12,12 +12,19 @@ using namespace std;
 
 void initWorld(world_t &, const string &, const string &);
 void printGrid(const grid_t &);
-void simulateCreature(unsigned int, world_t &/*, bool*/);
+void simulateCreature(world_t &, unsigned int/*, bool*/);
 opcode_t findOpcode(const string &);
 direction_t findDir(const string &);
 species_t *findSpecies(world_t &, const string &);
 instruction_t getInstruction(const creature_t &);
 void hop(world_t &, unsigned int);
+void left(world_t &, unsigned int);
+void right(world_t &, unsigned int);
+void infect(world_t &, unsigned int);
+void ifempty(world_t &, unsigned int, unsigned int);
+void ifwall(world_t &, unsigned int, unsigned int);
+void ifsame(world_t &, unsigned int, unsigned int);
+void ifenemy(world_t &, unsigned int, unsigned int);
 void go(world_t &, unsigned int, unsigned int);
 
 int
@@ -177,7 +184,7 @@ printGrid(const grid_t &grid)
 }
 
 void
-simulateCreature(unsigned int creatureID, world_t &world/*, bool verbose*/)
+simulateCreature(world_t &world, unsigned int creatureID/*, bool verbose*/)
 {
 	instruction_t instr = getInstruction(world.creatures[creatureID]);
 	switch (instr.op) {
@@ -200,7 +207,6 @@ simulateCreature(unsigned int creatureID, world_t &world/*, bool verbose*/)
 	instr = getInstruction(world.creatures[creatureID]);
 	while (instr.op == IFEMPTY || instr.op == IFWALL || instr.op == IFSAME || 
 	  instr.op == IFENEMY || instr.op == GO) {
-
 		switch (instr.op) {
 			case IFEMPTY:
 //				ifempty(world, creatureID, instr.address);
@@ -302,6 +308,48 @@ hop(world_t &world, unsigned int creatureID)
 	}
 
 	creature->programID++;
+}
+
+void
+left(world_t &world, unsigned int creatureID)
+{
+
+}
+
+void
+right(world_t &world, unsigned int creatureID)
+{
+
+}
+
+void
+infect(world_t &world, unsigned int creatureID)
+{
+
+}
+
+void
+ifempty(world_t &world, unsigned int creatureID, unsigned int address)
+{
+
+}
+
+void
+ifwall(world_t &world, unsigned int creatureID, unsigned int address)
+{
+
+}
+
+void
+ifsame(world_t &world, unsigned int creatureID, unsigned int address)
+{
+
+}
+
+void
+ifenemy(world_t &world, unsigned int creatureID, unsigned int address)
+{
+
 }
 
 void
