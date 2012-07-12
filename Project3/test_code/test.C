@@ -12,6 +12,7 @@ using namespace std;
 
 void initWorld(world_t &, const string &, const string &);
 void printGrid(const grid_t &);
+void simulateiCreature(unsigned int, world_t &, /*bool*/);
 opcode_t findOpcode(const string &);
 direction_t findDir(const string &);
 species_t *findSpecies(world_t &, const string &);
@@ -165,6 +166,25 @@ printGrid(const grid_t &grid)
 	}
 }
 
+void
+simulateCreature(unsigned int creatureID, world_t &world, /*bool verbose*/)
+{
+	instruction_t instr = getInstruction(world.creatures[creatureID]);
+	switch (instr.op) {
+		case HOP:
+			hop(world, creatureID);
+			break;
+		
+		default: 
+			;
+	}
+
+
+
+
+
+}
+
 opcode_t
 findOpcode(const string &operName)
 {
@@ -193,4 +213,57 @@ findSpecies(world_t &world, const string &name)
 		if (name == world.species[i].name)
 			index = i;
 	return world.species + index;
+}
+
+instruction_t 
+getInstruction(const creature_t &creature)
+{
+	return creature.species -> program[creature.programID];
+}
+
+point_t 
+adjacentPoint(point_t pt, direction_t dir)
+{
+	switch (dir)
+	{
+		case (EAST):
+			pt.c++;
+			break;
+
+		case (SOUTH):
+			pt.r--;
+			break;
+
+		case (WEST):
+			pt.c--;
+			break;
+
+		case (NORTH):
+			pt.r++;
+			break;
+
+		default:
+			;
+	}
+	return pt;
+}
+
+void
+hop(world_t &world, unsigned int creatureID)
+{
+	creature_t *creature = world.creatures + creatureID;
+	originalPt = creature->location;
+	adjctPt = adjacentPoint(originalPt, creature->direction);
+
+	if (adjctPt.r >= 0 && adjctPt.r < world.grid.height && 
+			adjctPt.c >= 0 && adjctPt.c < world.grid.width &&
+				grid.squares[adjctPt.r][adjctPt.c] == NULL) {
+
+		creature->location = adjctPt;
+		world.grid.squares[originalPt.r][originalPt.c] = NULL;
+		world.grid.squares[adjctPt.r][adjctPt.c] = creature;
+
+	}
+
+	(creature->programID)++;
 }
