@@ -196,10 +196,10 @@ simulateCreature(world_t &world, unsigned int creatureID/*, bool verbose*/)
 			hop(world, creatureID);
 			break;
 		case LEFT:
-//			left(world, creatureID);
+			left(world, creatureID);
 			break;
 		case RIGHT:
-//			right(world, creatureID);
+			right(world, creatureID);
 			break;
 		case INFECT:
 //			infect(world, creatureID);
