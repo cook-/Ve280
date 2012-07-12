@@ -26,6 +26,8 @@ void ifwall(world_t &, unsigned int, unsigned int);
 void ifsame(world_t &, unsigned int, unsigned int);
 void ifenemy(world_t &, unsigned int, unsigned int);
 void go(world_t &, unsigned int, unsigned int);
+direction_t leftFrom(direction_t);
+direction_t rightFrom(direction_t);
 
 int
 main(int argc, char *argv[])
@@ -261,35 +263,6 @@ findSpecies(world_t &world, const string &name)
 	return world.species + index;
 }
 
-instruction_t 
-getInstruction(const creature_t &creature)
-{
-	return creature.species -> program[creature.programID];
-}
-
-point_t 
-adjacentPoint(point_t pt, direction_t dir)
-{
-	switch (dir)
-	{
-		case (EAST):
-			pt.c++;
-			break;
-		case (SOUTH):
-			pt.r--;
-			break;
-		case (WEST):
-			pt.c--;
-			break;
-		case (NORTH):
-			pt.r++;
-			break;
-		default:
-			;
-	}
-	return pt;
-}
-
 void
 hop(world_t &world, unsigned int creatureID)
 {
@@ -361,6 +334,42 @@ go(world_t &world, unsigned int creatureID, unsigned int address)
 {
 	creature_t *creature = world.creatures + creatureID;
 	creature->programID = address - 1;
+}
+
+point_t 
+adjacentPoint(point_t pt, direction_t dir)
+{
+	switch (dir)
+	{
+		case (EAST):
+			pt.c++;
+		break;
+
+		case (SOUTH):
+			pt.r--;
+		break;
+
+		case (WEST):
+			pt.c--;
+		break;
+
+		case (NORTH):
+			pt.r++;
+		break;
+		default:
+			;
+	}
+	return pt;
+}
+
+direction_t 
+leftFrom(direction_t dir)
+{
+	if (dir == EAST)
+		dir = NORTH;
+	else
+		dir--;
+	return dir;
 }
 
 direction_t 
