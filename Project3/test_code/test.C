@@ -234,9 +234,9 @@ simulateCreature(world_t &world, unsigned int creatureID/*, bool verbose*/)
 
 	creature_t *creature = world.creatures + creatureID;
 	cout << "Creature (" 
-		 << creature->species->name
-		 << directName[creature->direction]
-		 << creature->location.r
+		 << creature->species->name << " "
+		 << directName[creature->direction] << " "
+		 << creature->location.r << " "
 		 << creature->location.c
 		 << ") takes action: "
 		 << opName[instr.op] << endl;
