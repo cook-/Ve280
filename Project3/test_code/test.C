@@ -32,7 +32,7 @@ main(int argc, char *argv[])
 	cout << "Initial state" << endl;
 	printGrid(world.grid);
 	for (int i = 0; i != roundNum; ++i) {
-		cout << "Round " << roundNum - 1 << endl;
+		cout << "Round " << i + 1 << endl;
 		simulateCreature(0, world);
 		printGrid(world.grid);
 	}
