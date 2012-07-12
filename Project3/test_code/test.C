@@ -305,25 +305,21 @@ right(world_t &world, unsigned int creatureID)
 void
 infect(world_t &world, unsigned int creatureID)
 {
-	//not empty, inside grid, different species
 	creature_t *creature = world.creatures + creatureID;
 	point_t orgnlPt = creature->location;
 	point_t adjctPt = adjacentPoint(orgnlPt, creature->direction);
+	creature_t *adjctCreature = world.grid.squares[adjctPt.r][adjctPt.c];
 
-	if (adjctPt.r >= 0 && adjctPt.r < world.grid.height && \
-			adjctPt.c >= 0 && adjctPt.c < world.grid.width && \
-				world.grid.squares[adjctPt.r][adjctPt.c] != NULL && \
-					world.grid.squares[adjctPt.r][adjctPt.c] != creature) {
+	if (adjctPt.r >= 0 && adjctPt.r < world.grid.height && 
+		  adjctPt.c >= 0 && adjctPt.c < world.grid.width && 
+			adjctCreature != NULL && 
+			  adjctCreature.species != creature.species) {
 
-		creature_t *infectedCreature \
-						= world.grid.squares[adjctPt.r][adjctPt.c];
-		infectedCreature->species = creature->species;
-		infectedCreature->programID = 0;
-
+		adjctCreature->species = creature->species;
+		adjctCreature->programID = 0;
 	}
 
 	creature->programID++;
-	
 }
 
 void
@@ -350,13 +346,14 @@ ifenemy(world_t &world, unsigned int creatureID, unsigned int address)
 	creature_t *creature = world.creatures + creatureID;
 	point_t orgnlPt = creature->location;
 	point_t adjctPt = adjacentPoint(orgnlPt, creature->direction);
+	creature_t *adjctCreature = world.grid.squares[adjctPt.r][adjctPt.c];
 
-	if (adjctPt.r >= 0 && adjctPt.r < world.grid.height && \
-			adjctPt.c >= 0 && adjctPt.c < world.grid.width && \
-				world.grid.squares[adjctPt.r][adjctPt.c] != NULL && \
-					world.grid.squares[adjctPt.r][adjctPt.c] != creature)
+	if (adjctPt.r >= 0 && adjctPt.r < world.grid.height && 
+		  adjctPt.c >= 0 && adjctPt.c < world.grid.width && 
+			adjctCreature != NULL && 
+			  adjctCreature.species != creature.species)
+
 		creature->programID = address - 1;
-
 	else
 		creature->programID++;
 }
