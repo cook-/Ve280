@@ -277,7 +277,6 @@ void
 hop(world_t &world, unsigned int creatureID)
 {
 	creature_t *creature = world.creatures + creatureID;
-//	point_t orgnlPt = creature->location;
 	point_t adjctPt = adjacentPoint(creature->location, creature->direction);
 	creature_t *adjctCreature = getCreature(world.grid, adjctPt);
 
@@ -286,7 +285,7 @@ hop(world_t &world, unsigned int creatureID)
 				adjctCreature == NULL) {
 
 		creature->location = adjctPt;
-		getCreature(world.grid, creature->location) = NULL;
+		world.grid.squares[creature->location.r][creature->location.c] = NULL;
 		adjctCreature = creature;
 
 	}
