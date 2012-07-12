@@ -10,7 +10,7 @@ using namespace std;
 
 void initWorld(world_t &, const string &, const string &);
 void printGrid(const grid_t &);
-void simulateCreature(world_t &, unsigned int/*, bool*/);
+void simulateCreature(world_t &, unsigned int, bool);
 opcode_t findOpcode(const string &);
 direction_t findDir(const string &);
 species_t *findSpecies(world_t &, const string &);
@@ -35,6 +35,7 @@ main(int argc, char *argv[])
 	string speciesFile = argv[1];
 	string worldFile = argv[2];
 	int roundNum = atoi(argv[3]);
+	bool verbose = (argv[4] == "v" || argv[4] == "verbose");
 
 	world_t world;
 	initWorld(world, speciesFile, worldFile);
@@ -43,7 +44,7 @@ main(int argc, char *argv[])
 	for (int i = 0; i != roundNum; ++i) {
 		cout << "Round " << i + 1 << endl;
 		for (int j = 0; j != world.numCreatures;++j)
-			simulateCreature(world, j);
+			simulateCreature(world, j, verbose);
 		printGrid(world.grid);
 	}
 
@@ -187,7 +188,7 @@ printGrid(const grid_t &grid)
 }
 
 void
-simulateCreature(world_t &world, unsigned int creatureID/*, bool verbose*/)
+simulateCreature(world_t &world, unsigned int creatureID, bool verbose)
 {
 	instruction_t instr = getInstruction(world.creatures[creatureID]);
 	while (instr.op == IFEMPTY || instr.op == IFWALL || instr.op == IFSAME || 
@@ -278,14 +279,15 @@ hop(world_t &world, unsigned int creatureID)
 	creature_t *creature = world.creatures + creatureID;
 	point_t orgnlPt = creature->location;
 	point_t adjctPt = adjacentPoint(orgnlPt, creature->direction);
+	creature_t *adjctCreature = getCreature(world.grid, adjctPt);
 
 	if (adjctPt.r >= 0 && adjctPt.r < world.grid.height && 
 			adjctPt.c >= 0 && adjctPt.c < world.grid.width &&
-				world.grid.squares[adjctPt.r][adjctPt.c] == NULL) {
+				adjctCreature == NULL) {
 
 		creature->location = adjctPt;
 		world.grid.squares[orgnlPt.r][orgnlPt.c] = NULL;
-		world.grid.squares[adjctPt.r][adjctPt.c] = creature;
+		adjctCreature = creature;
 
 	}
 
@@ -314,7 +316,7 @@ infect(world_t &world, unsigned int creatureID)
 	creature_t *creature = world.creatures + creatureID;
 	point_t orgnlPt = creature->location;
 	point_t adjctPt = adjacentPoint(orgnlPt, creature->direction);
-	creature_t *adjctCreature = world.grid.squares[adjctPt.r][adjctPt.c];
+	creature_t *adjctCreature = getCreature(world.grid, adjctPt);
 
 	if (adjctPt.r >= 0 && adjctPt.r < world.grid.height && 
 		  adjctPt.c >= 0 && adjctPt.c < world.grid.width && 
@@ -332,9 +334,8 @@ void
 ifempty(world_t &world, unsigned int creatureID, unsigned int address)
 {
 	creature_t *creature = world.creatures + creatureID;
-	point_t orgnlPt = creature->location;
 	point_t adjctPt = adjacentPoint(orgnlPt, creature->direction);
-	creature_t *adjctCreature = world.grid.squares[adjctPt.r][adjctPt.c];
+	creature_t *adjctCreature = getCreature(world.grid, adjctPt);
 
 	if (adjctPt.r >= 0 && adjctPt.r < world.grid.height && 
 		  adjctPt.c >= 0 && adjctPt.c < world.grid.width && 
@@ -349,7 +350,6 @@ void
 ifwall(world_t &world, unsigned int creatureID, unsigned int address)
 {
 	creature_t *creature = world.creatures + creatureID;
-	point_t orgnlPt = creature->location;
 	point_t adjctPt = adjacentPoint(orgnlPt, creature->direction);
 
 	if (adjctPt.r < 0 || adjctPt.r >= world.grid.height || 
@@ -364,9 +364,8 @@ void
 ifsame(world_t &world, unsigned int creatureID, unsigned int address)
 {
 	creature_t *creature = world.creatures + creatureID;
-	point_t orgnlPt = creature->location;
 	point_t adjctPt = adjacentPoint(orgnlPt, creature->direction);
-	creature_t *adjctCreature = world.grid.squares[adjctPt.r][adjctPt.c];
+	creature_t *adjctCreature = getCreature(world.grid, adjctPt);
 
 	if (adjctPt.r >= 0 && adjctPt.r < world.grid.height && 
 		  adjctPt.c >= 0 && adjctPt.c < world.grid.width && 
@@ -382,9 +381,8 @@ void
 ifenemy(world_t &world, unsigned int creatureID, unsigned int address)
 {
 	creature_t *creature = world.creatures + creatureID;
-	point_t orgnlPt = creature->location;
 	point_t adjctPt = adjacentPoint(orgnlPt, creature->direction);
-	creature_t *adjctCreature = world.grid.squares[adjctPt.r][adjctPt.c];
+	creature_t *adjctCreature = getCreature(world.grid, adjctPt);
 
 	if (adjctPt.r >= 0 && adjctPt.r < world.grid.height && 
 		  adjctPt.c >= 0 && adjctPt.c < world.grid.width && 
