@@ -242,7 +242,7 @@ simulateCreature(world_t &world, unsigned int creatureID, bool verbose)
 	}
 	else {
 		cout << " " << opName[instr.op] << endl;
-		if (creatureID == numSpecies - 1)
+		if (creatureID == world.numCreatures - 1)
 			printGrid(world.grid);
 	}
 
