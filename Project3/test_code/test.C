@@ -33,6 +33,9 @@ void
 initWorld(world_t &world, const string &speciesFile,
 	const string &worldFile)
 {
+
+	// initialize the struct world_t.
+
 	world.numSpecies = 0;
 
 	for (int i = 0; i != MAXSPECIES; ++i) {
@@ -59,6 +62,8 @@ initWorld(world_t &world, const string &speciesFile,
 		for (int j = 0; j != MAXWIDTH; ++j)
 			world.grid.squares[i][j] = NULL;
 
+
+	// assign file data to  numSpecies and species[].
 
 	ifstream iFile;
 	istringstream iStream;
@@ -101,6 +106,9 @@ initWorld(world_t &world, const string &speciesFile,
 		iFile.close();
 		getline(iFile, line);
 	}
+
+
+	// assign file data to numCreatures, creatures[] and grid.
 
 	iFile.open(worldFile.c_str());
 
