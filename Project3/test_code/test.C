@@ -1,5 +1,3 @@
-// test initWorld() and printGrid().
-
 #include "world_type.h"
 #include <iostream>
 #include <fstream>
@@ -233,6 +231,15 @@ simulateCreature(world_t &world, unsigned int creatureID/*, bool verbose*/)
 		default:
 			;
 	}
+
+	creature_t *creature = world.creatures + creatureID;
+	cout << "Creature (" 
+		 << creature->species->name
+		 << directName[creature->direction]
+		 << creature->location.r
+		 << creature->location.c
+		 << ") takes action: "
+		 << opName[instr.op] << endl;
 }
 
 opcode_t
