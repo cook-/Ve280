@@ -28,7 +28,7 @@ void go(world_t &, unsigned int, unsigned int);
 point_t adjacentPoint(point_t, direction_t);
 direction_t leftFrom(direction_t);
 direction_t rightFrom(direction_t);
-instruction_t getInstruction(const creature_t);
+instruction_t getInstruction(const creature_t &);
 creature_t *getCreature(const grid_t &, point_t);
 
 int
