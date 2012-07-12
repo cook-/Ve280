@@ -35,8 +35,8 @@ main(int argc, char *argv[])
 	string speciesFile = argv[1];
 	string worldFile = argv[2];
 	int roundNum = atoi(argv[3]);
-	string verbose = argv[4];
-	bool isVerbose = (verbose == "v" || verbose == "verbose");
+	bool verbose = (argc != 3 && \
+					 ((string)argv[4] == "v" || (string)argv[4] == "verbose"));
 
 	world_t world;
 	initWorld(world, speciesFile, worldFile);
@@ -45,7 +45,7 @@ main(int argc, char *argv[])
 	for (int i = 0; i != roundNum; ++i) {
 		cout << "Round " << i + 1 << endl;
 		for (int j = 0; j != world.numCreatures;++j)
-			simulateCreature(world, j, isVerbose);
+			simulateCreature(world, j, verbose);
 	}
 
 	return 0;
@@ -188,7 +188,7 @@ printGrid(const grid_t &grid)
 }
 
 void
-simulateCreature(world_t &world, unsigned int creatureID, bool isVerbose)
+simulateCreature(world_t &world, unsigned int creatureID, bool verbose)
 {
 	instruction_t instr = getInstruction(world.creatures[creatureID]);
 	creature_t *creature = world.creatures + creatureID;
@@ -203,7 +203,7 @@ simulateCreature(world_t &world, unsigned int creatureID, bool isVerbose)
 	while (instr.op == IFEMPTY || instr.op == IFWALL || instr.op == IFSAME || 
 	  instr.op == IFENEMY || instr.op == GO) {
 
-	  	if (isVerbose) {
+	  	if (verbose) {
 			cout << endl << "Instruction " 
 				 << creature->programID + 1 << ": " 
 				 << opName[instr.op] << " " 
@@ -232,7 +232,7 @@ simulateCreature(world_t &world, unsigned int creatureID, bool isVerbose)
 		instr = getInstruction(world.creatures[creatureID]);
 	}
 
-  	if (isVerbose) {
+  	if (verbose) {
 		cout << endl << "Instruction " 
 			 << creature->programID + 1 << ": " 
 			 << opName[instr.op] << endl;
@@ -258,7 +258,7 @@ simulateCreature(world_t &world, unsigned int creatureID, bool isVerbose)
 			;
 	}
 
-	if (isVerbose || creatureID == world.numCreatures - 1)
+	if (verbose || creatureID == world.numCreatures - 1)
 		printGrid(world.grid);
 }
 
