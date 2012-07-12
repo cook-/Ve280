@@ -345,8 +345,8 @@ ifwall(world_t &world, unsigned int creatureID, unsigned int address)
 	point_t orgnlPt = creature->location;
 	point_t adjctPt = adjacentPoint(orgnlPt, creature->direction);
 
-	if (adjctPt.r < 0 && adjctPt.r >= world.grid.height && 
-		  adjctPt.c < 0 && adjctPt.c >= world.grid.width) 
+	if (adjctPt.r < 0 || adjctPt.r >= world.grid.height || 
+		  adjctPt.c < 0 || adjctPt.c >= world.grid.width) 
 
 		creature->programID = address - 1;
 	else
