@@ -45,7 +45,6 @@ main(int argc, char *argv[])
 		cout << "Round " << i + 1 << endl;
 		for (int j = 0; j != world.numCreatures;++j)
 			simulateCreature(world, j, verbose);
-		printGrid(world.grid);
 	}
 
 	return 0;
@@ -191,8 +190,26 @@ void
 simulateCreature(world_t &world, unsigned int creatureID, bool verbose)
 {
 	instruction_t instr = getInstruction(world.creatures[creatureID]);
+	creature_t *creature = world.creatures + creatureID;
+
+	cout << "Creature (" 
+		 << creature->species->name << " "
+		 << directName[creature->direction] << " "
+		 << creature->location.r << " "
+		 << creature->location.c
+		 << ") takes action:"
+
 	while (instr.op == IFEMPTY || instr.op == IFWALL || instr.op == IFSAME || 
 	  instr.op == IFENEMY || instr.op == GO) {
+
+	  	if (verbose) {
+			cout << "Instruction " 
+				 << creature->programID + 1 << ": " 
+				 << opName[instr.op] << " " 
+				 << instr.address << endl;
+			printGrid(world.grid);
+		}
+
 		switch (instr.op) {
 			case IFEMPTY:
 				ifempty(world, creatureID, instr.address);
@@ -216,14 +233,18 @@ simulateCreature(world_t &world, unsigned int creatureID, bool verbose)
 		instr = getInstruction(world.creatures[creatureID]);
 	}
 
-	creature_t *creature = world.creatures + creatureID;
-	cout << "Creature (" 
-		 << creature->species->name << " "
-		 << directName[creature->direction] << " "
-		 << creature->location.r << " "
-		 << creature->location.c
-		 << ") takes action: "
-		 << opName[instr.op] << endl;
+  	if (verbose) {
+		cout << "Instruction " 
+			 << creature->programID + 1 << ": " 
+			 << opName[instr.op] << " " 
+			 << instr.address << endl;
+		printGrid(world.grid);
+	}
+	else {
+		cout << " " << opName[instr.op] << endl;
+		if (creatureID == numSpecies - 1)
+			printGrid(world.grid);
+	}
 
 	switch (instr.op) {
 		case HOP:
