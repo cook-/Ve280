@@ -284,10 +284,9 @@ hop(world_t &world, unsigned int creatureID)
 			adjctPt.c >= 0 && adjctPt.c < world.grid.width &&
 				adjctCreature == NULL) {
 
-		adjctCreature = creature;
-		adjctCreature->location = adjctPt;
 		world.grid.squares[creature->location.r][creature->location.c] = NULL;
-		world.grid.squares[adjctPt.r][adjctPt.c] = adjctCreature;
+		world.grid.squares[adjctPt.r][adjctPt.c] = creature;
+		creature->location = adjctPt;
 	}
 
 	creature->programID++;
