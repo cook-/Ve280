@@ -313,7 +313,7 @@ infect(world_t &world, unsigned int creatureID)
 	if (adjctPt.r >= 0 && adjctPt.r < world.grid.height && 
 		  adjctPt.c >= 0 && adjctPt.c < world.grid.width && 
 			adjctCreature != NULL && 
-			  adjctCreature.species != creature.species) {
+			  adjctCreature->species != creature->species) {
 
 		adjctCreature->species = creature->species;
 		adjctCreature->programID = 0;
@@ -351,7 +351,7 @@ ifenemy(world_t &world, unsigned int creatureID, unsigned int address)
 	if (adjctPt.r >= 0 && adjctPt.r < world.grid.height && 
 		  adjctPt.c >= 0 && adjctPt.c < world.grid.width && 
 			adjctCreature != NULL && 
-			  adjctCreature.species != creature.species)
+			  adjctCreature->species != creature->species)
 
 		creature->programID = address - 1;
 	else
