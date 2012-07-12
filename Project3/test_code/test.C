@@ -197,7 +197,7 @@ simulateCreature(world_t &world, unsigned int creatureID, bool verbose)
 		 << directName[creature->direction] << " "
 		 << creature->location.r << " "
 		 << creature->location.c
-		 << ") takes action:"
+		 << ") takes action:";
 
 	while (instr.op == IFEMPTY || instr.op == IFWALL || instr.op == IFSAME || 
 	  instr.op == IFENEMY || instr.op == GO) {
