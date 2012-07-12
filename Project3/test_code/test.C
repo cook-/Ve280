@@ -203,7 +203,7 @@ simulateCreature(world_t &world, unsigned int creatureID/*, bool verbose*/)
 			right(world, creatureID);
 			break;
 		case INFECT:
-//			infect(world, creatureID);
+			infect(world, creatureID);
 			break;
 		default:
 			;
@@ -305,7 +305,25 @@ right(world_t &world, unsigned int creatureID)
 void
 infect(world_t &world, unsigned int creatureID)
 {
+	//not empty, inside grid, different species
+	creature_t *creature = world.creatures + creatureID;
+	point_t orgnlPt = creature->location;
+	point_t adjctPt = adjacentPoint(orgnlPt, creature->direction);
 
+	if (adjctPt.r >= 0 && adjctPt.r < world.grid.height && 
+			adjctPt.c >= 0 && adjctPt.c < world.grid.width &&
+				world.grid.squares[adjctPt.r][adjctPt.c] != NULL && 
+					world.gridsquare[adjctPt.r][adjctPt.c] != creature) {
+
+		creature_t *infectedCreature 
+						= world.grid.squares[adjctPt.r][adjctPt.c];
+		infectedCreature->species = creature->species;
+		infectedCreature->programID = 0;
+
+	}
+
+	creature->programID++;
+	
 }
 
 void
