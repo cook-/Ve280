@@ -76,10 +76,10 @@ initWorld(world_t &world, const string &speciesFile,
 	iFile.close();
 
 	for (int i = 0; i != world.numSpecies; ++i) {
+
 		iFile.open(world.species[i].name.c_str());
 
 		int j = 0;
-//		getline(iFile, line);
 		while (iFile) {
 			getline(iFile, line);
 			iStream.clear();
@@ -93,7 +93,6 @@ initWorld(world_t &world, const string &speciesFile,
 		   	   operName == "ifsame" || operName == "ifwall" || operName == "go")
 				iStream >> world.species[i].program[j].address;
 
-//			getline(iFile, line);
 			j++;
 		}
 		world.species[i].programSize = j;
@@ -114,10 +113,11 @@ initWorld(world_t &world, const string &speciesFile,
 	iStream >> world.grid.width;
 
 	i = 0;
-	getline(iFile, line);
-	while (!line.empty()) {
+	while (iFile) {
+		getline(iFile, line);
 		iStream.clear();
 		iStream.str(line);
+
 		string name, dir;
 		iStream >> name >> dir 
 				>> world.creatures[i].location.r 
@@ -129,7 +129,6 @@ initWorld(world_t &world, const string &speciesFile,
 		world.grid.squares[world.creatures[i].location.r]\
 						[world.creatures[i].location.c] = world.creatures + i;
 
-		getline(iFile, line);
 		i++;
 	}
 
