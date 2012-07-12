@@ -313,7 +313,7 @@ infect(world_t &world, unsigned int creatureID)
 	if (adjctPt.r >= 0 && adjctPt.r < world.grid.height && 
 			adjctPt.c >= 0 && adjctPt.c < world.grid.width &&
 				world.grid.squares[adjctPt.r][adjctPt.c] != NULL && 
-					world.gridsquare[adjctPt.r][adjctPt.c] != creature) {
+					world.grid.squares[adjctPt.r][adjctPt.c] != creature) {
 
 		creature_t *infectedCreature 
 						= world.grid.squares[adjctPt.r][adjctPt.c];
