@@ -215,6 +215,15 @@ simulateCreature(world_t &world, unsigned int creatureID/*, bool verbose*/)
 		instr = getInstruction(world.creatures[creatureID]);
 	}
 
+	creature_t *creature = world.creatures + creatureID;
+	cout << "Creature (" 
+		 << creature->species->name << " "
+		 << directName[creature->direction] << " "
+		 << creature->location.r << " "
+		 << creature->location.c
+		 << ") takes action: "
+		 << opName[instr.op] << endl;
+
 	switch (instr.op) {
 		case HOP:
 			hop(world, creatureID);
@@ -231,15 +240,6 @@ simulateCreature(world_t &world, unsigned int creatureID/*, bool verbose*/)
 		default:
 			;
 	}
-
-	creature_t *creature = world.creatures + creatureID;
-	cout << "Creature (" 
-		 << creature->species->name << " "
-		 << directName[creature->direction] << " "
-		 << creature->location.r << " "
-		 << creature->location.c
-		 << ") takes action: "
-		 << opName[instr.op] << endl;
 }
 
 opcode_t
