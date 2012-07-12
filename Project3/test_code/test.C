@@ -12,7 +12,7 @@ using namespace std;
 
 void initWorld(world_t &, const string &, const string &);
 void printGrid(const grid_t &);
-void simulateiCreature(unsigned int, world_t &/*, bool*/);
+void simulateCreature(unsigned int, world_t &/*, bool*/);
 opcode_t findOpcode(const string &);
 direction_t findDir(const string &);
 species_t *findSpecies(world_t &, const string &);
@@ -27,6 +27,7 @@ main(int argc, char *argv[])
 
 	world_t world;
 	initWorld(world, speciesFile, worldFile);
+	simulateCreature(0, world);
 	printGrid(world.grid);
 
 	return 0;
