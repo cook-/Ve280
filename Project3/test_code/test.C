@@ -18,6 +18,7 @@ direction_t findDir(const string &);
 species_t *findSpecies(world_t &, const string &);
 instruction_t getInstruction(const creature_t &);
 void hop(world_t &, unsigned int);
+void go(world_t &, unsigned int, unsigned int);
 
 int
 main(int argc, char *argv[])
@@ -284,6 +285,6 @@ hop(world_t &world, unsigned int creatureID)
 void
 go(world_t &world, unsigned int creatureID, unsigned int address)
 {
-	creature_t *creature = world.creature + creatureID;
+	creature_t *creature = world.creatures + creatureID;
 	creature->programID = address - 1;
 }
