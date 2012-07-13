@@ -327,7 +327,7 @@ findSpecies(world_t &world, const string &name)
 		throw;
 	}
 
-	return world.species + index;
+	return world.species + speciesIndex;
 }
 
 point_t 
