@@ -15,7 +15,7 @@ main(int argc, char *argv[])
 		cout << "Error: Missing arguments!\n"
 		  << "Usage: ./p3 <species-summary> <world-file> <rounds> [v|verbose]" 
 		  << endl;
-		throw e;
+		throw;
 	}
 
 	try {
@@ -23,13 +23,13 @@ main(int argc, char *argv[])
 	}
 	catch (int &e) {
 		cout << "Error: Number of simulation rounds is negative!" << endl;
-		throw e;
+		throw;
 	}
 
 	string speciesFile = argv[1];
 	string worldFile = argv[2];
 	int roundNum = atoi(argv[3]);
-	bool verbose = (argc == 4) ? \
+	bool verbose = (argc == 4) ? 
 			false : ((string)argv[4] == "v" || (string)argv[4] == "verbose");
 
 	world_t world;
