@@ -53,7 +53,7 @@ initWorld(world_t &world, const string &speciesFile,
 	try {
 		if (!iFile) throw speciesFile;
 	}
-	catch (string fileName) {
+	catch (string &fileName) {
 		cout << "Error: Cannot open file " << fileName << endl;
 		throw;
 	}
@@ -73,7 +73,7 @@ initWorld(world_t &world, const string &speciesFile,
 		try {
 			if (!iFile) throw world.species[i].name;
 		}
-		catch (string fileName){
+		catch (string &fileName){
 			cout << "Error: Cannot open file " << fileName << "!" << endl;
 			throw;
 		}
@@ -105,6 +105,12 @@ initWorld(world_t &world, const string &speciesFile,
 	// assign file data to numCreatures, creatures[] and grid.
 
 	iFile.open(worldFile.c_str());
+	try {
+		if (!iFile) throw worldFile;
+	}
+	catch (string &fileName) {
+		cout << "Error: Cannot open file " << fileName << "!" << endl;
+	}
 
 	getline(iFile, line);
 	iStream.clear();
