@@ -28,6 +28,7 @@ initWorld(world_t &world, const string &speciesFile,
 	}
 
 	world.numCreatures = 0;
+
 	for (int i = 0; i != MAXCREATURES; ++i) {
 		world.creatures[i].location.r = 0;
 		world.creatures[i].location.c = 0;
@@ -38,6 +39,7 @@ initWorld(world_t &world, const string &speciesFile,
 
 	world.grid.height = 0;
 	world.grid.width = 0;
+
 	for (int i = 0; i != MAXHEIGHT; ++i)
 		for (int j = 0; j != MAXWIDTH; ++j)
 			world.grid.squares[i][j] = NULL;
