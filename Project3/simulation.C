@@ -154,6 +154,15 @@ initWorld(world_t &world, const string &speciesFile,
 	while (!line.empty()) {
 		iStream.clear();
 		iStream.str(line);
+		try {
+			if (i == MAXCREATURES) throw;
+		}
+		catch (unsigned int maxCreatures) {
+			cout << "Error: Too many creatures!\n" 
+				 << "Maximal number of creatures is "
+				 << maxCreatures << "." << endl;
+			throw;
+		}
 
 		string name, dir;
 		iStream >> name >> dir 
