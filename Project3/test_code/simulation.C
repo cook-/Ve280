@@ -1,4 +1,5 @@
 #include "world_type.h"
+#include "simulation.h"
 #include <iostream>
 #include <fstream>
 #include <sstream>
