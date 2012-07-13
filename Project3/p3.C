@@ -18,6 +18,14 @@ main(int argc, char *argv[])
 		throw e;
 	}
 
+	try {
+		if (atoi(argv[3]) < 0) throw atoi(argv[3]);
+	}
+	catch (int &e) {
+		cout << "Error: Number of simulation rounds is negative!" << endl;
+		throw e;
+	}
+
 	string speciesFile = argv[1];
 	string worldFile = argv[2];
 	int roundNum = atoi(argv[3]);
