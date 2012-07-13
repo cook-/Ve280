@@ -142,12 +142,28 @@ initWorld(world_t &world, const string &speciesFile,
 	getline(iFile, line);
 	iStream.clear();
 	iStream.str(line);
-	iStream >> world.grid.height;
+	iStream >> height;
+	try {
+		if (height < 0 || height > MAXHEIGHT) throw MAXHEIGHT;
+	}
+	catch (unsigned int maxHeight) {
+		cout << "Error: The grid height is illegal!" << endl;
+		throw;
+	}
+	world.grid.height = height;
 
 	getline(iFile, line);
 	iStream.clear();
 	iStream.str(line);
-	iStream >> world.grid.width;
+	iStream >> width;
+	try {
+		if (width < 0 || width > MAXWIDTH) throw MAXWIDTH;
+	}
+	catch (unsigned int maxWidth) {
+		cout << "Error: The grid width is illegal!" << endl;
+		throw;
+	}
+	world.grid.width = width;
 	
 	getline(iFile, line);
 	i = 0;
@@ -169,18 +185,16 @@ initWorld(world_t &world, const string &speciesFile,
 		iStream >> name >> dir >> row >> col;
 
 		try {
-			if (row < 0 || row > MAXHEIGHT) throw MAXHEIGHT;
+			if (row < 0 || row > MAXHEIGHT || col < 0 || col > MAXWIDTH) 
+				throw -1;
 		}
-		catch (unsigned int maxHeight) {
-			cout << "Error: The grid height is illegal!" << endl;
-			throw;
-		}
-
-		try {
-			if (col < 0 || col > MAXWIDTH) throw MAXWIDTH;
-		}
-		catch (unsigned int maxWidth) {
-			cout << "Error: The grid width is illegal!" << endl;
+		catch (int e) {
+			cout << "Error: Creature (" 
+				 << name << " " << dir << " " << row << " " << col 
+				 << ") is out of bound!\n" 
+				 << "The grid size is " 
+				 << world.grid.height << "-by-" << world.grid.width << "." 
+				 << endl;
 			throw;
 		}
 
