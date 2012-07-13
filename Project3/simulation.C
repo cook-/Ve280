@@ -155,7 +155,7 @@ initWorld(world_t &world, const string &speciesFile,
 		iStream.clear();
 		iStream.str(line);
 		try {
-			if (i == MAXCREATURES) throw;
+			if (i == MAXCREATURES) throw MAXCREATURES;
 		}
 		catch (unsigned int maxCreatures) {
 			cout << "Error: Too many creatures!\n" 
