@@ -284,7 +284,7 @@ findOpcode(const string &operName)
 	for (int i = 0; i != 9; ++i)
 		if (operName == opName[i]) {
 			opIndex = i;
-			isFound = true;
+			isFound = !isFound;
 		}
 
 	try {
@@ -301,11 +301,23 @@ findOpcode(const string &operName)
 direction_t
 findDir(const string &dir)
 {
-	int direction;
+	int dirIndex;
+	bool isFound = false;
 	for (int i = 0; i != 4; ++i)
-		if (dir == directName[i])
+		if (dir == directName[i]) {
 			direction = i;
-	return (direction_t)direction;
+			isFound = !isFound;
+		}
+
+	try {
+		if (!isFound) throw dir;
+	}
+	catch (string str) {
+		cout << "Error: Direction " << dir << " is not recognized!" << endl;
+		throw;
+	}
+
+	return (direction_t)dirIndex;
 }
 
 species_t *
