@@ -187,7 +187,7 @@ initWorld(world_t &world, const string &speciesFile,
 		iStream >> name >> dir >> row >> col;
 
 		try {
-			if (row < 0 || row > MAXHEIGHT || col < 0 || col > MAXWIDTH) 
+			if (row < 0 || row >= height || col < 0 || col >= width) 
 				throw -1;
 		}
 		catch (int e) {
@@ -212,6 +212,36 @@ initWorld(world_t &world, const string &speciesFile,
 		i++;
 	}
 	world.numCreatures = i;
+	
+	try {
+		for (int i = 0; i != world.numCreatures-1; ++i) {
+			for (int j = i+1; j != world.numCreatures; ++j) {
+				if (world.creatures[i].location.r == 
+						world.creatures[j].location.r && 
+					  world.creatures[i].location.c == 
+					    	world.creatures[j].location.c) {
+					int pair[] = {i, j};
+				  	throw pair;
+				}
+			}
+		}
+	}
+	catch (int *e) {
+		int i = *e;
+		int j = *(e + 1);
+		cout << "Error: Creature (" 
+			 << world.creatures[i].species->name << " " 
+			 << directName[world.creatures[i].direction] << " "  
+			 << world.creatures[i].location.r << " " 
+			 << world.creatures[i].location.c 
+			 << ") overlaps with creature\n(" 
+			 << world.creatures[j].species->name << " " 
+			 << directName[world.creatures[j].direction] << " "  
+			 << world.creatures[j].location.r << " " 
+			 << world.creatures[j].location.c 
+			 << ")!" << endl;
+		throw;
+	}
 
 	iFile.close();
 }

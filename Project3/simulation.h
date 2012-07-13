@@ -30,17 +30,21 @@ printGrid(const grid_t &grid);
 
 opcode_t
 findOpcode(const string &operName);
-// EFFECTS: Returns a opcode that has the same name as string
-// 			"operName".
+// EFFECTS: Returns a opcode named "operName" if "operName" is 
+// 			a valid opcode name.
+// 			Raises string "operName" otherwise.
 
 direction_t
 findDir(const string &dir);
-// EFFECTS: Returns a direction that has the same name as string 
-// 			"dir".
+// EFFECTS: Returns a direction named "dir" if "dir" is a valid 
+// 			direction name.
+// 			Raises string "dir" otherwise.
 
 species_t *
 findSpecies(world_t &world, const string &name);
-// EFFECTS: Returns a pointer that points to species named "name".
+// EFFECTS: Returns a pointer that points to species named "name" 
+// 			if "name" is a valid species name.
+// 			Raises string "name" otherwise.
 
 point_t 
 adjacentPoint(point_t pt, direction_t dir);
