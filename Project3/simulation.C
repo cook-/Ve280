@@ -275,7 +275,7 @@ findOpcode(const string &operName)
 	for (int i = 0; i != 9; ++i)
 		if (operName == opName[i]) {
 			opIndex = i;
-			found = true
+			found = true;
 		}
 
 	try {
