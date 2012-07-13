@@ -52,13 +52,13 @@ initWorld(world_t &world, const string &speciesFile,
 	string line;
 
 	iFile.open(speciesFile.c_str());
-	try {
+/*	try {
 		if (!iFile) throw speciesFile;
 	}
 	catch (string &fileName) {
 		cout << "Error: Cannot open file " << fileName << endl;
 		throw;
-	}
+	}*/
 
 	getline(iFile, line);
 	getline(iFile, line);
