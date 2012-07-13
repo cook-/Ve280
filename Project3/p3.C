@@ -8,6 +8,13 @@ using namespace std;
 int
 main(int argc, char *argv[])
 {
+	if (argc < 4) throw argc;
+	catch (int v) {
+		cout << "Error: Missing arguments!\nUsage: ./p3 \
+				<species-summary> <world-file> <rounds> [v|verbose]" 
+			 << endl;
+		throw v;
+	}
 	string speciesFile = argv[1];
 	string worldFile = argv[2];
 	int roundNum = atoi(argv[3]);
