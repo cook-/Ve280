@@ -67,41 +67,41 @@ creature_t
 // EFFECTS: Returns a pointer to the creature at "location" in "grid".
 
 void
-hop(world_t world, unsigned int creatureID);
+hop(world_t &world, unsigned int creatureID);
 // MODIFIES: world
 // EFFECTS: Updates "world" after one creature with "creatureID" 
 // 			takes the action "HOP".
 
 void
-left(world_t world, unsigned int creatureID);
+left(world_t &world, unsigned int creatureID);
 // MODIFIES: world
 // EFFECTS: Updates "world" after one creature with "creatureID" 
 // 			takes the action "LEFT".
 
 
 void
-right(world_t world, unsigned int creatureID);
+right(world_t &world, unsigned int creatureID);
 // MODIFIES: world
 // EFFECTS: Updates "world" after one creature with "creatureID" 
 // 			takes the action "RIGHT".
 
 
 void
-infect(world_t world, unsigned int creatureID);
+infect(world_t &world, unsigned int creatureID);
 // MODIFIES: world
 // EFFECTS: Updates "world" after one creature with "creatureID" 
 // 			takes the action "INFECT".
 
 
 void
-ifempty(world_t world, unsigned int creatureID, unsigned int address);
+ifempty(world_t &world, unsigned int creatureID, unsigned int address);
 // MODIFIES: world
 // EFFECTS: Updates "world" after one creature with "creatureID" 
 // 			takes the action "IFEMPTY" and jumps to another action 
 // 			expressed by "address".
 
 void
-ifwall(world_t world, unsigned int creatureID, unsigned int address);
+ifwall(world_t &world, unsigned int creatureID, unsigned int address);
 // MODIFIES: world
 // EFFECTS: Updates "world" after one creature with "creatureID" 
 // 			takes the action "IFWALL" and jumps to another action 
@@ -109,7 +109,7 @@ ifwall(world_t world, unsigned int creatureID, unsigned int address);
 
 
 void
-ifsame(world_t world, unsigned int creatureID, unsigned int address);
+ifsame(world_t &world, unsigned int creatureID, unsigned int address);
 // MODIFIES: world
 // EFFECTS: Updates "world" after one creature with "creatureID" 
 // 			takes the action "IFSAME" and jumps to another action 
@@ -117,7 +117,7 @@ ifsame(world_t world, unsigned int creatureID, unsigned int address);
 
 
 void
-ifenemy(world_t world, unsigned int creatureID, unsigned int address);
+ifenemy(world_t &world, unsigned int creatureID, unsigned int address);
 // MODIFIES: world
 // EFFECTS: Updates "world" after one creature with "creatureID" 
 // 			takes the action "IFENEMY" and jumps to another action 
@@ -125,7 +125,7 @@ ifenemy(world_t world, unsigned int creatureID, unsigned int address);
 
 
 void
-go(world_t world, unsigned int creatureID, unsigned int address);
+go(world_t &world, unsigned int creatureID, unsigned int address);
 // MODIFIES: world
 // EFFECTS: Updates "world" after one creature with "creatureID" 
 // 			takes the action "GO" and jumps to another action 
