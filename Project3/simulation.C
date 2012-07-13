@@ -99,6 +99,16 @@ initWorld(world_t &world, const string &speciesFile,
 		while (!line.empty()) {
 			iStream.clear();
 			iStream.str(line);
+			try {
+				if (j == MAXPROGRAM) throw MAXPROGRAM;
+			}
+			catch (unsigned int maxProgram) {
+				cout << "Error: Too many instructions for species " 
+					 << world.species[i].name 
+					 << "Maximal number of instructions is "
+					 << maxProgram << "." << endl;
+				throw;
+			}
 
 			string operName;
 			iStream >> operName;
