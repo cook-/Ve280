@@ -87,13 +87,13 @@ initWorld(world_t &world, const string &speciesFile,
 	for (int i = 0; i != world.numSpecies; ++i) {
 
 		iFile.open(world.species[i].name.c_str());
-		try {
+	/*	try {
 			if (!iFile) throw world.species[i].name;
 		}
 		catch (string &fileName){
 			cout << "Error: Cannot open file " << fileName << "!" << endl;
 			throw;
-		}
+		}*/
 
 		int j = 0;
 		getline(iFile, line);
