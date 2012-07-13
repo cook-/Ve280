@@ -280,15 +280,15 @@ opcode_t
 findOpcode(const string &operName)
 {
 	int opIndex;
-	bool found = false;
+	bool isFound = false;
 	for (int i = 0; i != 9; ++i)
 		if (operName == opName[i]) {
 			opIndex = i;
-			found = true;
+			isFound = true;
 		}
 
 	try {
-		if (!found) throw operName;
+		if (!isFound) throw operName;
 	}
 	catch (string str) {
 		cout << "Error: Instruction " << str << " is not recognized!" << endl;
@@ -311,10 +311,22 @@ findDir(const string &dir)
 species_t *
 findSpecies(world_t &world, const string &name)
 {
-	unsigned int index;
+	int speciesIndex;
+	bool isFound = false;
 	for (int i = 0; i != world.numSpecies; ++i)
-		if (name == world.species[i].name)
-			index = i;
+		if (name == world.species[i].name) {
+			speciesIndex = i;
+			isFound = !isFound;
+		}
+
+	try {
+		if (!isFound) throw name;
+	}
+	catch (string str){
+		cout << "Error: Species " << str << " not found!" << endl;
+		throw;
+	}
+
 	return world.species + index;
 }
 
