@@ -9,7 +9,7 @@
 #include <cassert>
 using namespace std;
 
-bool 
+void
 initWorld(world_t &world, const string &speciesFile,
 	const string &worldFile)
 {
