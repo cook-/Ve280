@@ -145,8 +145,6 @@ initWorld(world_t &world, const string &speciesFile,
 	world.numCreatures = i;
 
 	iFile.close();
-
-	return true;
 }
 
 void
