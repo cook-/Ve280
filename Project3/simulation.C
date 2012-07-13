@@ -104,7 +104,7 @@ initWorld(world_t &world, const string &speciesFile,
 			}
 			catch (unsigned int maxProgram) {
 				cout << "Error: Too many instructions for species " 
-					 << world.species[i].name 
+					 << world.species[i].name << "!\n" 
 					 << "Maximal number of instructions is "
 					 << maxProgram << "." << endl;
 				throw;
