@@ -11,7 +11,7 @@ main(int argc, char *argv[])
 	string speciesFile = argv[1];
 	string worldFile = argv[2];
 	int roundNum = atoi(argv[3]);
-	bool verbose = (argc == 3) ? \
+	bool verbose = (argc == 4) ? \
 			false : ((string)argv[4] == "v" || (string)argv[4] == "verbose");
 
 	world_t world;
