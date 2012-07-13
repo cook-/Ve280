@@ -29,7 +29,7 @@ printGrid(const grid_t &grid);
 // EFFECTS: Print a grid representation of the creature world.
 
 opcode_t
-fineOpcode(const string &operName);
+findOpcode(const string &operName);
 // EFFECTS: Returns a opcode that has the same name as string
 // 			"operName".
 
