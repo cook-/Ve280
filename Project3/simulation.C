@@ -64,7 +64,7 @@ initWorld(world_t &world, const string &speciesFile,
 	while (!line.empty()) {
 		iStream.clear();
 		iStream.str(line);
-		try {
+/*		try {
 			if (i == MAXSPECIES) throw MAXSPECIES;
 		}
 		catch (unsigned int maxSpecies) {
@@ -72,7 +72,7 @@ initWorld(world_t &world, const string &speciesFile,
 				 << "Maximal number of species is " << maxSpecies << "." 
 				 << endl;
 			throw;
-		}
+		}*/
 		iStream >> world.species[i].name;
 		getline(iFile, line);
 		i++;
