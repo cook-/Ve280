@@ -270,11 +270,23 @@ printGrid(const grid_t &grid)
 opcode_t
 findOpcode(const string &operName)
 {
-	int opcode;
+	int opIndex;
+	bool found = false;
 	for (int i = 0; i != 9; ++i)
-		if (operName == opName[i])
-			opcode = i;
-	return (opcode_t)opcode;
+		if (operName == opName[i]) {
+			opIndex = i;
+			found = true
+		}
+
+	try {
+		if (!found) throw operName;
+	}
+	catch (string str) {
+		cout << "Error: Instruction " << str << " is not recognized!" << endl;
+		throw;
+	}
+
+	return (opcode_t)opIndex;
 }
 
 direction_t
