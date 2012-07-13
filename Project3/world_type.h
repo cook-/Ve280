@@ -5,7 +5,7 @@
 
 using namespace std;
 
-const unsigned int MAXSPECIES = 7; //number of species in the
+const unsigned int MAXSPECIES = 10; //number of species in the
                                     // world
 const unsigned int MAXPROGRAM = 40; // Max size of a species program
 const unsigned int MAXCREATURES = 50; // Max number of creatures in
