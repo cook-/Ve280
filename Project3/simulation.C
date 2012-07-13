@@ -70,10 +70,9 @@ initWorld(world_t &world, const string &speciesFile,
 				 << "Maximal number of species is " << maxSpecies << "." 
 				 << endl;
 		}
-		getline(iFile, world.species[i].name);
-		i++;
+		getline(iFile, world.species[i++].name);
 	}
-	world.numSpecies = i;
+	world.numSpecies = i - 1;
 	cout << "num: " << world.numSpecies << endl;
 
 	iFile.close();
