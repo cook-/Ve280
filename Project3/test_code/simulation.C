@@ -8,27 +8,6 @@
 #include <cassert>
 using namespace std;
 
-void initWorld(world_t &, const string &, const string &);
-void printGrid(const grid_t &);
-void simulateCreature(world_t &, unsigned int, bool);
-opcode_t findOpcode(const string &);
-direction_t findDir(const string &);
-species_t *findSpecies(world_t &, const string &);
-void hop(world_t &, unsigned int);
-void left(world_t &, unsigned int);
-void right(world_t &, unsigned int);
-void infect(world_t &, unsigned int);
-void ifempty(world_t &, unsigned int, unsigned int);
-void ifwall(world_t &, unsigned int, unsigned int);
-void ifsame(world_t &, unsigned int, unsigned int);
-void ifenemy(world_t &, unsigned int, unsigned int);
-void go(world_t &, unsigned int, unsigned int);
-point_t adjacentPoint(point_t, direction_t);
-direction_t leftFrom(direction_t);
-direction_t rightFrom(direction_t);
-instruction_t getInstruction(const creature_t &);
-creature_t *getCreature(const grid_t &, point_t);
-
 void 
 initWorld(world_t &world, const string &speciesFile,
 	const string &worldFile)
@@ -147,24 +126,6 @@ initWorld(world_t &world, const string &speciesFile,
 	iFile.close();
 }
 
-void 
-printGrid(const grid_t &grid)
-{
-	for (int i = 0; i != grid.height; ++i) {
-		for (int j = 0; j != grid.width; ++j) {
-			if (grid.squares[i][j] == NULL)
-				cout << "____ ";
-			else
-				cout << grid.squares[i][j]->species->name[0] 
-				     << grid.squares[i][j]->species->name[1]
-					 << "_"
-					 << directShortName[grid.squares[i][j]->direction]
-					 << " ";
-		}
-		cout << endl;
-	}
-}
-
 void
 simulateCreature(world_t &world, unsigned int creatureID, bool verbose)
 {
@@ -240,6 +201,24 @@ simulateCreature(world_t &world, unsigned int creatureID, bool verbose)
 		printGrid(world.grid);
 }
 
+void 
+printGrid(const grid_t &grid)
+{
+	for (int i = 0; i != grid.height; ++i) {
+		for (int j = 0; j != grid.width; ++j) {
+			if (grid.squares[i][j] == NULL)
+				cout << "____ ";
+			else
+				cout << grid.squares[i][j]->species->name[0] 
+				     << grid.squares[i][j]->species->name[1]
+					 << "_"
+					 << directShortName[grid.squares[i][j]->direction]
+					 << " ";
+		}
+		cout << endl;
+	}
+}
+
 opcode_t
 findOpcode(const string &operName)
 {
@@ -268,6 +247,63 @@ findSpecies(world_t &world, const string &name)
 		if (name == world.species[i].name)
 			index = i;
 	return world.species + index;
+}
+
+point_t 
+adjacentPoint(point_t pt, direction_t dir)
+{
+	switch (dir)
+	{
+		case (EAST):
+			pt.c++;
+			break;
+		case (SOUTH):
+			pt.r++;
+			break;
+		case (WEST):
+			pt.c--;
+			break;
+		case (NORTH):
+			pt.r--;
+			break;
+		default:
+			;
+	}
+	return pt;
+}
+
+direction_t 
+leftFrom(direction_t dir)
+{
+	int direction = (int)dir;
+	if (dir == EAST)
+		direction = 3;
+	else
+		direction--;
+	return (direction_t)direction;
+}
+
+direction_t 
+rightFrom(direction_t dir)
+{
+	int direction = (int)dir;
+	if (dir == NORTH)
+		direction = 0;
+	else
+		direction++;
+	return (direction_t)direction;
+}
+
+instruction_t 
+getInstruction(const creature_t &creature)
+{
+	return creature.species -> program[creature.programID];
+}
+
+creature_t 
+*getCreature(const grid_t &grid, point_t location)
+{
+	return grid.squares[location.r][location.c];
 }
 
 void
@@ -393,65 +429,5 @@ go(world_t &world, unsigned int creatureID, unsigned int address)
 {
 	creature_t *creature = world.creatures + creatureID;
 	creature->programID = address - 1;
-}
-
-point_t 
-adjacentPoint(point_t pt, direction_t dir)
-{
-	switch (dir)
-	{
-		case (EAST):
-			pt.c++;
-		break;
-
-		case (SOUTH):
-			pt.r++;
-		break;
-
-		case (WEST):
-			pt.c--;
-		break;
-
-		case (NORTH):
-			pt.r--;
-		break;
-		default:
-			;
-	}
-	return pt;
-}
-
-direction_t 
-leftFrom(direction_t dir)
-{
-	int direction = (int)dir;
-	if (dir == EAST)
-		direction = 3;
-	else
-		direction--;
-	return (direction_t)direction;
-}
-
-direction_t 
-rightFrom(direction_t dir)
-{
-	int direction = (int)dir;
-	if (dir == NORTH)
-		direction = 0;
-	else
-		direction++;
-	return (direction_t)direction;
-}
-
-instruction_t 
-getInstruction(const creature_t &creature)
-{
-	return creature.species -> program[creature.programID];
-}
-
-creature_t 
-*getCreature(const grid_t &grid, point_t location)
-{
-	return grid.squares[location.r][location.c];
 }
 
