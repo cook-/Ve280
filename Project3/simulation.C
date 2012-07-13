@@ -165,12 +165,29 @@ initWorld(world_t &world, const string &speciesFile,
 		}
 
 		string name, dir;
-		iStream >> name >> dir 
-				>> world.creatures[i].location.r 
-				>> world.creatures[i].location.c;
+		int row, col;
+		iStream >> name >> dir >> row >> col;
+
+		try {
+			if (row < 0 || row > MAXHEIGHT) throw MAXHEIGHT;
+		}
+		catch (unsigned int maxHeight) {
+			cout << "Error: The grid height is illegal!" << endl;
+			throw;
+		}
+
+		try {
+			if (col < 0 || col > MAXWIDTH) throw MAXWIDTH;
+		}
+		catch (unsigned int maxWidth) {
+			cout << "Error: The grid width is illegal!" << endl;
+			throw;
+		}
 
 		world.creatures[i].direction = findDir(dir);
 		world.creatures[i].species = findSpecies(world, name);
+		world.creatures[i].location.r = row; 
+		world.creatures[i].location.c = col;
 		world.creatures[i].programID = 0;
 		world.grid.squares[world.creatures[i].location.r]\
 						[world.creatures[i].location.c] = world.creatures + i;
