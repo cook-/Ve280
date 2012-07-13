@@ -139,26 +139,26 @@ initWorld(world_t &world, const string &speciesFile,
 	iStream >> world.grid.width;
 	
 	getline(iFile, line);
-	int k = 0;
+	i = 0;
 	while (!line.empty()) {
 		iStream.clear();
 		iStream.str(line);
 
 		string name, dir;
 		iStream >> name >> dir 
-				>> world.creatures[k].location.r 
-				>> world.creatures[k].location.c;
+				>> world.creatures[i].location.r 
+				>> world.creatures[i].location.c;
 
-		world.creatures[k].direction = findDir(dir);
-		world.creatures[k].species = findSpecies(world, name);
-		world.creatures[k].programID = 0;
-		world.grid.squares[world.creatures[k].location.r]\
-						[world.creatures[k].location.c] = world.creatures + k;
+		world.creatures[i].direction = findDir(dir);
+		world.creatures[i].species = findSpecies(world, name);
+		world.creatures[i].programID = 0;
+		world.grid.squares[world.creatures[i].location.r]\
+						[world.creatures[i].location.c] = world.creatures + i;
 
 		getline(iFile, line);
-		k++;
+		i++;
 	}
-	world.numCreatures = k;
+	world.numCreatures = i;
 
 	iFile.close();
 }
