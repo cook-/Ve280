@@ -9,7 +9,7 @@
 #include <cassert>
 using namespace std;
 
-void 
+bool 
 initWorld(world_t &world, const string &speciesFile,
 	const string &worldFile)
 {
@@ -125,6 +125,8 @@ initWorld(world_t &world, const string &speciesFile,
 	world.numCreatures = i;
 
 	iFile.close();
+
+	return true;
 }
 
 void
