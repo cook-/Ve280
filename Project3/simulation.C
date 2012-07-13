@@ -59,11 +59,11 @@ initWorld(world_t &world, const string &speciesFile,
 	}
 
 	getline(iFile, line);
-
+	getline(iFile, line);
 	int i = 0;
-	while (iFile) {
+	while (!line.empty()) {
 		try {
-			if (i == MAXSPECIES + 1) throw MAXSPECIES;
+			if (i == MAXSPECIES) throw MAXSPECIES;
 		}
 		catch (unsigned int maxSpecies) {
 			cout << "Error: Too many species!\n" 
@@ -71,7 +71,9 @@ initWorld(world_t &world, const string &speciesFile,
 				 << endl;
 			throw;
 		}
-		getline(iFile, world.species[i++].name);
+		world.species[i].name = line;
+		getline(iFile, line);
+		i++;
 	}
 	world.numSpecies = i - 1;
 	cout << "num: " << world.numSpecies << endl;
