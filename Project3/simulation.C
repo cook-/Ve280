@@ -142,6 +142,7 @@ initWorld(world_t &world, const string &speciesFile,
 	getline(iFile, line);
 	iStream.clear();
 	iStream.str(line);
+	int height;
 	iStream >> height;
 	try {
 		if (height < 0 || height > MAXHEIGHT) throw MAXHEIGHT;
@@ -155,6 +156,7 @@ initWorld(world_t &world, const string &speciesFile,
 	getline(iFile, line);
 	iStream.clear();
 	iStream.str(line);
+	int width;
 	iStream >> width;
 	try {
 		if (width < 0 || width > MAXWIDTH) throw MAXWIDTH;
