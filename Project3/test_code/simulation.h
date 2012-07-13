@@ -68,29 +68,68 @@ creature_t
 
 void
 hop(world_t world, unsigned int creatureID);
+// MODIFIES: world
+// EFFECTS: Updates "world" after one creature with "creatureID" 
+// 			takes the action "HOP".
 
 void
 left(world_t world, unsigned int creatureID);
+// MODIFIES: world
+// EFFECTS: Updates "world" after one creature with "creatureID" 
+// 			takes the action "LEFT".
+
 
 void
 right(world_t world, unsigned int creatureID);
+// MODIFIES: world
+// EFFECTS: Updates "world" after one creature with "creatureID" 
+// 			takes the action "RIGHT".
+
 
 void
 infect(world_t world, unsigned int creatureID);
+// MODIFIES: world
+// EFFECTS: Updates "world" after one creature with "creatureID" 
+// 			takes the action "INFECT".
+
 
 void
-isempty(world_t world, unsigned int creatureID, unsigned int address);
+ifempty(world_t world, unsigned int creatureID, unsigned int address);
+// MODIFIES: world
+// EFFECTS: Updates "world" after one creature with "creatureID" 
+// 			takes the action "IFEMPTY" and jumps to another action 
+// 			expressed by "address".
 
 void
-iswall(world_t world, unsigned int creatureID, unsigned int address);
+ifwall(world_t world, unsigned int creatureID, unsigned int address);
+// MODIFIES: world
+// EFFECTS: Updates "world" after one creature with "creatureID" 
+// 			takes the action "IFWALL" and jumps to another action 
+// 			expressed by "address".
+
 
 void
-issame(world_t world, unsigned int creatureID, unsigned int address);
+ifsame(world_t world, unsigned int creatureID, unsigned int address);
+// MODIFIES: world
+// EFFECTS: Updates "world" after one creature with "creatureID" 
+// 			takes the action "IFSAME" and jumps to another action 
+// 			expressed by "address".
+
 
 void
-isenemy(world_t world, unsigned int creatureID, unsigned int address);
+ifenemy(world_t world, unsigned int creatureID, unsigned int address);
+// MODIFIES: world
+// EFFECTS: Updates "world" after one creature with "creatureID" 
+// 			takes the action "IFENEMY" and jumps to another action 
+// 			expressed by "address".
+
 
 void
 go(world_t world, unsigned int creatureID, unsigned int address);
+// MODIFIES: world
+// EFFECTS: Updates "world" after one creature with "creatureID" 
+// 			takes the action "GO" and jumps to another action 
+// 			expressed by "address".
+
 
 #endif
