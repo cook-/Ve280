@@ -11,10 +11,11 @@ main(int argc, char *argv[])
 	try {
 		if (argc < 4) throw argc;
 	}
-	catch (int e) {
+	catch (int &e) {
 		cout << "Error: Missing arguments!\n"
-		  <<" Usage: ./p3 <species-summary> <world-file> <rounds> [v|verbose]" 
+		  << "Usage: ./p3 <species-summary> <world-file> <rounds> [v|verbose]" 
 		  << endl;
+		throw e;
 	}
 
 	string speciesFile = argv[1];
