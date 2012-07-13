@@ -65,10 +65,11 @@ initWorld(world_t &world, const string &speciesFile,
 		try {
 			if (i == MAXSPECIES) throw MAXSPECIES;
 		}
-		catch (int maxSpecies) {
+		catch (unsigned int maxSpecies) {
 			cout << "Error: Too many species!\n" 
 				 << "Maximal number of species is " << maxSpecies << "." 
 				 << endl;
+			throw;
 		}
 		getline(iFile, world.species[i++].name);
 	}
