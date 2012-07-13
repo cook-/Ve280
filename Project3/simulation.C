@@ -305,7 +305,7 @@ findDir(const string &dir)
 	bool isFound = false;
 	for (int i = 0; i != 4; ++i)
 		if (dir == directName[i]) {
-			direction = i;
+			dirIndex = i;
 			isFound = !isFound;
 		}
 
