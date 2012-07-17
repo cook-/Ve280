@@ -68,7 +68,7 @@ initWorld(world_t &world, const string &speciesFile,
 		try {
 			if (i == MAXSPECIES) throw MAXSPECIES;
 		}
-		catch (unsigned int maxSpecies) {
+		catch (unsigned int &maxSpecies) {
 			cout << "Error: Too many species!\n" 
 				 << "Maximal number of species is " << maxSpecies << "." 
 				 << endl;
@@ -101,7 +101,7 @@ initWorld(world_t &world, const string &speciesFile,
 			try {
 				if (j == MAXPROGRAM) throw MAXPROGRAM;
 			}
-			catch (unsigned int maxProgram) {
+			catch (unsigned int &maxProgram) {
 				cout << "Error: Too many instructions for species " 
 					 << world.species[i].name << "!\n" 
 					 << "Maximal number of instructions is "
@@ -146,7 +146,7 @@ initWorld(world_t &world, const string &speciesFile,
 	try {
 		if (height < 0 || height > MAXHEIGHT) throw MAXHEIGHT;
 	}
-	catch (unsigned int maxHeight) {
+	catch (unsigned int &maxHeight) {
 		cout << "Error: The grid height is illegal!" << endl;
 		throw;
 	}
@@ -160,7 +160,7 @@ initWorld(world_t &world, const string &speciesFile,
 	try {
 		if (width < 0 || width > MAXWIDTH) throw MAXWIDTH;
 	}
-	catch (unsigned int maxWidth) {
+	catch (unsigned int &maxWidth) {
 		cout << "Error: The grid width is illegal!" << endl;
 		throw;
 	}
@@ -174,7 +174,7 @@ initWorld(world_t &world, const string &speciesFile,
 		try {
 			if (i == MAXCREATURES) throw MAXCREATURES;
 		}
-		catch (unsigned int maxCreatures) {
+		catch (unsigned int &maxCreatures) {
 			cout << "Error: Too many creatures!\n" 
 				 << "Maximal number of creatures is "
 				 << maxCreatures << "." << endl;
@@ -189,7 +189,7 @@ initWorld(world_t &world, const string &speciesFile,
 			if (row < 0 || row >= height || col < 0 || col >= width) 
 				throw -1;
 		}
-		catch (int e) {
+		catch (int &e) {
 			cout << "Error: Creature (" 
 				 << name << " " << dir << " " << row << " " << col 
 				 << ") is out of bound!\n" 
