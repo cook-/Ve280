@@ -15,7 +15,7 @@ main(int argc, char *argv[])
 		cout << "Error: Missing arguments!\n"
 		  << "Usage: ./p3 <species-summary> <world-file> <rounds> [v|verbose]" 
 		  << endl;
-		throw;
+		return 0;
 	}
 
 	try {
@@ -23,7 +23,11 @@ main(int argc, char *argv[])
 	}
 	catch (int &e) {
 		cout << "Error: Number of simulation rounds is negative!" << endl;
-		throw;
+		return 0;
+	}
+
+	catch (...) {
+		return 0;
 	}
 
 	string speciesFile = argv[1];
