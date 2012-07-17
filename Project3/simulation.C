@@ -57,7 +57,7 @@ initWorld(world_t &world, const string &speciesFile,
 	}
 	catch (string &fileName) {
 		cout << "Error: Cannot open file " << fileName << endl;
-		throw;
+		return 0;
 	}
 
 	getline(iFile, line);
