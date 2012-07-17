@@ -26,10 +26,6 @@ main(int argc, char *argv[])
 		return 0;
 	}
 
-	catch (...) {
-		return 0;
-	}
-
 	string speciesFile = argv[1];
 	string worldFile = argv[2];
 	int roundNum = atoi(argv[3]);
