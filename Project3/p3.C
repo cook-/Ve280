@@ -33,7 +33,9 @@ main(int argc, char *argv[])
 			false : ((string)argv[4] == "v" || (string)argv[4] == "verbose");
 
 	world_t world;
-	initWorld(world, speciesFile, worldFile);
+	try {
+		initWorld(world, speciesFile, worldFile);
+	}
 	catch (...) {
 		return 0;
 	}
