@@ -230,15 +230,15 @@ initWorld(world_t &world, const string &speciesFile,
 		int i = *e;
 		int j = *(e + 1);
 		cout << "Error: Creature (" 
-			 << world.creatures[i].species->name << " " 
-			 << directName[world.creatures[i].direction] << " "  
-			 << world.creatures[i].location.r << " " 
-			 << world.creatures[i].location.c 
-			 << ") overlaps with creature\n(" 
 			 << world.creatures[j].species->name << " " 
 			 << directName[world.creatures[j].direction] << " "  
 			 << world.creatures[j].location.r << " " 
 			 << world.creatures[j].location.c 
+			 << ") overlaps with creature\n(" 
+			 << world.creatures[i].species->name << " " 
+			 << directName[world.creatures[i].direction] << " "  
+			 << world.creatures[i].location.r << " " 
+			 << world.creatures[i].location.c 
 			 << ")!" << endl;
 		throw;
 	}
