@@ -234,7 +234,7 @@ initWorld(world_t &world, const string &speciesFile,
 			 << directName[world.creatures[j].direction] << " "  
 			 << world.creatures[j].location.r << " " 
 			 << world.creatures[j].location.c 
-			 << ") overlaps with creature\n(" 
+			 << ") overlaps with creature (" 
 			 << world.creatures[i].species->name << " " 
 			 << directName[world.creatures[i].direction] << " "  
 			 << world.creatures[i].location.r << " " 
