@@ -34,6 +34,9 @@ main(int argc, char *argv[])
 
 	world_t world;
 	initWorld(world, speciesFile, worldFile);
+	catch (...) {
+		return 0;
+	}
 	cout << "Initial state" << endl;
 	printGrid(world.grid);
 	for (int i = 0; i != roundNum; ++i) {
