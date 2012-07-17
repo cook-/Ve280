@@ -84,7 +84,7 @@ initWorld(world_t &world, const string &speciesFile,
 
 	for (int i = 0; i != world.numSpecies; ++i) {
 
-		string destFile = world.species[i].name;
+		string destFile = "creatures/" + world.species[i].name;
 		iFile.open(destFile.c_str());
 		try {
 			if (!iFile) throw world.species[i].name;
