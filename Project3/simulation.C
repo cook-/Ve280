@@ -18,10 +18,10 @@ initWorld(world_t &world, const string &speciesFile,
 
 	world.numSpecies = 0;
 
-	for (int i = 0; i != MAXSPECIES; ++i) {
+	for (unsigned int i = 0; i != MAXSPECIES; ++i) {
 		world.species[i].name = "";
 		world.species[i].programSize = 0;
-		for (int j = 0; j != MAXPROGRAM; ++j) {
+		for (unsigned int j = 0; j != MAXPROGRAM; ++j) {
 			world.species[i].program[j].op = HOP;
 			world.species[i].program[j].address = 0;
 		}
@@ -29,7 +29,7 @@ initWorld(world_t &world, const string &speciesFile,
 
 	world.numCreatures = 0;
 
-	for (int i = 0; i != MAXCREATURES; ++i) {
+	for (unsigned int i = 0; i != MAXCREATURES; ++i) {
 		world.creatures[i].location.r = 0;
 		world.creatures[i].location.c = 0;
 		world.creatures[i].direction = EAST;
@@ -40,7 +40,7 @@ initWorld(world_t &world, const string &speciesFile,
 	world.grid.height = 0;
 	world.grid.width = 0;
 
-	for (int i = 0; i != MAXHEIGHT; ++i)
+	for (unsigned int i = 0; i != MAXHEIGHT; ++i)
 		for (int j = 0; j != MAXWIDTH; ++j)
 			world.grid.squares[i][j] = NULL;
 
@@ -61,7 +61,7 @@ initWorld(world_t &world, const string &speciesFile,
 
 	getline(iFile, line);
 	getline(iFile, line);
-	int i = 0;
+	unsigned int i = 0;
 	while (!line.empty()) {
 		iStream.clear();
 		iStream.str(line);
@@ -82,7 +82,7 @@ initWorld(world_t &world, const string &speciesFile,
 
 	iFile.close();
 
-	for (int i = 0; i != world.numSpecies; ++i) {
+	for (unsigned int i = 0; i != world.numSpecies; ++i) {
 
 		string destFile = "creatures/" + world.species[i].name;
 		iFile.open(destFile.c_str());
@@ -94,7 +94,7 @@ initWorld(world_t &world, const string &speciesFile,
 			throw;
 		}
 
-		int j = 0;
+		unsigned int j = 0;
 		getline(iFile, line);
 		while (!line.empty()) {
 			iStream.clear();
@@ -142,7 +142,7 @@ initWorld(world_t &world, const string &speciesFile,
 	getline(iFile, line);
 	iStream.clear();
 	iStream.str(line);
-	int height;
+	unsigned int height;
 	iStream >> height;
 	try {
 		if (height < 0 || height > MAXHEIGHT) throw MAXHEIGHT;
@@ -156,7 +156,7 @@ initWorld(world_t &world, const string &speciesFile,
 	getline(iFile, line);
 	iStream.clear();
 	iStream.str(line);
-	int width;
+	unsigned int width;
 	iStream >> width;
 	try {
 		if (width < 0 || width > MAXWIDTH) throw MAXWIDTH;
@@ -214,7 +214,7 @@ initWorld(world_t &world, const string &speciesFile,
 	world.numCreatures = i;
 	
 	try {
-		for (int i = 0; i != world.numCreatures-1; ++i) {
+		for (unsigned int i = 0; i != world.numCreatures-1; ++i) {
 			for (int j = i+1; j != world.numCreatures; ++j) {
 				if (world.creatures[i].location.r == 
 						world.creatures[j].location.r && 
@@ -324,7 +324,7 @@ simulateCreature(world_t &world, unsigned int creatureID, bool verbose)
 void 
 printGrid(const grid_t &grid)
 {
-	for (int i = 0; i != grid.height; ++i) {
+	for (unsigned int i = 0; i != grid.height; ++i) {
 		for (int j = 0; j != grid.width; ++j) {
 			if (grid.squares[i][j] == NULL)
 				cout << "____ ";
@@ -388,7 +388,7 @@ findSpecies(world_t &world, const string &name)
 {
 	int speciesIndex;
 	bool isFound = false;
-	for (int i = 0; i != world.numSpecies; ++i)
+	for (unsigned int i = 0; i != world.numSpecies; ++i)
 		if (name == world.species[i].name) {
 			speciesIndex = i;
 			isFound = !isFound;
