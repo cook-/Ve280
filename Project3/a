@@ -1,1 +1,2 @@
-Error: Creature (flytrap east 1 1) overlaps with creature (food west 1 1)!
+Error: Creature (hop south 3 2) is out of bound!
+The grid size is 3-by-3.
