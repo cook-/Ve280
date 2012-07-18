@@ -8,7 +8,7 @@ SRCS = $(MAINSRCS) $(OTHSRCS)
 OBJS = $(SRCS:.C=.o)
 TARGETS = $(MAINSRCS:.C=)
 
-CFLAGS = -g
+CFLAGS = -g -Wall
 
 %.o: %.C
 	$(CC) $(CFLAGS) -o $@ -c $< 
