@@ -41,9 +41,9 @@ main(int argc, char *argv[])
 	}
 	cout << "Initial state" << endl;
 	printGrid(world.grid);
-	for (int i = 0; i != roundNum; ++i) {
+	for (unsigned int i = 0; i != roundNum; ++i) {
 		cout << "Round " << i + 1 << endl;
-		for (int j = 0; j != world.numCreatures;++j)
+		for (unsigned int j = 0; j != world.numCreatures;++j)
 			simulateCreature(world, j, verbose);
 	}
 
