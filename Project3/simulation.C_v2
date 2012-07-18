@@ -226,7 +226,7 @@ initWorld(world_t &world, const string &speciesFile,
 			}
 		}
 	}
-	catch (int *e) {
+	catch (unsigned int *e) {
 		int i = *e;
 		int j = *(e + 1);
 		cout << "Error: Creature (" 
