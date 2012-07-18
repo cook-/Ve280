@@ -41,7 +41,7 @@ initWorld(world_t &world, const string &speciesFile,
 	world.grid.width = 0;
 
 	for (unsigned int i = 0; i != MAXHEIGHT; ++i)
-		for (int j = 0; j != MAXWIDTH; ++j)
+		for (unsigned int j = 0; j != MAXWIDTH; ++j)
 			world.grid.squares[i][j] = NULL;
 
 
@@ -183,7 +183,7 @@ initWorld(world_t &world, const string &speciesFile,
 		}
 
 		string name, dir;
-		int row, col;
+		unsigned int row, col;
 		iStream >> name >> dir >> row >> col;
 
 		try {
@@ -215,12 +215,12 @@ initWorld(world_t &world, const string &speciesFile,
 	
 	try {
 		for (unsigned int i = 0; i != world.numCreatures-1; ++i) {
-			for (int j = i+1; j != world.numCreatures; ++j) {
+			for (unsigned int j = i+1; j != world.numCreatures; ++j) {
 				if (world.creatures[i].location.r == 
 						world.creatures[j].location.r && 
 					  world.creatures[i].location.c == 
 					    	world.creatures[j].location.c) {
-					int pair[] = {i, j};
+					unsigned int pair[] = {i, j};
 				  	throw pair;
 				}
 			}
@@ -325,7 +325,7 @@ void
 printGrid(const grid_t &grid)
 {
 	for (unsigned int i = 0; i != grid.height; ++i) {
-		for (int j = 0; j != grid.width; ++j) {
+		for (unsigned int j = 0; j != grid.width; ++j) {
 			if (grid.squares[i][j] == NULL)
 				cout << "____ ";
 			else
