@@ -3,7 +3,7 @@
 CC = g++
 
 MAINSRCS = p3.C
-OTHSRCS = simulation.C
+OTHSRCS = simulation_backup.C.
 SRCS = $(MAINSRCS) $(OTHSRCS)
 OBJS = $(SRCS:.C=.o)
 TARGETS = $(MAINSRCS:.C=)
