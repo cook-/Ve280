@@ -468,13 +468,15 @@ hop(world_t &world, unsigned int creatureID)
 	creature_t *creature = world.creatures + creatureID;
 	point_t adjctPt = adjacentPoint(creature->location, creature->direction);
 	creature_t *adjctCreature = getCreature(world.grid, adjctPt);
+	unsigned int row = adjctPt.r;
+	unsigned int col = adjctPt.c;
 
-	if (adjctPt.r >= 0 && adjctPt.r < world.grid.height && 
-			adjctPt.c >= 0 && adjctPt.c < world.grid.width &&
+	if (row >= 0 && row < world.grid.height && 
+			col >= 0 && col < world.grid.width &&
 				adjctCreature == NULL) {
 
 		world.grid.squares[creature->location.r][creature->location.c] = NULL;
-		world.grid.squares[adjctPt.r][adjctPt.c] = creature;
+		world.grid.squares[row][col] = creature;
 		creature->location = adjctPt;
 	}
 
@@ -503,9 +505,11 @@ infect(world_t &world, unsigned int creatureID)
 	creature_t *creature = world.creatures + creatureID;
 	point_t adjctPt = adjacentPoint(creature->location, creature->direction);
 	creature_t *adjctCreature = getCreature(world.grid, adjctPt);
+	unsigned int row = adjctPt.r;
+	unsigned int col = adjctPt.c;
 
-	if (adjctPt.r >= 0 && adjctPt.r < world.grid.height && 
-		  adjctPt.c >= 0 && adjctPt.c < world.grid.width && 
+	if (row >= 0 && row < world.grid.height && 
+		  col >= 0 && col < world.grid.width && 
 			adjctCreature != NULL && 
 			  adjctCreature->species != creature->species) {
 
@@ -537,9 +541,11 @@ ifwall(world_t &world, unsigned int creatureID, unsigned int address)
 {
 	creature_t *creature = world.creatures + creatureID;
 	point_t adjctPt = adjacentPoint(creature->location, creature->direction);
+	unsigned int row = adjctPt.r;
+	unsigned int col = adjctPt.c;
 
-	if (adjctPt.r < 0 || adjctPt.r >= world.grid.height || 
-		  adjctPt.c < 0 || adjctPt.c >= world.grid.width) 
+	if (row < 0 || row >= world.grid.height || 
+		  col < 0 || col >= world.grid.width) 
 
 		creature->programID = address - 1;
 	else
@@ -552,9 +558,11 @@ ifsame(world_t &world, unsigned int creatureID, unsigned int address)
 	creature_t *creature = world.creatures + creatureID;
 	point_t adjctPt = adjacentPoint(creature->location, creature->direction);
 	creature_t *adjctCreature = getCreature(world.grid, adjctPt);
+	unsigned int row = adjctPt.r;
+	unsigned int col = adjctPt.c;
 
-	if (adjctPt.r >= 0 && adjctPt.r < world.grid.height && 
-		  adjctPt.c >= 0 && adjctPt.c < world.grid.width && 
+	if (row >= 0 && row < world.grid.height && 
+		  col >= 0 && col < world.grid.width && 
 			adjctCreature != NULL && 
 			  adjctCreature->species == creature->species)
 
@@ -569,9 +577,11 @@ ifenemy(world_t &world, unsigned int creatureID, unsigned int address)
 	creature_t *creature = world.creatures + creatureID;
 	point_t adjctPt = adjacentPoint(creature->location, creature->direction);
 	creature_t *adjctCreature = getCreature(world.grid, adjctPt);
+	unsigned int row = adjctPt.r;
+	unsigned int col = adjctPt.c;
 
-	if (adjctPt.r >= 0 && adjctPt.r < world.grid.height && 
-		  adjctPt.c >= 0 && adjctPt.c < world.grid.width && 
+	if (row >= 0 && row < world.grid.height && 
+		  col >= 0 && col < world.grid.width && 
 			adjctCreature != NULL && 
 			  adjctCreature->species != creature->species)
 
