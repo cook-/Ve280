@@ -10,7 +10,7 @@ Deck::Deck()
 	}
 	for (int i = 0; i != DeckSize/4; ++i) {
 		deck[i].spot = (Spot)i;
-		deck[i].suit = (Suit)
+		deck[i].suit = (Suit);
 	}
 
 	next = 0;
