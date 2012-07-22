@@ -12,7 +12,13 @@ public:
 	void printArr();
 };
 
-Class_T::Class_T(): arr{ 1, 2, 3 } { }
+//Class_T::Class_T(): arr{ 1, 2, 3 } { }
+Class_T::Class_T() 
+{
+	arr[0] = 1;
+	arr[1] = 2;
+	arr[2] = 3;
+}
 
 void
 Class_T::printArr()
