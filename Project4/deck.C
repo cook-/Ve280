@@ -1,6 +1,6 @@
 #include "deck.h"
 
-Deck::Deck(): deck[DeckSize]
+Deck::Deck()
 {
 	for (int i = 0; i != 4; ++i) {
 		for (int j = 0; j != DeckSize/4; ++j) {
