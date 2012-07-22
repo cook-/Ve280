@@ -9,9 +9,9 @@ main()
 	testDeck.shuffle(26);
 
 	testDeck.reset();
-	testDeck.shuffle(0);
+	testDeck.shuffle(52);
 
 	testDeck.reset();
-	testDeck.shuffle(52);
+	testDeck.shuffle(0);
 
 }
