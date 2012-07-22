@@ -17,7 +17,7 @@ void
 printArr()
 {
 	for (int i = 0; i != ArraySize; ++i)
-		std::cout << arr[i] << " "
+		std::cout << arr[i] << " ";
 	std::cout << endl;
 }
 
