@@ -7,7 +7,7 @@ Hand::Hand()
 }
 
 void
-Hand::discardAll
+Hand::discardAll()
 {
 	curValue.count = 0;
 	curValue.soft = false;
