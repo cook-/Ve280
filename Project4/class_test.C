@@ -1,4 +1,5 @@
 #include <iostream>
+using namespace std;
 
 const int ArraySize = 3;
 
@@ -17,8 +18,8 @@ void
 printArr()
 {
 	for (int i = 0; i != ArraySize; ++i)
-		std::cout << arr[i] << " ";
-	std::cout << endl;
+		cout << arr[i] << " ";
+	cout << endl;
 }
 
 int
