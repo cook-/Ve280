@@ -57,5 +57,5 @@ Deck::deal()
 int
 Deck::cardsLeft()
 {
-	return Decksize - next;
+	return DeckSize - next;
 }
