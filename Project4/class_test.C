@@ -9,7 +9,7 @@ class Class_T
 public:
 	Class_T();
 	void printArr();
-}
+};
 
 Class_T::Class_T(): arr[ArraySize]({ 1, 2, 3 }) { }
 
