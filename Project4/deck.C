@@ -19,7 +19,6 @@ Deck::reset()
 			deck[j + 13*i].spot = (Spot)j;
 			deck[j + 13*i].suit = (Suit)i;
 		}
-	}
 }
 
 void
