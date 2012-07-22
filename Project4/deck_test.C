@@ -6,12 +6,10 @@ main()
 	Deck testDeck;
 
 	testDeck.reset();
-	testDeck.shuffle(26);
+	testDeck.shuffle(3);
 
 	testDeck.reset();
-	testDeck.shuffle(52);
+	testDeck.shuffle(50);
 
-	testDeck.reset();
-	testDeck.shuffle(0);
-
+	return 0;
 }
