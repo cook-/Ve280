@@ -14,7 +14,7 @@ Hand::discardAll()
 }
 
 void
-Hand::addCard(card c)
+Hand::addCard(Card c)
 {
 	if (!soft && c.spot != ACE) 
 		curValue += (c.spot + 2);
