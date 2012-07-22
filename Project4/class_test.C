@@ -15,7 +15,7 @@ public:
 Class_T::Class_T(): arr[ArraySize]({ 1, 2, 3 }) { }
 
 void
-printArr()
+Class_T::printArr()
 {
 	for (int i = 0; i != ArraySize; ++i)
 		cout << arr[i] << " ";
