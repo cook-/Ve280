@@ -40,13 +40,13 @@ Deck::shuffle(int n)
 			deck[i] = tmp[n + i];
 			deck[i + 1] = tmp[i];
 		}
-		for (int i = 2*(Decksize - n); i != DeckSize; ++i)
+		for (int i = 2*(DeckSize - n); i != DeckSize; ++i)
 			deck[i] = tmp[i - (DeckSize - n)];
 	}
 }
 
 Card
-Deal::deal()
+Deck::deal()
 {
 	if (next != Decksize)
 		return deck[next];
