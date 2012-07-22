@@ -30,18 +30,18 @@ Deck::shuffle(int n)
 		tmp[i] = deck[i];
 
 	if (n <= DeckSize/2)
-		for (int i = 0; i != n; i += 2) {
-			deck[i] = tmp[n + i];
-			deck[i + 1] = tmp[i];
+		for (int i = 0; i != n; ++i) {
+			deck[2*i] = tmp[n + i];
+			deck[2*i + 1] = tmp[i];
 		}
 
 	else {
-		for (int i = 0; i != 2*(DeckSize - n); i += 2) {
-			deck[i] = tmp[n + i];
-			deck[i + 1] = tmp[i];
+		for (int i = 0; i != DeckSize - n; ++i) {
+			deck[2*i] = tmp[n + i];
+			deck[2*i + 1] = tmp[i];
 		}
-		for (int i = 2*(DeckSize - n); i != DeckSize; ++i)
-			deck[i] = tmp[i - (DeckSize - n)];
+		for (int i = DeckSize - n; i != n; ++i)
+			deck[DeckSize - n + i] = tmp[i];
 	}
 }
 
