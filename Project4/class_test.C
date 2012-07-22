@@ -1,6 +1,6 @@
 #include <iostream>
 
-const ArraySize = 3;
+const int ArraySize = 3;
 
 class Class_T
 {
