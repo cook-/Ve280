@@ -2,16 +2,11 @@
 
 Deck::Deck()
 {
-	for (int i = 0; i != 4; ++i) {
+	for (int i = 0; i != 4; ++i)
 		for (int j = 0; j != DeckSize/4; ++j) {
 			deck[j + 13*i].spot = (Spot)j;
 			deck[j + 13*i].suit = (Suit)i;
 		}
-	}
-	for (int i = 0; i != DeckSize/4; ++i) {
-		deck[i].spot = (Spot)i;
-		deck[i].suit = (Suit);
-	}
 
 	next = 0;
 }
@@ -19,15 +14,11 @@ Deck::Deck()
 void
 Deck::reset()
 {
-	for (int i = 0; i != 4; ++i) {
+	for (int i = 0; i != 4; ++i)
 		for (int j = 0; j != DeckSize/4; ++j) {
 			deck[j + 13*i].spot = (Spot)j;
 			deck[j + 13*i].suit = (Suit)i;
 		}
-	}
-	for (int i = 0; i != DeckSize/4; ++i) {
-		deck[i].spot = (Spot)i;
-		deck[i].suit = (Suit)
 	}
 }
 
