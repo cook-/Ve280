@@ -1,6 +1,9 @@
 #include "deck.h"
 
-void Deck::reset()
+Deck::Deck(): deck[DeckSize]({ {TWO,SPADE}, {THREE,SPADE}, {} }), next(0) { }
+
+void
+Deck::reset()
 {
 	for (int i = 0; i != 4; ++i) {
 		for (int j = 0; j != DeckSize/4; ++j) {
@@ -14,7 +17,8 @@ void Deck::reset()
 	}
 }
 
-void Deck::shuffle(int n)
+void
+Deck::shuffle(int n)
 {
 	Card tmp[DeckSize];
 
@@ -37,7 +41,8 @@ void Deck::shuffle(int n)
 	}
 }
 
-Card Deal::deal()
+Card
+Deal::deal()
 {
 	if (next != Decksize)
 		return deck[next];
@@ -45,7 +50,8 @@ Card Deal::deal()
 //		throw 
 }
 
-int Deck::cardLeft()
+int
+Deck::cardLeft()
 {
 	return Decksize - next;
 }
