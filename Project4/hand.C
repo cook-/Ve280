@@ -31,11 +31,11 @@ Hand::addCard(Card c)
 
 	else {
 		if (curValue.count > 10) {
-			curValue.count += (((int)c.spot + 2) - 10);
+			curValue.count += ((c.spot + 2) - 10);
 			curValue.soft = false;
 		}
 		else
-			curValue.count += ((int)c.spot + 2);
+			curValue.count += (c.spot + 2);
 	}
 }
 
