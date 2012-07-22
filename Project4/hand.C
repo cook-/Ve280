@@ -18,7 +18,7 @@ void
 Hand::addCard(Card c)
 {
 	if (!curValue.soft && c.spot != ACE) 
-		curValue += ((int)c.spot + 2);
+		curValue.count += ((int)c.spot + 2);
 
 	else if (curValue.soft && c.spot == ACE) {
 		if (curValue.count == 21) {
@@ -30,7 +30,7 @@ Hand::addCard(Card c)
 	}
 
 	else {
-		if (curValue > 10) {
+		if (curValue.count > 10) {
 			curValue.count += (((int)c.spot + 2) - 10);
 			curValue.soft = false;
 		}
