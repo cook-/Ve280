@@ -48,14 +48,14 @@ Deck::shuffle(int n)
 Card
 Deck::deal()
 {
-	if (next != Decksize)
+	if (next != DeckSize)
 		return deck[next];
 //	else
 //		throw 
 }
 
 int
-Deck::cardLeft()
+Deck::cardsLeft()
 {
 	return Decksize - next;
 }
