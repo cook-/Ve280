@@ -12,7 +12,7 @@ public:
 	void printArr();
 };
 
-Class_T::Class_T(): arr[ArraySize]({ 1, 2, 3 }) { }
+Class_T::Class_T(): arr{ 1, 2, 3 } { }
 
 void
 Class_T::printArr()
