@@ -29,8 +29,13 @@ main(int argc, char *argv[])
 		return -1;
 
 	cout << "Shuffling the deck\n";
-	for (int i = 0; i != 7; ++i)
+	int cut;
+	for (int i = 0; i != 7; ++i) {
+		cut = get_cut();
 		deck.shuffle(get_cut());
+		cout << "cut at " << cut << endl;
+	}
+
 	player->shuffled();
 
 	unsigned int thishand = 1;
@@ -47,8 +52,11 @@ main(int argc, char *argv[])
 		if (deck.cardsLeft() < 20) {
 			deck.reset();
 			cout << "Shuffling the deck\n";
-			for (int i = 0; i != 7; ++i)
+			for (int i = 0; i != 7; ++i) {
+				cut = get_cut();
 				deck.shuffle(get_cut());
+				cout << "cut at " << cut << endl;
+			}
 			player->shuffled();
 		}
 
