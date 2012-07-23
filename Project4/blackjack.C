@@ -66,20 +66,20 @@ main(int argc, char *argv[])
 		player->expose(nextCard);
 		playerHand.addCard(nextCard);
 		cout << "Player dealt " << SpotNames[nextCard.spot] 
-			 << " of " << SuitNames[nextCard.suit];
+			 << " of " << SuitNames[nextCard.suit] << endl;
 
 		nextCard = deck.deal();
 		player->expose(nextCard);
 		dealer = nextCard;
 		dealerHand.addCard(nextCard);
 		cout << "Dealer dealt " << SpotNames[nextCard.spot]
-			 << " of " << SuitNames[nextCard.suit];
+			 << " of " << SuitNames[nextCard.suit] << endl;
 
 		nextCard = deck.deal();
 		player->expose(nextCard);
 		playerHand.addCard(nextCard);
 		cout << "Player dealt " << SpotNames[nextCard.spot]
-			 << " of " << SuitNames[nextCard.suit];
+			 << " of " << SuitNames[nextCard.suit] << endl;
 
 		nextCard = deck.deal();
 		holeCard = nextCard;
