@@ -94,7 +94,7 @@ main(int argc, char *argv[])
 		else {
 			cout << "Dealer's hole card is " << SpotNames[holeCard.spot]
 				 << " of " << SuitNames[holeCard.suit] << endl;
-			player.expose(holecard);
+			player.expose(holeCard);
 			dealerValue = dealerHand.handValue();
 			while (dealerValue.count <= 17) {
 				nextCard = deck.deal();
@@ -109,11 +109,11 @@ main(int argc, char *argv[])
 				bankroll += wager;
 			}
 			else if (dealerValue.count > playerValue.count) {
-				cout << "Dealer wins\n"
+				cout << "Dealer wins\n";
 				bankroll -= wager;
 			}
 			else if (dealerValue.count < playerValue.count) {
-				cout << "Player wins\n"
+				cout << "Player wins\n";
 				bankroll += wager;
 			}
 			else
