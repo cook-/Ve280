@@ -21,8 +21,6 @@ Hand::addCard(Card c)
 	unsigned int cCount;
 	if (c.spot == JACK || c.spot == QUEEN || c.spot == KING)
 		cCount = 10;
-	else if (c.spot == ACE)
-		cCount = 11;
 	else
 		cCount = c.spot + 2;
 
