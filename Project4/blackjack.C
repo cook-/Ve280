@@ -44,7 +44,6 @@ main(int argc, char *argv[])
 
 	player->shuffled();
 
-	unsigned int thishand = 1;
 	unsigned int minimum = 5;
 	unsigned int wager = player->bet(bankroll, minimum);
 	Card nextCard;
@@ -53,7 +52,7 @@ main(int argc, char *argv[])
 	HandValue playerValue, dealerValue;
 
 	for (unsigned int i = 0; i != hands && bankroll >= wager; ++i) {
-		cout << "Hand " << thishand << " bankroll " << bankroll << endl;
+		cout << "Hand " << i + 1 << " bankroll " << bankroll << endl;
 
 		if (deck.cardsLeft() < 20) {
 			deck.reset();
@@ -145,8 +144,6 @@ main(int argc, char *argv[])
 		wager = player->bet(bankroll, minimum);
 		playerHand.discardAll();
 		dealerHand.discardAll();
-
-		thishand++;
 	}
 
 	cout << "Player has " << bankroll
