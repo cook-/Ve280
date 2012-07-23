@@ -21,7 +21,7 @@ bool
 simplePlayer::draw(Card dealer, const Hand &player)
 {
 	HandValue value = player.handValue();
-	unsigned int dealerCount = dealer.spot - 2;
+	unsigned int dealerCount = dealer.spot + 2;
 	if (!value.soft) {
 		if (value.count <= 11)
 			return true;
