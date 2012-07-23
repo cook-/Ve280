@@ -114,7 +114,7 @@ main(int argc, char *argv[])
 				 << " of " << SuitNames[holeCard.suit] << endl;
 			player->expose(holeCard);
 			dealerValue = dealerHand.handValue();
-			while (dealerValue.count <= 17) {
+			while (dealerValue.count < 17) {
 				nextCard = deck.deal();
 				player->expose(nextCard);
 				dealerHand.addCard(nextCard);
