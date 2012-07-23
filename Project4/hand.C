@@ -18,7 +18,7 @@ Hand::discardAll()
 void
 Hand::addCard(Card c)
 {
-	cCount = c.spot + 2;
+	unsigned int cCount = c.spot + 2;
 	if (!curValue.soft && c.spot != ACE) 
 		curValue.count += cCount;
 
