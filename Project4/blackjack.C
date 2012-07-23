@@ -32,7 +32,7 @@ main(int argc, char *argv[])
 
 	unsigned int thishand = 1;
 	unsigned int minimum = 5;
-	unsigned int wager = player.bet(bankroll, minimum);
+	unsigned int wager = player->bet(bankroll, minimum);
 	Card nextCard;
 	Card dealer;
 	Card holeCard;
@@ -52,20 +52,20 @@ main(int argc, char *argv[])
 		cout << "Player bets " << wager << endl;
 
 		nextCard = deck.deal();
-		player.expose(nextCard);
+		player->expose(nextCard);
 		playerHand.addCard(nextCard);
 		cout << "Player dealt " << SpotNames[nextCard.spot] 
 			 << " of " << SuitNames[nextCard.suit];
 
 		nextCard = deck.deal();
-		player.expose(nextCard);
+		player->expose(nextCard);
 		dealer = nextCard;
 		dealerHand.addCard(nextCard);
 		cout << "Dealer dealt " << SpotNames[nextCard.spot]
 			 << " of " << SuitNames[nextCard.suit];
 
 		nextCard = deck.deal();
-		player.expose(nextCard);
+		player->expose(nextCard);
 		playerHand.addCard(nextCard);
 		cout << "Player dealt " << SpotNames[nextCard.spot]
 			 << " of " << SuitNames[nextCard.suit];
@@ -80,9 +80,9 @@ main(int argc, char *argv[])
 			cout << "Player dealt natural 21\n";
 		}
 		
-		while (player.draw(dealer, playerHand) && playerValue.count <= 21) {
+		while (player->draw(dealer, playerHand) && playerValue.count <= 21) {
 			nextCard = deck.deal();
-			player.expose(nextCard);
+			player->expose(nextCard);
 			playerHand.addCard(nextCard);
 			playerValue = playerHand.handValue();
 		}
@@ -95,11 +95,11 @@ main(int argc, char *argv[])
 		else {
 			cout << "Dealer's hole card is " << SpotNames[holeCard.spot]
 				 << " of " << SuitNames[holeCard.suit] << endl;
-			player.expose(holeCard);
+			player->expose(holeCard);
 			dealerValue = dealerHand.handValue();
 			while (dealerValue.count <= 17) {
 				nextCard = deck.deal();
-				player.expose(nextCard);
+				player->expose(nextCard);
 				dealerHand.addCard(nextCard);
 				dealerValue = dealerHand.handValue();
 			}
@@ -121,7 +121,7 @@ main(int argc, char *argv[])
 				;
 		}
 
-		wager = player.bet(bankroll, minimum);
+		wager = player->bet(bankroll, minimum);
 		playerHand.discardAll();
 		dealerHand.discardAll();
 
