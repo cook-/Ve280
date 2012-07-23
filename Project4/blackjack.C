@@ -102,6 +102,8 @@ main(int argc, char *argv[])
 			player->expose(nextCard);
 			playerHand.addCard(nextCard);
 			playerValue = playerHand.handValue();
+			cout << "Player dealt " << SpotNames[nextCard.spot]
+				 << " of " << SuitNames[nextCard.suit] << endl;
 		}
 		cout << "Player's total is " << playerValue.count << endl;
 
@@ -119,6 +121,8 @@ main(int argc, char *argv[])
 				player->expose(nextCard);
 				dealerHand.addCard(nextCard);
 				dealerValue = dealerHand.handValue();
+				cout << "Dealer dealt " << SpotNames[nextCard.spot]
+					 << " of " << SuitNames[nextCard.suit] << endl;
 			}
 			cout << "Dealer's total is " << dealerValue.count << endl;
 
