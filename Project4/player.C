@@ -3,16 +3,15 @@
 using namespace std;
 
 class simplePlayer : public Player {
-	unsigned int bankroll;
- public:
- 	simplePlayer();
+public:
+// 	simplePlayer();
 	int bet(unsigned int bankroll, unsigned int minimum);
 	bool draw(Card dealer, const Hand &player);
 	void expose(Card c);
 	void shuffled();
 };
 
-simplePlayer::simplePlayer(): bankroll(0) { }
+//simplePlayer::simplePlayer(): bankroll(0) { }
 
 int
 simplePlayer::bet(unsigned int bankroll, unsigned int minimum)
