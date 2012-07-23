@@ -62,12 +62,10 @@ main(int argc, char *argv[])
 
 		cout << "Player bets " << wager << endl;
 
-		try {
+		try
 			nextCard = deck.deal();
-		}
-		catch (DeckEmpty) {
+		catch (DeckEmpty)
 			return 0;
-		}
 		player->expose(nextCard);
 		playerHand.addCard(nextCard);
 		cout << "Player dealt " << SpotNames[nextCard.spot] 
