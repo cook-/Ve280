@@ -10,7 +10,7 @@ class simplePlayer : public Player {
 	bool draw(Card dealer, const Hand &player);
 };
 
-simplePlayer::simplePlayer: bankroll(0) { }
+simplePlayer::simplePlayer(): bankroll(0) { }
 
 int
 simplePlayer::bet(unsigned int bankroll, unsigned int minimum)
@@ -54,7 +54,7 @@ class countingPlayer : public simplePlayer {
 	void shuffle();
 };
 
-countingPlayer::countingPlayer: bankroll(0), cnt(0) { }
+countingPlayer::countingPlayer(): bankroll(0), cnt(0) { }
 
 int
 countingPlayer::bet(unsigned int bankroll, unsigned int minimum)
