@@ -18,7 +18,14 @@ Hand::discardAll()
 void
 Hand::addCard(Card c)
 {
-	unsigned int cCount = c.spot + 2;
+	unsigned int cCount;
+	if (c.spot == JACK || c.sopt == QUEEN || c.spot == KING)
+		cCount = 10;
+	else if (c.spot == ACE)
+		cCount = 11;
+	else
+		cCount = c.spot + 2;
+
 	if (!curValue.soft && c.spot != ACE) 
 		curValue.count += cCount;
 
@@ -28,7 +35,7 @@ Hand::addCard(Card c)
 			curValue.soft = false;
 		}
 		else
-			curValue.count += 1;
+			curValue.count++;
 	}
 
 	else {
