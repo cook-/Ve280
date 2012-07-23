@@ -14,8 +14,8 @@ class simplePlayer : public Player {
 simplePlayer::simplePlayer()
 {
 	bankroll = 0;
-	player.count = 0;
-	player.soft = false;
+	player.curValue.count = 0;
+	player.curValue.soft = false;
 }
 
 int
@@ -72,8 +72,8 @@ class countingPlayer : public simplePlayer {
 countingPlayer::countingPlayer
 {
 	bankroll = 0;
-	player.count = 0;
-	player.soft = false;
+	player.curValue.count = 0;
+	player.curValue.soft = false;
 	count = 0;
 }
 
