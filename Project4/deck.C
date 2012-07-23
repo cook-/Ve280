@@ -1,5 +1,6 @@
 #include "deck.h"
 #include "card.h"
+using namespace std;
 
 Deck::Deck()
 {
