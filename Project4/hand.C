@@ -1,5 +1,6 @@
 #include "hand.h"
 #include "card.h"
+using namespace std;
 
 Hand::Hand()
 {
