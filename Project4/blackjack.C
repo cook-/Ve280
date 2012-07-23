@@ -35,12 +35,6 @@ main(int argc, char *argv[])
 		deck.shuffle(cut);
 		cout << "cut at " << cut << endl;
 	}
-/*	int arr[] = {39, 22, 33, 37, 38, 37, 38};
-	for (int i = 0; i != 7; ++i) {
-		cut = arr[i];
-		deck.shuffle(cut);
-		cout << "cut at " << cut << endl;
-	}*/
 
 	player->shuffled();
 
