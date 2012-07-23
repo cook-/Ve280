@@ -75,11 +75,11 @@ main(int argc, char *argv[])
 
 		playerValue = playerHand.handValue();
 		if (playerValue.count == 21) {
-			bankroll += 3*wager/2
+			bankroll += 3*wager/2;
 			cout << "Player dealt natural 21\n";
 		}
 		
-		while (draw(dealer, playerHand) && playerValue.count <= 21) {
+		while (player.draw(dealer, playerHand) && playerValue.count <= 21) {
 			nextCard = deck.deal();
 			player.expose(nextCard);
 			playerHand.addCard(nextCard);
