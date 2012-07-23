@@ -52,8 +52,10 @@ Deck::deal()
 {
 	if (next != DeckSize)
 		return deck[next++];
-	else
-		throw DeckSize; 
+	else {
+		DeckEmpty emptyDeck;
+		throw emptyDeck; 
+	}
 }
 
 int
