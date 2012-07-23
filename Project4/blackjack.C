@@ -147,7 +147,7 @@ main(int argc, char *argv[])
 	}
 
 	cout << "Player has " << bankroll
-		 << " after " << thishand - 1 << " hands\n";
+		 << " after " << i << " hands\n";
 
 	return 0;
 }
