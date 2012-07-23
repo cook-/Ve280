@@ -30,17 +30,17 @@ main(int argc, char *argv[])
 
 	cout << "Shuffling the deck\n";
 	int cut;
-/*	for (int i = 0; i != 7; ++i) {
+	for (int i = 0; i != 7; ++i) {
 		cut = get_cut();
 		deck.shuffle(get_cut());
 		cout << "cut at " << cut << endl;
-	}*/
-	int arr[] = {39, 22, 33, 37, 38, 37, 38};
+	}
+/*	int arr[] = {39, 22, 33, 37, 38, 37, 38};
 	for (int i = 0; i != 7; ++i) {
 		cut = arr[i];
 		deck.shuffle(cut);
 		cout << "cut at " << cut << endl;
-	}
+	}*/
 
 	player->shuffled();
 
