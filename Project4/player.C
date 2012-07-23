@@ -4,14 +4,12 @@ using namespace std;
 
 class simplePlayer : public Player {
 public:
-// 	simplePlayer();
 	int bet(unsigned int bankroll, unsigned int minimum);
 	bool draw(Card dealer, const Hand &player);
 	void expose(Card c);
 	void shuffled();
 };
 
-//simplePlayer::simplePlayer(): bankroll(0) { }
 
 int
 simplePlayer::bet(unsigned int bankroll, unsigned int minimum)
@@ -52,7 +50,6 @@ void
 simplePlayer::shuffled() { }
 
 class countingPlayer : public simplePlayer {
-	unsigned int bankroll;
 	int cnt;
  public:
  	countingPlayer();
@@ -61,7 +58,7 @@ class countingPlayer : public simplePlayer {
 	void shuffled();
 };
 
-countingPlayer::countingPlayer(): bankroll(0), cnt(0) { }
+countingPlayer::countingPlayer(): cnt(0) { }
 
 int
 countingPlayer::bet(unsigned int bankroll, unsigned int minimum)
