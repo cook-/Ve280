@@ -19,7 +19,7 @@ void
 Hand::addCard(Card c)
 {
 	unsigned int cCount;
-	if (c.spot == JACK || c.sopt == QUEEN || c.spot == KING)
+	if (c.spot == JACK || c.spot == QUEEN || c.spot == KING)
 		cCount = 10;
 	else if (c.spot == ACE)
 		cCount = 11;
