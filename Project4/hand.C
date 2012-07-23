@@ -43,8 +43,11 @@ Hand::addCard(Card c)
 			curValue.count += (cCount - 10);
 			curValue.soft = false;
 		}
-		else
+		else {
+			if (c.spot == ACE)
+				curValue.soft = true;
 			curValue.count += cCount;
+		}
 	}
 }
 
