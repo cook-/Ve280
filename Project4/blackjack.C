@@ -62,30 +62,50 @@ main(int argc, char *argv[])
 
 		cout << "Player bets " << wager << endl;
 
-		try { nextCard = deck.deal(); }
-		catch (DeckEmpty) { return 0; }
+		try {
+			nextCard = deck.deal();
+		}
+		catch (DeckEmpty) { 
+			cout << "deck is empty!" << endl;
+			return 0;
+		}
 		player->expose(nextCard);
 		playerHand.addCard(nextCard);
 		cout << "Player dealt " << SpotNames[nextCard.spot] 
 			 << " of " << SuitNames[nextCard.suit] << endl;
 
-		try { nextCard = deck.deal(); }
-		catch (DeckEmpty) { return 0; }
+		try {
+			nextCard = deck.deal();
+		}
+		catch (DeckEmpty) { 
+			cout << "deck is empty!" << endl;
+			return 0;
+		}
 		player->expose(nextCard);
 		dealer = nextCard;
 		dealerHand.addCard(nextCard);
 		cout << "Dealer dealt " << SpotNames[nextCard.spot]
 			 << " of " << SuitNames[nextCard.suit] << endl;
 
-		try { nextCard = deck.deal(); }
-		catch (DeckEmpty) { return 0; }
+		try {
+			nextCard = deck.deal();
+		}
+		catch (DeckEmpty) { 
+			cout << "deck is empty!" << endl;
+			return 0;
+		}
 		player->expose(nextCard);
 		playerHand.addCard(nextCard);
 		cout << "Player dealt " << SpotNames[nextCard.spot]
 			 << " of " << SuitNames[nextCard.suit] << endl;
 
-		try { nextCard = deck.deal(); }
-		catch (DeckEmpty) { return 0; }
+		try {
+			nextCard = deck.deal();
+		}
+		catch (DeckEmpty) { 
+			cout << "deck is empty!" << endl;
+			return 0;
+		}
 		holeCard = nextCard;
 		dealerHand.addCard(nextCard);
 
@@ -96,8 +116,13 @@ main(int argc, char *argv[])
 		}
 		
 		while (player->draw(dealer, playerHand) && playerValue.count <= 21) {
-			try { nextCard = deck.deal(); }
-			catch (DeckEmpty) { return 0; }
+			try {
+				nextCard = deck.deal();
+			}
+			catch (DeckEmpty) { 
+				cout << "deck is empty!" << endl;
+				return 0;
+			}
 			player->expose(nextCard);
 			playerHand.addCard(nextCard);
 			playerValue = playerHand.handValue();
@@ -116,8 +141,13 @@ main(int argc, char *argv[])
 			player->expose(holeCard);
 			dealerValue = dealerHand.handValue();
 			while (dealerValue.count < 17) {
-				try { nextCard = deck.deal(); }
-				catch (DeckEmpty) { return 0; }
+				try {
+					nextCard = deck.deal();
+				}
+				catch (DeckEmpty) { 
+					cout << "deck is empty!" << endl;
+					return 0;
+				}
 				player->expose(nextCard);
 				dealerHand.addCard(nextCard);
 				dealerValue = dealerHand.handValue();
