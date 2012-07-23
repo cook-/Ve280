@@ -19,7 +19,10 @@ main(int argc, char *argv[])
 
 	Deck deck;
 	Hand playerHand, dealerHand;
-	Player *player = (feature == "simple") ? get_Simple() : get_Counting;
+	if (feature == "simple")
+		sPlayer *player = get_Simple();
+	if (feature == "counting")
+		cPlayer *player = get_Counting();
 
 	cout << "Shuffling the deck\n";
 	for (int i = 0; i != 7; ++i)
