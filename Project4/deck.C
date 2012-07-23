@@ -22,7 +22,7 @@ Deck::reset()
 			deck[j + 13*i].suit = (Suit)i;
 		}
 
-	next = 0;
+//	next = 0;
 }
 
 void
