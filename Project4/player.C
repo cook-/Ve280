@@ -26,10 +26,10 @@ static countingPlayer cPlayer;
 
 extern Player *get_Simple()
 {
-
+	return &sPlayer;
 }
 
 extern Player *get_Counting()
 {
-
+	return &cPlayer;
 }
