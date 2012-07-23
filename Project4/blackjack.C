@@ -37,7 +37,7 @@ main(int argc, char *argv[])
 	Card holeCard;
 	HandValue playerValue, dealerValue;
 
-	for (int i = 0; i != hands && bankroll >= wager; ++i) {
+	for (unsigned int i = 0; i != hands && bankroll >= wager; ++i) {
 		cout << "Hand " << thishand << " bankroll " << bankroll << endl;
 
 		if (deck.cardsLeft() < 20) {
