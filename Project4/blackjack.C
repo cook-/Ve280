@@ -40,7 +40,7 @@ main(int argc, char *argv[])
 	for (int i = 0; i != hands && bankroll >= wager; ++i) {
 		cout << "Hand " << thishand << " bankroll " << bankroll << endl;
 
-		if ((num = deck.cardsLeft()) < 20) {
+		if ((int num = deck.cardsLeft()) < 20) {
 			deck.reset();
 			cout << "Shuffling the deck\n";
 			for (int i = 0; i != 7; ++i)
@@ -73,7 +73,7 @@ main(int argc, char *argv[])
 		holeCard = nextCard;
 		dealerHand.addCard(nextCard);
 
-		playerValue = hand.handValue();
+		playerValue = playerHand.handValue();
 		if (playerValue.count == 21) {
 			bankroll += 3*wager/2
 			cout << "Player dealt natural 21\n";
