@@ -51,7 +51,7 @@ Card
 Deck::deal()
 {
 	if (next != DeckSize)
-		return deck[next];
+		return deck[next++];
 	else
 		throw DeckSize; 
 }
