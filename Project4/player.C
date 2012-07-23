@@ -4,19 +4,13 @@ using namespace std;
 
 class simplePlayer : public Player {
 	unsigned int bankroll;
-	Hand player;
  public:
  	simplePlayer();
 	int bet(unsigned int bankroll, unsigned int minimum);
 	bool draw(Card dealer, const Hand &player);
 };
 
-simplePlayer::simplePlayer()
-{
-	bankroll = 0;
-	player.curValue.count = 0;
-	player.curValue.soft = false;
-}
+simplePlayer::simplePlayer: bankroll(0) { }
 
 int
 simplePlayer::bet(unsigned int bankroll, unsigned int minimum)
@@ -27,32 +21,24 @@ simplePlayer::bet(unsigned int bankroll, unsigned int minimum)
 bool
 simplePlayer::draw(Card dealer, const Hand &player)
 {
-	if (!player.curValue.soft) {
-		if (player.curValue.count <= 11)
+	HandValue value = player.handValue();
+	unsigned int dealerCount = dealer.spot - 2;
+	if (!value.soft) {
+		if (value.count <= 11)
 			return true;
-
-		else if (player.curValue.count == 12)
-			return (dealer.spot - 2) >= 4
-					  && (dealer.spot - 2) <= 6 ? false : true;
-
-		else if (player.curValue.count >= 13
-				   && player.curValue.count <= 16)
-			return (dealer.spot - 2) >= 2
-					  && (dealer.spot - 2) <= 6 ? false : true;
-
+		else if (value.count == 12)
+			return dealerCount >= 4 && dealerCount <= 6 ? false : true;
+		else if (value.count >= 13 && value.count <= 16)
+			return dealerCount >= 2 && dealerCount <= 6 ? false : true;
 		else
 			return false;
 	}
-
 	else {
-		if (player.curValue.count <= 17)
-			return true;
-		
-		else if (player.curValue.count == 18)
-			return (dealer.spot - 2) == 2
-					 || (dealer.spot - 2) == 7
-					 || (dealer.sopt - 2) == 8 ? false : true;
-
+		if (value.count <= 17)
+			return true;	
+		else if (value.count == 18)
+			return dealerCount == 2 || dealerCount == 7 
+				|| dealerCount == 8 ? false : true;
 		else
 			return false;
 	}
@@ -60,8 +46,7 @@ simplePlayer::draw(Card dealer, const Hand &player)
 
 class countingPlayer : public simplePlayer {
 	unsigned int bankroll;
-	Hand player;
-	int count;
+	int cnt;
  public:
  	countingPlayer();
 	int bet(unsigned int bankroll, unsigned int minimum);
@@ -69,34 +54,29 @@ class countingPlayer : public simplePlayer {
 	void shuffle();
 };
 
-countingPlayer::countingPlayer
-{
-	bankroll = 0;
-	player.curValue.count = 0;
-	player.curValue.soft = false;
-	count = 0;
-}
+countingPlayer::countingPlayer: bankroll(0), cnt(0) { }
 
 int
 countingPlayer::bet(unsigned int bankroll, unsigned int minimum)
 {
-	return (count >= 2 && bankroll >= 2*minimum) ? 
+	return (cnt >= 2 && bankroll >= 2*minimum) ? 
 										2*minimum : minimum;
 }
 
 void
 countingPlayer::expose(Card c)
 {
-	if ((c.spot + 2) >= 10)
-		count++;
+	unsigned int cCount = c.spot + 2;
+	if (cCount >= 10)
+		cnt++;
 	else
-		count--;
+		cnt--;
 }
 
 void
 countingPlayer::shuffle()
 {
-	count = 0;
+	cnt = 0;
 }
 
 static simplePlayer sPlayer;
