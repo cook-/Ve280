@@ -40,7 +40,7 @@ main(int argc, char *argv[])
 	for (int i = 0; i != hands && bankroll >= wager; ++i) {
 		cout << "Hand " << thishand << " bankroll " << bankroll << endl;
 
-		if ((int num = deck.cardsLeft()) < 20) {
+		if (deck.cardsLeft() < 20) {
 			deck.reset();
 			cout << "Shuffling the deck\n";
 			for (int i = 0; i != 7; ++i)
