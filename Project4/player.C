@@ -44,6 +44,12 @@ simplePlayer::draw(Card dealer, const Hand &player)
 	}
 }
 
+void
+simplePlayer::expose(Card c) { }
+
+void
+simplePlayer::shuffled() { }
+
 class countingPlayer : public simplePlayer {
 	unsigned int bankroll;
 	int cnt;
@@ -74,7 +80,7 @@ countingPlayer::expose(Card c)
 }
 
 void
-countingPlayer::shuffle()
+countingPlayer::shuffled()
 {
 	cnt = 0;
 }
