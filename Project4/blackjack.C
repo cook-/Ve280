@@ -66,7 +66,7 @@ main(int argc, char *argv[])
 			nextCard = deck.deal();
 		}
 		catch (DeckEmpty) { 
-			cout << "deck is empty!" << endl;
+			cout << "Error: deck is empty!" << endl;
 			return 0;
 		}
 		player->expose(nextCard);
@@ -78,7 +78,7 @@ main(int argc, char *argv[])
 			nextCard = deck.deal();
 		}
 		catch (DeckEmpty) { 
-			cout << "deck is empty!" << endl;
+			cout << "Error: deck is empty!" << endl;
 			return 0;
 		}
 		player->expose(nextCard);
@@ -91,7 +91,7 @@ main(int argc, char *argv[])
 			nextCard = deck.deal();
 		}
 		catch (DeckEmpty) { 
-			cout << "deck is empty!" << endl;
+			cout << "Error: deck is empty!" << endl;
 			return 0;
 		}
 		player->expose(nextCard);
@@ -103,7 +103,7 @@ main(int argc, char *argv[])
 			nextCard = deck.deal();
 		}
 		catch (DeckEmpty) { 
-			cout << "deck is empty!" << endl;
+			cout << "Error: deck is empty!" << endl;
 			return 0;
 		}
 		holeCard = nextCard;
@@ -120,7 +120,7 @@ main(int argc, char *argv[])
 				nextCard = deck.deal();
 			}
 			catch (DeckEmpty) { 
-				cout << "deck is empty!" << endl;
+				cout << "Error: deck is empty!" << endl;
 				return 0;
 			}
 			player->expose(nextCard);
@@ -145,7 +145,7 @@ main(int argc, char *argv[])
 					nextCard = deck.deal();
 				}
 				catch (DeckEmpty) { 
-					cout << "deck is empty!" << endl;
+					cout << "Error: deck is empty!" << endl;
 					return 0;
 				}
 				player->expose(nextCard);
