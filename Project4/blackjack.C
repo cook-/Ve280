@@ -1,4 +1,5 @@
 #include "player.h"
+#include "rand.h"
 #include <iostream>
 #include <iomanip>
 #include <string>
