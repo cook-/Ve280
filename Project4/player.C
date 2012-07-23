@@ -26,9 +26,9 @@ simplePlayer::draw(Card dealer, const Hand &player)
 		if (value.count <= 11)
 			return true;
 		else if (value.count == 12)
-			return dealerCount >= 4 && dealerCount <= 6 ? false : true;
+			return (dealerCount >= 4 && dealerCount <= 6) ? false : true;
 		else if (value.count >= 13 && value.count <= 16)
-			return dealerCount >= 2 && dealerCount <= 6 ? false : true;
+			return (dealerCount >= 2 && dealerCount <= 6) ? false : true;
 		else
 			return false;
 	}
@@ -36,8 +36,8 @@ simplePlayer::draw(Card dealer, const Hand &player)
 		if (value.count <= 17)
 			return true;	
 		else if (value.count == 18)
-			return dealerCount == 2 || dealerCount == 7 
-				|| dealerCount == 8 ? false : true;
+			return (dealerCount == 2 || dealerCount == 7 || dealerCount == 8) ?
+																false : true;
 		else
 			return false;
 	}
