@@ -38,16 +38,20 @@ Hand::addCard(Card c)
 			curValue.count++;
 	}
 
-	else {
-		if (curValue.count > 10) {
+	else if (curValue.soft && c.spot != ACE){
+		if (curValue.count + cCount > 21) {
 			curValue.count += (cCount - 10);
 			curValue.soft = false;
 		}
-		else {
-			if (c.spot == ACE)
-				curValue.soft = true;
+		else
 			curValue.count += cCount;
-		}
+	}
+
+	else {
+		if (curvalue.count + cCount > 21)
+			curValue += 1;
+		else
+			curvalue += 11;
 	}
 }
 
