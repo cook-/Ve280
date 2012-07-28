@@ -79,6 +79,18 @@ countingPlayer::expose(Card c)
 		;
 }
 
+/*
+void
+countingPlayer::expose(Card c)
+{
+	unsigned int cCount = c.spot + 2;
+	if (cCount >= 10)
+		cnt--;
+	else
+		cnt++;
+}
+*/
+
 void
 countingPlayer::shuffled()
 {
