@@ -168,7 +168,7 @@ main(int argc, char *argv[])
 				bankroll += wager;
 			}
 			else
-				;
+				cout << "Push\n";
 		}
 
 		playerHand.discardAll();
