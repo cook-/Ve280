@@ -72,9 +72,11 @@ countingPlayer::expose(Card c)
 {
 	unsigned int cCount = c.spot + 2;
 	if (cCount >= 10)
+		cnt--;
+	else if (cCount >= 2 && cCount <= 6)
 		cnt++;
 	else
-		cnt--;
+		;
 }
 
 void
