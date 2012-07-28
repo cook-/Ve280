@@ -47,8 +47,6 @@ main(int argc, char *argv[])
 
 	unsigned int i;
 	for (i = 0; i != hands && bankroll >= wager; ++i) {
-		cout << "Hand " << i + 1 << " bankroll " << bankroll << endl;
-
 		if (deck.cardsLeft() < 20) {
 			cout << "Shuffling the deck\n";
 			for (int i = 0; i != 7; ++i) {
@@ -58,6 +56,8 @@ main(int argc, char *argv[])
 			}
 			player->shuffled();
 		}
+
+		cout << "Hand " << i + 1 << " bankroll " << bankroll << endl;
 
 		cout << "Player bets " << wager << endl;
 
