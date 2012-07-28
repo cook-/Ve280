@@ -78,7 +78,6 @@ Player dealt Two of Clubs
 Player dealt Queen of Spades
 Player's total is 24
 Player busts
-Hand 8 bankroll 305
 Shuffling the deck
 cut at 23
 cut at 22
@@ -87,6 +86,7 @@ cut at 25
 cut at 24
 cut at 22
 cut at 34
+Hand 8 bankroll 305
 Player bets 5
 Player dealt King of Clubs
 Dealer dealt Seven of Spades
@@ -143,7 +143,6 @@ Player dealt King of Hearts
 Player dealt Jack of Clubs
 Player's total is 25
 Player busts
-Hand 14 bankroll 270
 Shuffling the deck
 cut at 24
 cut at 33
@@ -152,6 +151,7 @@ cut at 21
 cut at 22
 cut at 13
 cut at 28
+Hand 14 bankroll 270
 Player bets 10
 Player dealt Nine of Diamonds
 Dealer dealt Five of Spades
@@ -211,7 +211,6 @@ Dealer dealt Three of Hearts
 Dealer dealt Four of Diamonds
 Dealer's total is 20
 Dealer wins
-Hand 20 bankroll 270
 Shuffling the deck
 cut at 28
 cut at 39
@@ -220,6 +219,7 @@ cut at 34
 cut at 20
 cut at 36
 cut at 38
+Hand 20 bankroll 270
 Player bets 10
 Player dealt Two of Spades
 Dealer dealt King of Clubs
@@ -280,7 +280,6 @@ Dealer's hole card is Two of Diamonds
 Dealer dealt Ten of Spades
 Dealer's total is 17
 Dealer wins
-Hand 26 bankroll 245
 Shuffling the deck
 cut at 38
 cut at 24
@@ -289,6 +288,7 @@ cut at 27
 cut at 17
 cut at 15
 cut at 26
+Hand 26 bankroll 245
 Player bets 10
 Player dealt Jack of Clubs
 Dealer dealt Queen of Spades
