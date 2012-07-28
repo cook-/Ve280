@@ -51,7 +51,7 @@ main(int argc, char *argv[])
 			cout << "Shuffling the deck\n";
 			for (int i = 0; i != 7; ++i) {
 				cut = get_cut();
-				deck.shuffle(get_cut());
+				deck.shuffle(cut);
 				cout << "cut at " << cut << endl;
 			}
 			player->shuffled();
