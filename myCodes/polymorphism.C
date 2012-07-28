@@ -24,6 +24,5 @@ int main()
 	B *b = new B;
 	bar(a);
 	bar(b);
-	a1.foo();
 	return 0;
 }
