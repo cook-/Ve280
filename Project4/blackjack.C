@@ -39,14 +39,14 @@ main(int argc, char *argv[])
 	player->shuffled();
 
 	unsigned int minimum = 5;
-	unsigned int wager = player->bet(bankroll, minimum);
+	unsigned int wager;
 	Card nextCard;
 	Card dealer;
 	Card holeCard;
 	HandValue playerValue, dealerValue;
 
 	unsigned int i;
-	for (i = 0; i != hands && bankroll >= wager; ++i) {
+	for (i = 0; i != hands && bankroll >= (wager = player->bet(bankroll, minimum)); ++i)
 		if (deck.cardsLeft() < 20) {
 			cout << "Shuffling the deck\n";
 			for (int i = 0; i != 7; ++i) {
@@ -171,7 +171,6 @@ main(int argc, char *argv[])
 				;
 		}
 
-		wager = player->bet(bankroll, minimum);
 		playerHand.discardAll();
 		dealerHand.discardAll();
 	}
