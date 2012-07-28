@@ -1,0 +1,182 @@
+133c133
+< Player bets 10
+---
+> Player bets 5
+140,141c140,141
+< Hand 13 bankroll 295
+< Player bets 10
+---
+> Hand 13 bankroll 300
+> Player bets 5
+145,148c145,148
+< Player dealt Four of Clubs
+< Player dealt Jack of Clubs
+< Player's total is 22
+< Player busts
+---
+> Player's total is 18
+> Dealer's hole card is King of Diamonds
+> Dealer's total is 18
+> Push
+157,158c157,158
+< Hand 14 bankroll 285
+< Player bets 10
+---
+> Hand 14 bankroll 300
+> Player bets 5
+168c168
+< Hand 15 bankroll 295
+---
+> Hand 15 bankroll 305
+176,177c176,177
+< Hand 16 bankroll 285
+< Player bets 10
+---
+> Hand 16 bankroll 295
+> Player bets 5
+186c186
+< Hand 17 bankroll 295
+---
+> Hand 17 bankroll 300
+195c195
+< Hand 18 bankroll 285
+---
+> Hand 18 bankroll 290
+204,207c204,206
+< Dealer dealt Six of Hearts
+< Dealer dealt Two of Clubs
+< Dealer's total is 17
+< Hand 19 bankroll 285
+---
+> Dealer's total is 19
+> Dealer wins
+> Hand 19 bankroll 280
+208a208,209
+> Player dealt Six of Hearts
+> Dealer dealt Two of Clubs
+210d210
+< Dealer dealt Jack of Clubs
+212,217c212,216
+< Player dealt Three of Hearts
+< Player dealt Ace of Spades
+< Player's total is 17
+< Dealer's hole card is Queen of Clubs
+< Dealer's total is 20
+< Dealer wins
+---
+> Player's total is 19
+> Dealer's hole card is Jack of Clubs
+> Dealer dealt Queen of Clubs
+> Dealer's total is 22
+> Dealer busts
+226,227c225,226
+< Hand 20 bankroll 275
+< Player bets 10
+---
+> Hand 20 bankroll 290
+> Player bets 5
+236c235
+< Hand 21 bankroll 265
+---
+> Hand 21 bankroll 285
+246c245
+< Hand 22 bankroll 255
+---
+> Hand 22 bankroll 275
+254d252
+< Dealer dealt King of Diamonds
+257,266c255,264
+< Hand 23 bankroll 265
+< Player bets 5
+< Player dealt Three of Diamonds
+< Dealer dealt Queen of Hearts
+< Player dealt Queen of Clubs
+< Player dealt Six of Clubs
+< Player's total is 19
+< Dealer's hole card is Three of Hearts
+< Dealer dealt Queen of Diamonds
+< Dealer's total is 23
+---
+> Hand 23 bankroll 285
+> Player bets 10
+> Player dealt King of Diamonds
+> Dealer dealt Three of Diamonds
+> Player dealt Queen of Hearts
+> Player's total is 20
+> Dealer's hole card is Queen of Clubs
+> Dealer dealt Three of Hearts
+> Dealer dealt Six of Clubs
+> Dealer's total is 22
+268c266
+< Hand 24 bankroll 270
+---
+> Hand 24 bankroll 295
+270,272c268,281
+< Player dealt Eight of Spades
+< Dealer dealt Two of Clubs
+< Player dealt Ace of Clubs
+---
+> Player dealt Queen of Diamonds
+> Dealer dealt Eight of Spades
+> Player dealt Two of Clubs
+> Player dealt Ace of Diamonds
+> Player dealt Jack of Clubs
+> Player's total is 23
+> Player busts
+> Hand 25 bankroll 290
+> Player bets 5
+> Player dealt Five of Clubs
+> Dealer dealt Nine of Clubs
+> Player dealt Two of Diamonds
+> Player dealt Seven of Clubs
+> Player dealt Five of Spades
+274,277c283,284
+< Dealer's hole card is Ace of Diamonds
+< Dealer dealt Jack of Clubs
+< Dealer dealt Five of Clubs
+< Dealer's total is 18
+---
+> Dealer's hole card is Eight of Clubs
+> Dealer's total is 17
+279,290d285
+< Hand 25 bankroll 275
+< Player bets 5
+< Player dealt Nine of Clubs
+< Dealer dealt Two of Diamonds
+< Player dealt Eight of Clubs
+< Player's total is 17
+< Dealer's hole card is Seven of Clubs
+< Dealer dealt Five of Spades
+< Dealer dealt Ace of Hearts
+< Dealer dealt King of Spades
+< Dealer's total is 25
+< Dealer busts
+299c294
+< Hand 26 bankroll 280
+---
+> Hand 26 bankroll 295
+309c304
+< Hand 27 bankroll 285
+---
+> Hand 27 bankroll 300
+319c314,315
+< Hand 28 bankroll 285
+---
+> Push
+> Hand 28 bankroll 300
+331,332c327,328
+< Hand 29 bankroll 290
+< Player bets 5
+---
+> Hand 29 bankroll 305
+> Player bets 10
+339,340c335,336
+< Hand 30 bankroll 285
+< Player bets 5
+---
+> Hand 30 bankroll 295
+> Player bets 10
+347c343
+< Player has 280 after 30 hands
+---
+> Player has 285 after 30 hands
