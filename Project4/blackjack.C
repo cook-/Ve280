@@ -50,7 +50,7 @@ main(int argc, char *argv[])
 		cout << "Hand " << i + 1 << " bankroll " << bankroll << endl;
 
 		if (deck.cardsLeft() < 20) {
-			deck.reset();
+			deck.next = 0;
 			cout << "Shuffling the deck\n";
 			for (int i = 0; i != 7; ++i) {
 				cut = get_cut();
