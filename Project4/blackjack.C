@@ -46,7 +46,7 @@ main(int argc, char *argv[])
 	HandValue playerValue, dealerValue;
 
 	unsigned int i;
-	for (i = 0; i != hands && bankroll >= (wager = player->bet(bankroll, minimum)); ++i)
+	for (i = 0; i != hands && bankroll >= (wager = player->bet(bankroll, minimum)); ++i) {
 		if (deck.cardsLeft() < 20) {
 			cout << "Shuffling the deck\n";
 			for (int i = 0; i != 7; ++i) {
