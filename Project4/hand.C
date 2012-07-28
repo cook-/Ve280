@@ -50,8 +50,10 @@ Hand::addCard(Card c)
 	else {
 		if (curValue.count + cCount > 21)
 			curValue.count += 1;
-		else
+		else {
 			curValue.count += 11;
+			curValue.soft = true;
+		}
 	}
 }
 
