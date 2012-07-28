@@ -48,7 +48,7 @@ Hand::addCard(Card c)
 	}
 
 	else {
-		if (curvalue.count + cCount > 21)
+		if (curValue.count + cCount > 21)
 			curValue += 1;
 		else
 			curvalue += 11;
