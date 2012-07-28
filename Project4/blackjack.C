@@ -114,33 +114,8 @@ main(int argc, char *argv[])
 			bankroll += 3*wager/2;
 			cout << "Player dealt natural 21\n";
 		}
-		
-		while (player->draw(dealer, playerHand) && playerValue.count <= 21) {
-			try {
-				nextCard = deck.deal();
-			}
-			catch (DeckEmpty) { 
-				cout << "Error: deck is empty!" << endl;
-				return 0;
-			}
-			player->expose(nextCard);
-			playerHand.addCard(nextCard);
-			playerValue = playerHand.handValue();
-			cout << "Player dealt " << SpotNames[nextCard.spot]
-				 << " of " << SuitNames[nextCard.suit] << endl;
-		}
-		cout << "Player's total is " << playerValue.count << endl;
-
-		if (playerValue.count > 21) {
-			cout << "Player busts\n";
-			bankroll -= wager;
-		}
 		else {
-			cout << "Dealer's hole card is " << SpotNames[holeCard.spot]
-				 << " of " << SuitNames[holeCard.suit] << endl;
-			player->expose(holeCard);
-			dealerValue = dealerHand.handValue();
-			while (dealerValue.count < 17) {
+			while (player->draw(dealer, playerHand) && playerValue.count <= 21) {
 				try {
 					nextCard = deck.deal();
 				}
@@ -149,27 +124,53 @@ main(int argc, char *argv[])
 					return 0;
 				}
 				player->expose(nextCard);
-				dealerHand.addCard(nextCard);
-				dealerValue = dealerHand.handValue();
-				cout << "Dealer dealt " << SpotNames[nextCard.spot]
+				playerHand.addCard(nextCard);
+				playerValue = playerHand.handValue();
+				cout << "Player dealt " << SpotNames[nextCard.spot]
 					 << " of " << SuitNames[nextCard.suit] << endl;
 			}
-			cout << "Dealer's total is " << dealerValue.count << endl;
-
-			if (dealerValue.count > 21) {
-				cout << "Dealer busts\n";
-				bankroll += wager;
-			}
-			else if (dealerValue.count > playerValue.count) {
-				cout << "Dealer wins\n";
+			cout << "Player's total is " << playerValue.count << endl;
+	
+			if (playerValue.count > 21) {
+				cout << "Player busts\n";
 				bankroll -= wager;
 			}
-			else if (dealerValue.count < playerValue.count) {
-				cout << "Player wins\n";
-				bankroll += wager;
+			else {
+				cout << "Dealer's hole card is " << SpotNames[holeCard.spot]
+					 << " of " << SuitNames[holeCard.suit] << endl;
+				player->expose(holeCard);
+				dealerValue = dealerHand.handValue();
+				while (dealerValue.count < 17) {
+					try {
+						nextCard = deck.deal();
+					}
+					catch (DeckEmpty) { 
+						cout << "Error: deck is empty!" << endl;
+						return 0;
+					}
+					player->expose(nextCard);
+					dealerHand.addCard(nextCard);
+					dealerValue = dealerHand.handValue();
+					cout << "Dealer dealt " << SpotNames[nextCard.spot]
+						 << " of " << SuitNames[nextCard.suit] << endl;
+				}
+				cout << "Dealer's total is " << dealerValue.count << endl;
+
+				if (dealerValue.count > 21) {
+					cout << "Dealer busts\n";
+					bankroll += wager;
+				}
+				else if (dealerValue.count > playerValue.count) {
+					cout << "Dealer wins\n";
+					bankroll -= wager;
+				}
+				else if (dealerValue.count < playerValue.count) {
+					cout << "Player wins\n";
+					bankroll += wager;
+				}
+				else
+					cout << "Push\n";
 			}
-			else
-				cout << "Push\n";
 		}
 
 		playerHand.discardAll();
