@@ -21,6 +21,8 @@ void bar(A *a)
 int main()
 {
 	A *a = new A;
+	B *b = new B;
 	bar(a);
+	bar(b);
 	return 0;
 }
