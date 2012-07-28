@@ -67,7 +67,6 @@ countingPlayer::bet(unsigned int bankroll, unsigned int minimum)
 										2*minimum : minimum;
 }
 
-/*
 void
 countingPlayer::expose(Card c)
 {
@@ -78,17 +77,6 @@ countingPlayer::expose(Card c)
 		cnt++;
 	else
 		;
-}
-*/
-
-void
-countingPlayer::expose(Card c)
-{
-	unsigned int cCount = c.spot + 2;
-	if (cCount >= 10)
-		cnt--;
-	else
-		cnt++;
 }
 
 void
