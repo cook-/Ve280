@@ -47,6 +47,8 @@ Deck::shuffle(int n)
 		for (int i = DeckSize - n; i != n; ++i)
 			deck[DeckSize - n + i] = tmp[i];
 	}
+
+	next = 0;
 }
 
 Card
