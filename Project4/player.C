@@ -67,6 +67,7 @@ countingPlayer::bet(unsigned int bankroll, unsigned int minimum)
 										2*minimum : minimum;
 }
 
+/*
 void
 countingPlayer::expose(Card c)
 {
@@ -78,8 +79,8 @@ countingPlayer::expose(Card c)
 	else
 		;
 }
+*/
 
-/*
 void
 countingPlayer::expose(Card c)
 {
@@ -89,7 +90,6 @@ countingPlayer::expose(Card c)
 	else
 		cnt++;
 }
-*/
 
 void
 countingPlayer::shuffled()
