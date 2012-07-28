@@ -13,10 +13,13 @@ public:
 	void A1() { cout << "B1() is called." << endl; }
 };
 
+// ambiguous
+/*
 class C: public B, public A
 {
 
 };
+*/
 
 int
 main()
@@ -26,6 +29,6 @@ main()
 	C c;
 	a.A1();
 	b.A1();
-	c.A1();
+//	c.A1();
 	return 0;
 }
