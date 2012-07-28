@@ -4,7 +4,7 @@ using namespace std;
 class A
 {
 public:
-	void foo() { cout << "A::foo() is called." << endl; }
+	virtual void foo() { cout << "A::foo() is called." << endl; }
 };
 
 class B: public A
