@@ -79,6 +79,7 @@ IntList::~IntList()
 	removeAll();
 }
 
+IntList &
 IntList::operator=(const IntList &l)
 {
 	if (this != &l) {
