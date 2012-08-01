@@ -2,6 +2,9 @@
  * implementation of linked list.
  */
 
+#include <iostream>
+using namespace std;
+
 struct node {
 	node *next;
 	int value;
