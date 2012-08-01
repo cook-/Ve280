@@ -79,5 +79,9 @@ IntList::~IntList()
 
 IntList::operator=(const IntList &l)
 {
-
+	if (this != &l) {
+		removeAll();
+		copyList(l.first);
+	}
+	return *this;
 }
