@@ -7,6 +7,8 @@ struct node {
 	int value;
 };
 
+class listIsEmpty {};
+
 class IntList {
 	node *first;
 	void removeAll();
