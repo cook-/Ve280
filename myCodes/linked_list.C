@@ -31,8 +31,9 @@ main()
 {
 	IntList list;
 	for (int i = 10; i != 0; --i)
-		list.insert();
+		list.insert(i);
 
+	int result;
 	while (!list.isEmpty()) {
 		result = list.remove();
 		cout << result << "->";
