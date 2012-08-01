@@ -23,6 +23,21 @@ public:
 	IntList &operator=(const IntList &l);	// assignment
 };
 
+int
+main()
+{
+	IntList list;
+	for (int i = 10; i != 0; --i)
+		list.insert();
+
+	while (!list.isEmpty()) {
+		result = list.remove();
+		cout << result << "->";
+	}
+	cout << "NULL" << endl;
+	
+	return 0;
+}
 void
 IntList::removeAll()
 {
