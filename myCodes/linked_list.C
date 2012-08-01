@@ -67,9 +67,9 @@ IntList::remove()
 	return result;
 }
 
-IntList::IntList(): first(NULL) {}
+IntList::IntList(): first(0) {}
 
-IntList::IntList(const IntList &l): first(NULL)
+IntList::IntList(const IntList &l): first(0)
 {
 	copyList(l.first);
 }
