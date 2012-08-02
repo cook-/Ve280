@@ -1,0 +1,34 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+BIGTHING_T_T	bigthing_t.h	2;"	d
+BigThing	bigthing_t.h	/^	BigThing(const BigThing &b): value(b.value) {}$/;"	f	class:BigThing
+BigThing	bigthing_t.h	/^	BigThing(int v = 0): value(v) {}$/;"	f	class:BigThing
+BigThing	bigthing_t.h	/^class BigThing: public Object$/;"	c
+LIST_T_H	list_t.h	2;"	d
+List	list_t.C	/^List::List(): first(0)$/;"	f	class:List
+List	list_t.C	/^List::List(const List &l): first(0)$/;"	f	class:List
+List	list_t.h	/^class List$/;"	c
+OBJECT_T_T	object_t.h	2;"	d
+Object	object_t.h	/^class Object$/;"	c
+clone	bigthing_t.C	/^Object *BigThing::clone()$/;"	f	class:BigThing
+copyList	list_t.C	/^void List::copyList(node *np)$/;"	f	class:List
+first	list_t.h	/^	node *first;$/;"	m	class:List
+get_value	bigthing_t.h	/^	int get_value() { return value; }$/;"	f	class:BigThing
+insert	list_t.C	/^void List::insert(Object *v)$/;"	f	class:List
+isEmpty	list_t.C	/^bool List::isEmpty()$/;"	f	class:List
+listIsEmpty	list_t.h	/^class listIsEmpty$/;"	c
+main	main.C	/^int main(int argc, char *argv[])$/;"	f
+next	list_t.h	/^		node *next;$/;"	m	struct:List::node
+node	list_t.h	/^	struct node$/;"	s	class:List
+operator =	list_t.C	/^List& List::operator=(const List &l)$/;"	f	class:List
+remove	list_t.C	/^Object *List::remove()$/;"	f	class:List
+removeAll	list_t.C	/^void List::removeAll()$/;"	f	class:List
+value	bigthing_t.h	/^	int value;$/;"	m	class:BigThing
+value	list_t.h	/^		Object *value;$/;"	m	struct:List::node
+~BigThing	bigthing_t.h	/^	~BigThing() {}$/;"	f	class:BigThing
+~List	list_t.C	/^List::~List()$/;"	f	class:List
+~Object	object_t.h	/^	virtual ~Object() {}$/;"	f	class:Object
