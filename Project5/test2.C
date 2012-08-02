@@ -9,9 +9,9 @@ int main(int argc, char *argv[])
 
     Dlist<int> ilist;
     int *ip = new int(1);
-    ilist.insertFront(ip);
+    ilist.insertBack(ip);
 
-    ip = ilist.removeFront();
+    ip = ilist.removeBack();
     if(*ip != 1)
         result = -1;
     delete ip;
