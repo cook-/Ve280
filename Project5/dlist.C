@@ -34,7 +34,7 @@ void
 Dlist<T>::insertBack(T *op)
 {
 	node *np = new node;
-	if (isEmpty) {
+	if (isEmpty()) {
 		first = np;
 		last = np;
 		np->next = 0;
