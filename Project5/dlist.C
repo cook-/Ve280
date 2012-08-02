@@ -101,7 +101,7 @@ Dlist<T>::Dlist(const Dlist &l): first(0), last(0)
 }
 
 template <class T>
-Dlist &
+Dlist<T> &
 Dlist<T>::operator=(const Dlist &l)
 {
 	if (this != &l) {
