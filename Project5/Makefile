@@ -2,7 +2,7 @@
 
 CC = g++
 HEADERS = dlist.h
-MAINSRCS = test.C
+MAINSRCS = test2.C
 SRCS = $(MAINSRCS)
 OBJS = $(SRCS:.C=.o)
 TARGETS = $(MAINSRCS:.C=)
