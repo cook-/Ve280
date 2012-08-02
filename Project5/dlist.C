@@ -59,12 +59,17 @@ Dlist<T>::removeFront()
 		emptyList e;
 		throw e;
 	}
-	if (first == last)
-		last = 0;
 
 	victim = first;
-	first = victim->next;
-	victim->next->prev = 0;
+	if (first == last) {
+		last = 0;
+		first = 0;
+	}
+	else {
+		first = victim->next;
+		victim->next->prev = 0;
+	}
+
 	T *result = victim->op;
 	delete victim;
 	return result;
@@ -79,11 +84,17 @@ Dlist<T>::removeBack()
 		emptyList e;
 		throw e;
 	}
-	if (first == last)
+
+	victim = first;
+	if (first == last) {
 		first = 0;
-	victim = last;
-	last = victim->prev;
-	victim->prev->next = 0;
+		last = 0;
+	}
+	else {
+		last = victim->prev;
+		victim->prev->next = 0;
+	}
+
 	T *result = victim->op;
 	delete victim;
 	return result;
