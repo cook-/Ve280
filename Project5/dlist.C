@@ -54,13 +54,12 @@ template <class T>
 T *
 Dlist<T>::removeFront()
 {
-	node *victim = new node;
 	if (isEmpty()) {
 		emptyList e;
 		throw e;
 	}
 
-	victim = first;
+	node *victim = first;
 	if (first == last) {
 		last = 0;
 		first = 0;
@@ -79,13 +78,12 @@ template <class T>
 T *
 Dlist<T>::removeBack()
 {
-	node *victim = new node;
 	if (isEmpty()) {
 		emptyList e;
 		throw e;
 	}
 
-	victim = first;
+	node *victim = first;
 	if (first == last) {
 		first = 0;
 		last = 0;
