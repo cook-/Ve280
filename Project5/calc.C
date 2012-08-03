@@ -6,6 +6,18 @@
 #include <cassert>
 using namespace std;
 
+void plus(Dlist<int> ilist);	
+void minus(Dlist<int> ilist);
+void multiply(Dlist<int> ilist);
+void divide(Dlist<int> ilist);
+void negate(Dlist<int> ilist);
+void duplicate(Dlist<int> ilist);
+void reverse(Dlist<int> ilist);
+void print(Dlist<int> ilist);
+void clear(Dlist<int> ilist);
+void printAll(Dlist<int> ilist);
+void quit(Dlist<int> ilist);
+
 int
 main()
 {
@@ -13,8 +25,44 @@ main()
 	string cmd;
 	cin >> cmd;
 	if (cmd.size() == 1)
-		cout << "ok" << endl;
+		switch (cmd[0])
+		{
+			case '+': plus(ilist);		break;
+			case '-': minus(ilist);		break;
+			case '*': multiply(ilist);	break;
+			case '/': divide(ilist);	break;
+			case 'n': negate(ilist);	break;
+			case 'd': duplicate(ilist);	break;
+			case 'r': reverse(ilist);	break;
+			case 'p': print(ilist);		break;
+			case 'c': clear(ilist);		break;
+			case 'a': printAll(ilist);	break;
+			case 'q': quit();			break;
+		}
+
+	else {
+		if (!checkValid(cmd))
+			cout << "Bad input\n";
+		else
+			ilist.insertFront(atoi(cmd));
+	}
 
 
 	return 0;
 }
+
+void plus(Dlist<int> ilist)
+{
+	
+}
+
+void minus(Dlist<int> ilist){}
+void multiply(Dlist<int> ilist){}
+void divide(Dlist<int> ilist){}
+void negate(Dlist<int> ilist){}
+void duplicate(Dlist<int> ilist){}
+void reverse(Dlist<int> ilist){}
+void print(Dlist<int> ilist){}
+void clear(Dlist<int> ilist){}
+void printAll(Dlist<int> ilist){}
+void quit(Dlist<int> ilist){}
