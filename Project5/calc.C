@@ -17,7 +17,7 @@ void print(Dlist<int> &);
 void clear(Dlist<int> &);
 void printAll(Dlist<int> &);
 void quit(Dlist<int> &);
-bool checkValid(string);
+bool checkValid(const string);
 
 int
 main()
@@ -29,7 +29,7 @@ main()
 	if (cmd.size() == 1)
 		switch (cmd[0])
 		{
-			case '+': plus(ilist);		break;
+			case '+': pluss(ilist);		break;
 			case '-': minus(ilist);		break;
 			case '*': multiply(ilist);	break;
 			case '/': divide(ilist);	break;
@@ -55,7 +55,7 @@ main()
 	return 0;
 }
 
-void plus(Dlist<int> &ilist)
+void pluss(Dlist<int> &ilist)
 {
 	
 }
