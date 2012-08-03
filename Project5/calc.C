@@ -88,9 +88,10 @@ void Reverse(Dlist<int> &ilist){}
 void Print(Dlist<int> &ilist){}
 void Clear(Dlist<int> &ilist){}
 void PrintAll(Dlist<int> &ilist){}
+
 void Quit(Dlist<int> &ilist)
 {
-	ilist.removeAll();
+	ilist.~Dlist();
 	exit(0);
 }
 
