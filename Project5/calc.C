@@ -6,18 +6,18 @@
 #include <cassert>
 using namespace std;
 
-void pluss(Dlist<int> &);	
-void minus(Dlist<int> &);
-void multiply(Dlist<int> &);
-void divide(Dlist<int> &);
-void negate(Dlist<int> &);
-void duplicate(Dlist<int> &);
-void reverse(Dlist<int> &);
-void print(Dlist<int> &);
-void clear(Dlist<int> &);
-void printAll(Dlist<int> &);
-void quit(Dlist<int> &);
-bool checkValid(const string);
+void Plus(Dlist<int> &);	
+void Minus(Dlist<int> &);
+void Multiply(Dlist<int> &);
+void Divide(Dlist<int> &);
+void Negate(Dlist<int> &);
+void Duplicate(Dlist<int> &);
+void Reverse(Dlist<int> &);
+void Print(Dlist<int> &);
+void Clear(Dlist<int> &);
+void PrintAll(Dlist<int> &);
+void Quit(Dlist<int> &);
+bool CheckValid(const string);
 
 int
 main()
@@ -29,17 +29,17 @@ main()
 	if (cmd.size() == 1)
 		switch (cmd[0])
 		{
-			case '+': pluss(ilist);		break;
-			case '-': minus(ilist);		break;
-			case '*': multiply(ilist);	break;
-			case '/': divide(ilist);	break;
-			case 'n': negate(ilist);	break;
-			case 'd': duplicate(ilist);	break;
-			case 'r': reverse(ilist);	break;
-			case 'p': print(ilist);		break;
-			case 'c': clear(ilist);		break;
-			case 'a': printAll(ilist);	break;
-			case 'q': quit(ilist);			break;
+			case '+': Plus(ilist);		break;
+			case '-': Minus(ilist);		break;
+			case '*': Multiply(ilist);	break;
+			case '/': Divide(ilist);	break;
+			case 'n': Negate(ilist);	break;
+			case 'd': Duplicate(ilist);	break;
+			case 'r': Reverse(ilist);	break;
+			case 'p': Print(ilist);		break;
+			case 'c': Clear(ilist);		break;
+			case 'a': PrintAll(ilist);	break;
+			case 'q': Quit(ilist);			break;
 		}
 
 	else {
@@ -55,23 +55,23 @@ main()
 	return 0;
 }
 
-void pluss(Dlist<int> &ilist)
+void Plus(Dlist<int> &ilist)
 {
 	
 }
 
-void minus(Dlist<int> &ilist){}
-void multiply(Dlist<int> &ilist){}
-void divide(Dlist<int> &ilist){}
-void negate(Dlist<int> &ilist){}
-void duplicate(Dlist<int> &ilist){}
-void reverse(Dlist<int> &ilist){}
-void print(Dlist<int> &ilist){}
-void clear(Dlist<int> &ilist){}
-void printAll(Dlist<int> &ilist){}
-void quit(Dlist<int> &ilist){}
+void Minus(Dlist<int> &ilist){}
+void Multiply(Dlist<int> &ilist){}
+void Divide(Dlist<int> &ilist){}
+void Negate(Dlist<int> &ilist){}
+void Duplicate(Dlist<int> &ilist){}
+void Reverse(Dlist<int> &ilist){}
+void Print(Dlist<int> &ilist){}
+void Clear(Dlist<int> &ilist){}
+void PrintAll(Dlist<int> &ilist){}
+void Quit(Dlist<int> &ilist){}
 
-bool checkValid(string str)
+bool CheckValid(string str)
 {
 	return true;
 }
