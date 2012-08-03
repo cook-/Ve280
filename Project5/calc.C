@@ -23,6 +23,7 @@ int
 main()
 {
 	Dlist<int> ilist;
+	int *ip = 0;
 	string cmd;
 	cin >> cmd;
 	if (cmd.size() == 1)
@@ -38,14 +39,16 @@ main()
 			case 'p': print(ilist);		break;
 			case 'c': clear(ilist);		break;
 			case 'a': printAll(ilist);	break;
-			case 'q': quit();			break;
+			case 'q': quit(ilist);			break;
 		}
 
 	else {
 		if (!checkValid(cmd))
 			cout << "Bad input\n";
-		else
-			ilist.insertFront(atoi(cmd.c_str()));
+		else {
+			ip = new int(atoi(cmd.c_str()));
+			ilist.insertFront(ip);
+		}
 	}
 
 
