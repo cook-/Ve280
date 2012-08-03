@@ -96,7 +96,18 @@ void Print(Dlist<int> &ilist)
 }
 
 void Clear(Dlist<int> &ilist){}
-void PrintAll(Dlist<int> &ilist){}
+void PrintAll(Dlist<int> &ilist)
+{
+	Dlist<int> tmplist;
+	int *ip = 0;
+	while (!ilist.isEmpty()) {
+		ip = ilist.removeFront();
+		cout << *ip << " ";
+		tmplist.insertBack(ip);
+	}
+	cout << endl;
+	ilist = tmplist;
+}
 
 void Quit(Dlist<int> &ilist)
 {
