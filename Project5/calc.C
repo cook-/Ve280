@@ -17,7 +17,7 @@ void Print(Dlist<int> &);
 void Clear(Dlist<int> &);
 void PrintAll(Dlist<int> &);
 void Quit(Dlist<int> &);
-bool CheckValid(const string);
+bool CheckValid(const string &);
 
 int
 main()
@@ -95,7 +95,7 @@ void Quit(Dlist<int> &ilist)
 	exit(0);
 }
 
-bool CheckValid(string str)
+bool CheckValid(const string &str)
 {
 	bool isValid = true;
 
