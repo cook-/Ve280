@@ -44,13 +44,11 @@ main()
 				default: ;
 			}
 
+		if (!CheckValid(cmd))
+			cout << "Bad input\n";
 		else {
-			if (!CheckValid(cmd))
-				cout << "Bad input\n";
-			else {
-				ip = new int(atoi(cmd.c_str()));
-				ilist.insertFront(ip);
-			}
+			ip = new int(atoi(cmd.c_str()));
+			ilist.insertFront(ip);
 		}
 	}
 
@@ -99,12 +97,22 @@ bool CheckValid(const string &str)
 {
 	bool isValid = true;
 
-	if (str[0] < '0' || str[0] > '9' || str[0] != '-')
-		isValid = false;
+	if (str.size() == 1) {
+		if (str[0] != '+' && str[0] != '-' && str[0] != '*' && str[0] != '/' 
+		  && str[0] != 'n' && str[0] != 'd' && str[0] != 'r' && str[0] != 'p'
+		    && str[0] != 'c' && str[0] != 'a' && str[0] != 'q'
+			  && (str[0] < '0' || str[0] > '9'))
+		  	isValid = false;
+	}
 
-	for (size_t i = 1; i != str.size(); ++i)
-		if (str[i] < '0' || str[i] > '9')
+	else {
+		if (str[0] < '0' || str[0] > '9' || str[0] != '-')
 			isValid = false;
+
+		for (size_t i = 1; i != str.size(); ++i)
+			if (str[i] < '0' || str[i] > '9')
+				isValid = false;
+	}
 
 	return isValid;
 }
