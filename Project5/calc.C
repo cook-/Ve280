@@ -25,29 +25,31 @@ main()
 	Dlist<int> ilist;
 	int *ip = 0;
 	string cmd;
+	while (1) {
 	cin >> cmd;
 	if (cmd.size() == 1)
-		switch (cmd[0])
-		{
-			case '+': Plus(ilist);		break;
-			case '-': Minus(ilist);		break;
-			case '*': Multiply(ilist);	break;
-			case '/': Divide(ilist);	break;
-			case 'n': Negate(ilist);	break;
-			case 'd': Duplicate(ilist);	break;
-			case 'r': Reverse(ilist);	break;
-			case 'p': Print(ilist);		break;
-			case 'c': Clear(ilist);		break;
-			case 'a': PrintAll(ilist);	break;
-			case 'q': Quit(ilist);		break;
-		}
+			switch (cmd[0])
+			{
+				case '+': Plus(ilist);		break;
+				case '-': Minus(ilist);		break;
+				case '*': Multiply(ilist);	break;
+				case '/': Divide(ilist);	break;
+				case 'n': Negate(ilist);	break;
+				case 'd': Duplicate(ilist);	break;
+				case 'r': Reverse(ilist);	break;
+				case 'p': Print(ilist);		break;
+				case 'c': Clear(ilist);		break;
+				case 'a': PrintAll(ilist);	break;
+				case 'q': Quit(ilist);		break;
+			}
 
-	else {
-		if (!CheckValid(cmd))
-			cout << "Bad input\n";
 		else {
-			ip = new int(atoi(cmd.c_str()));
-			ilist.insertFront(ip);
+			if (!CheckValid(cmd))
+				cout << "Bad input\n";
+			else {
+				ip = new int(atoi(cmd.c_str()));
+				ilist.insertFront(ip);
+			}
 		}
 	}
 
@@ -59,18 +61,20 @@ void Plus(Dlist<int> &ilist)
 	int *ip = new int(0);
 
 	if (ilist.isEmpty()) {
-		emptyList e;
-		throw e;
+		cout << "Not enough operands\n";
+		delete ip;
 	}
-	(*ip) += *(ilist.removeFront());
 
-	if (ilist.isEmpty()) {
-		emptyList e;
-		throw e;
+	else {
+		(*ip) += *(ilist.removeFront());
+		if (ilist.isEmpty()) {
+			cout << "Not enough operands\n";
+			delete ip;
+		}
+		else {
+			(*ip) += *(ilist.removeFront());
+			ilist.insertFront(ip);
 	}
-	(*ip) = *(ilist.removeFront());
-	
-	ilist.insertFront(ip);
 }
 
 void Minus(Dlist<int> &ilist){}
@@ -82,7 +86,11 @@ void Reverse(Dlist<int> &ilist){}
 void Print(Dlist<int> &ilist){}
 void Clear(Dlist<int> &ilist){}
 void PrintAll(Dlist<int> &ilist){}
-void Quit(Dlist<int> &ilist){}
+void Quit(Dlist<int> &ilist)
+{
+	ilist.removeAll();
+	exit(0);
+}
 
 bool CheckValid(string str)
 {
