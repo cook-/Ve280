@@ -6,17 +6,18 @@
 #include <cassert>
 using namespace std;
 
-void plus(Dlist<int> ilist);	
-void minus(Dlist<int> ilist);
-void multiply(Dlist<int> ilist);
-void divide(Dlist<int> ilist);
-void negate(Dlist<int> ilist);
-void duplicate(Dlist<int> ilist);
-void reverse(Dlist<int> ilist);
-void print(Dlist<int> ilist);
-void clear(Dlist<int> ilist);
-void printAll(Dlist<int> ilist);
-void quit(Dlist<int> ilist);
+void plus(Dlist<int> &);	
+void minus(Dlist<int> &);
+void multiply(Dlist<int> &);
+void divide(Dlist<int> &);
+void negate(Dlist<int> &);
+void duplicate(Dlist<int> &);
+void reverse(Dlist<int> &);
+void print(Dlist<int> &);
+void clear(Dlist<int> &);
+void printAll(Dlist<int> &);
+void quit(Dlist<int> &);
+bool checkValid(string);
 
 int
 main()
@@ -44,25 +45,30 @@ main()
 		if (!checkValid(cmd))
 			cout << "Bad input\n";
 		else
-			ilist.insertFront(atoi(cmd));
+			ilist.insertFront(atoi(cmd.c_str()));
 	}
 
 
 	return 0;
 }
 
-void plus(Dlist<int> ilist)
+void plus(Dlist<int> &ilist)
 {
 	
 }
 
-void minus(Dlist<int> ilist){}
-void multiply(Dlist<int> ilist){}
-void divide(Dlist<int> ilist){}
-void negate(Dlist<int> ilist){}
-void duplicate(Dlist<int> ilist){}
-void reverse(Dlist<int> ilist){}
-void print(Dlist<int> ilist){}
-void clear(Dlist<int> ilist){}
-void printAll(Dlist<int> ilist){}
-void quit(Dlist<int> ilist){}
+void minus(Dlist<int> &ilist){}
+void multiply(Dlist<int> &ilist){}
+void divide(Dlist<int> &ilist){}
+void negate(Dlist<int> &ilist){}
+void duplicate(Dlist<int> &ilist){}
+void reverse(Dlist<int> &ilist){}
+void print(Dlist<int> &ilist){}
+void clear(Dlist<int> &ilist){}
+void printAll(Dlist<int> &ilist){}
+void quit(Dlist<int> &ilist){}
+
+bool checkValid(string str)
+{
+	return true;
+}
