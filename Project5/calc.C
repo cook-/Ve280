@@ -39,7 +39,7 @@ main()
 			case 'p': Print(ilist);		break;
 			case 'c': Clear(ilist);		break;
 			case 'a': PrintAll(ilist);	break;
-			case 'q': Quit(ilist);			break;
+			case 'q': Quit(ilist);		break;
 		}
 
 	else {
@@ -51,13 +51,26 @@ main()
 		}
 	}
 
-
 	return 0;
 }
 
 void Plus(Dlist<int> &ilist)
 {
+	int *ip = new int(0);
+
+	if (ilist.isEmpty()) {
+		emptyList e;
+		throw e;
+	}
+	(*ip) += *(ilist.removeFront());
+
+	if (ilist.isEmpty()) {
+		emptyList e;
+		throw e;
+	}
+	(*ip) = *(ilist.removeFront());
 	
+	ilist.insertFront(ip);
 }
 
 void Minus(Dlist<int> &ilist){}
@@ -73,5 +86,14 @@ void Quit(Dlist<int> &ilist){}
 
 bool CheckValid(string str)
 {
-	return true;
+	bool isValid = true;
+
+	if (str[0] < '0' || str[0] > '9' || str[0] != '-')
+		isValid = false;
+
+	for (size_t i = 1; i != str.size(); ++i)
+		if (str[i] < '0' || str[i] > '9')
+			isValid = false;
+
+	return isValid;
 }
