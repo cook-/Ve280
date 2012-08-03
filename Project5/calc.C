@@ -26,8 +26,8 @@ main()
 	int *ip = 0;
 	string cmd;
 	while (1) {
-	cin >> cmd;
-	if (cmd.size() == 1)
+		cin >> cmd;
+		if (cmd.size() == 1)
 			switch (cmd[0])
 			{
 				case '+': Plus(ilist);		break;
@@ -41,6 +41,7 @@ main()
 				case 'c': Clear(ilist);		break;
 				case 'a': PrintAll(ilist);	break;
 				case 'q': Quit(ilist);		break;
+				default: ;
 			}
 
 		else {
@@ -74,6 +75,7 @@ void Plus(Dlist<int> &ilist)
 		else {
 			(*ip) += *(ilist.removeFront());
 			ilist.insertFront(ip);
+		}
 	}
 }
 
