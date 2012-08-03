@@ -12,7 +12,7 @@ main()
 	Dlist<int> ilist;
 	string cmd;
 	cin >> cmd;
-	if (cmd.length == 1)
+	if (cmd.size() == 1)
 		cout << "ok" << endl;
 
 
