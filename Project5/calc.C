@@ -6,7 +6,7 @@
 #include <cassert>
 using namespace std;
 
-void plus(Dlist<int> &);	
+void pluss(Dlist<int> &);	
 void minus(Dlist<int> &);
 void multiply(Dlist<int> &);
 void divide(Dlist<int> &);
