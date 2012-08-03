@@ -43,7 +43,7 @@ main()
 		}
 
 	else {
-		if (!checkValid(cmd))
+		if (!CheckValid(cmd))
 			cout << "Bad input\n";
 		else {
 			ip = new int(atoi(cmd.c_str()));
