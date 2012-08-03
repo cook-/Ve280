@@ -1,3 +1,5 @@
+#include "dlist.h"
+#include "dlist.C"
 #include <iostream>
 #include <string>
 #include <cstdlib>
