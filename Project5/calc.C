@@ -83,7 +83,18 @@ void Divide(Dlist<int> &ilist){}
 void Negate(Dlist<int> &ilist){}
 void Duplicate(Dlist<int> &ilist){}
 void Reverse(Dlist<int> &ilist){}
-void Print(Dlist<int> &ilist){}
+
+void Print(Dlist<int> &ilist)
+{
+	if (ilist.isEmpty())
+		cout << "Not enough operands\n";
+	else {
+		int *ip = ilist.removeFront();
+		cout << *ip << endl;
+		ilist.insertFront(ip);
+	}
+}
+
 void Clear(Dlist<int> &ilist){}
 void PrintAll(Dlist<int> &ilist){}
 
