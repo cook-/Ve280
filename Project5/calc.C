@@ -47,7 +47,7 @@ main()
 						ip = new int(atoi(cmd.c_str()));
 						ilist.insertFront(ip);
 						}
-						break;
+					break;
 				}
 			else {
 				ip = new int(atoi(cmd.c_str()));
@@ -75,7 +75,7 @@ void Plus(Dlist<int> &ilist)
 		}
 		else {
 			bp = ilist.removeFront();
-			*ap += *bp;
+			(*ap) += (*bp);
 			delete bp;
 			ilist.insertFront(ap);
 		}
