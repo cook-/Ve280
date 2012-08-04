@@ -27,52 +27,52 @@ main()
 	string cmd;
 	while (1) {
 		cin >> cmd;
-		if (cmd.size() == 1)
-			switch (cmd[0])
-			{
-				case '+': Plus(ilist);		break;
-				case '-': Minus(ilist);		break;
-				case '*': Multiply(ilist);	break;
-				case '/': Divide(ilist);	break;
-				case 'n': Negate(ilist);	break;
-				case 'd': Duplicate(ilist);	break;
-				case 'r': Reverse(ilist);	break;
-				case 'p': Print(ilist);		break;
-				case 'c': Clear(ilist);		break;
-				case 'a': PrintAll(ilist);	break;
-				case 'q': Quit(ilist);		break;
-				default: ;
-			}
-
-		if (!CheckValid(cmd))
+		if (!checkValid(cmd))
 			cout << "Bad input\n";
 		else {
-			ip = new int(atoi(cmd.c_str()));
-			ilist.insertFront(ip);
+			if (cmd.size() == 1)
+				switch (cmd[0])	{
+					case '+': Plus(ilist);		break;
+					case '-': Minus(ilist);		break;
+					case '*': Multiply(ilist);	break;
+					case '/': Divide(ilist);	break;
+					case 'n': Negate(ilist);	break;
+					case 'd': Duplicate(ilist);	break;
+					case 'r': Reverse(ilist);	break;
+					case 'p': Print(ilist);		break;
+					case 'c': Clear(ilist);		break;
+					case 'a': PrintAll(ilist);	break;
+					case 'q': Quit(ilist);		break;
+					default: ;
+				}
+			else {
+				ip = new int(atoi(cmd.c_str()));
+				ilist.insertFront(ip);
+			}
 		}
-	}
 
 	return 0;
 }
 
 void Plus(Dlist<int> &ilist)
 {
-	int *ip = new int(0);
+	int *ap = 0;
+	int *bp = 0;
 
-	if (ilist.isEmpty()) {
+	if (ilist.isEmpty())
 		cout << "Not enough operands\n";
-		delete ip;
-	}
 
 	else {
-		(*ip) += *(ilist.removeFront());
+		ap = ilist.removeFront();
 		if (ilist.isEmpty()) {
+			ilist.insertFront(ap);
 			cout << "Not enough operands\n";
-			delete ip;
 		}
 		else {
-			(*ip) += *(ilist.removeFront());
-			ilist.insertFront(ip);
+			bp = ilist.removeFront();
+			*ap += *bp;
+			delete bp;
+			ilist.insertFront(ap);
 		}
 	}
 }
@@ -86,12 +86,13 @@ void Reverse(Dlist<int> &ilist){}
 
 void Print(Dlist<int> &ilist)
 {
+	int *ap = 0;
 	if (ilist.isEmpty())
 		cout << "Not enough operands\n";
 	else {
-		int *ip = ilist.removeFront();
-		cout << *ip << endl;
-		ilist.insertFront(ip);
+		*ap = ilist.removeFront();
+		cout << *ap << endl;
+		ilist.insertFront(ap);
 	}
 }
 
