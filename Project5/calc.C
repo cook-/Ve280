@@ -75,19 +75,129 @@ void Plus(Dlist<int> &ilist)
 		}
 		else {
 			bp = ilist.removeFront();
-			(*ap) += (*bp);
-			delete bp;
-			ilist.insertFront(ap);
+			*bp += *ap;
+			delete ap;
+			ilist.insertFront(bp);
 		}
 	}
 }
 
-void Minus(Dlist<int> &ilist){}
-void Multiply(Dlist<int> &ilist){}
-void Divide(Dlist<int> &ilist){}
-void Negate(Dlist<int> &ilist){}
-void Duplicate(Dlist<int> &ilist){}
-void Reverse(Dlist<int> &ilist){}
+void Minus(Dlist<int> &ilist)
+{
+	int *ap = 0;
+	int *bp = 0;
+
+	if (ilist.isEmpty())
+		cout << "Not enough operands\n";
+
+	else {
+		ap = ilist.removeFront();
+		if (ilist.isEmpty()) {
+			ilist.insertFront(ap);
+			cout << "Not enough operands\n";
+		}
+		else {
+			bp = ilist.removeFront();
+			*bp -= *ap;
+			delete ap;
+			ilist.insertFront(bp);
+		}
+	}
+}
+
+void Multiply(Dlist<int> &ilist)
+{
+	int *ap = 0;
+	int *bp = 0;
+
+	if (ilist.isEmpty())
+		cout << "Not enough operands\n";
+
+	else {
+		ap = ilist.removeFront();
+		if (ilist.isEmpty()) {
+			ilist.insertFront(ap);
+			cout << "Not enough operands\n";
+		}
+		else {
+			bp = ilist.removeFront();
+			*bp *= *ap;
+			delete ap;
+			ilist.insertFront(bp);
+		}
+	}
+}
+
+void Divide(Dlist<int> &ilist)
+{
+	int *ap = 0;
+	int *bp = 0;
+
+	if (ilist.isEmpty())
+		cout << "Not enough operands\n";
+
+	else {
+		ap = ilist.removeFront();
+		if (ilist.isEmpty()) {
+			ilist.insertFront(ap);
+			cout << "Not enough operands\n";
+		}
+		else {
+			bp = ilist.removeFront();
+			*bp /= *ap;
+			delete ap;
+			ilist.insertFront(bp);
+		}
+	}
+}
+
+void Negate(Dlist<int> &ilist)
+{
+	int *ip = 0;
+	if (ilist.isEmpty())
+		cout << "Not enough operands\n";
+	else {
+		ip = ilist.removeFront();
+		*ip *= -1;
+		ilist.insertFront(ip);
+	}
+}
+
+void Duplicate(Dlist<int> &ilist)
+{
+	int *ip = 0;
+	if (ilist.isEmpty())
+		cout << "Not enough operands\n";
+	else {
+		int *dup = new int;
+		ip = ilist.removeFront();
+		*dup = *ip;
+		ilist.insertFront(ip);
+		ilist.insertFront(dup);
+	}
+}
+
+void Reverse(Dlist<int> &ilist)
+{
+	int *ap = 0;
+	int *bp = 0;
+
+	if (ilist.isEmpty())
+		cout << "Not enough operands\n";
+
+	else {
+		ap = ilist.removeFront();
+		if (ilist.isEmpty()) {
+			ilist.insertFront(ap);
+			cout << "Not enough operands\n";
+		}
+		else {
+			bp = ilist.removeFront();
+			ilist.insertFront(ap);
+			ilist.insertFront(bp);
+		}
+	}
+}
 
 void Print(Dlist<int> &ilist)
 {
@@ -101,7 +211,15 @@ void Print(Dlist<int> &ilist)
 	}
 }
 
-void Clear(Dlist<int> &ilist){}
+void Clear(Dlist<int> &ilist)
+{
+	int *ip = 0;
+	while (!ilist.isEmpty()) {
+		ip = removeFront();
+		delete ip;
+	}
+}
+
 void PrintAll(Dlist<int> &ilist)
 {
 	Dlist<int> tmplist;
@@ -127,11 +245,7 @@ void PrintAll(Dlist<int> &ilist)
 
 void Quit(Dlist<int> &ilist)
 {
-	int *ip = 0;
-	while (!ilist.isEmpty()) {
-		ip = ilist.removeFront();
-		delete ip;
-	}
+	Clear(ilist);
 	exit(0);
 }
 
