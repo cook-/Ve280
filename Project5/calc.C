@@ -43,7 +43,7 @@ main()
 					case 'c': Clear(ilist);		break;
 					case 'a': PrintAll(ilist);	break;
 					case 'q': Quit(ilist);		break;
-					default: ;
+					default: ilist.insertFront(ip); break;
 				}
 			else {
 				ip = new int(atoi(cmd.c_str()));
