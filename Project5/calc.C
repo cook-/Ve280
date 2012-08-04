@@ -50,6 +50,7 @@ main()
 				ilist.insertFront(ip);
 			}
 		}
+	}
 
 	return 0;
 }
