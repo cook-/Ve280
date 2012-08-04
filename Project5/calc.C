@@ -106,11 +106,16 @@ void PrintAll(Dlist<int> &ilist)
 {
 	Dlist<int> tmplist;
 	int *ip = 0;
+
+	if (!ilist.isEmpty())
+		cout << "\n";
+
 	while (!ilist.isEmpty()) {
 		ip = ilist.removeFront();
 		cout << *ip << " ";
 		tmplist.insertBack(ip);
 	}
+
 	cout << endl;
 
 	while (!tmplist.isEmpty()) {
