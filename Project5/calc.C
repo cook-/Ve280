@@ -87,13 +87,13 @@ void Reverse(Dlist<int> &ilist){}
 
 void Print(Dlist<int> &ilist)
 {
-	int *ap = 0;
+	int *ip = 0;
 	if (ilist.isEmpty())
 		cout << "Not enough operands\n";
 	else {
-		*ap = ilist.removeFront();
-		cout << *ap << endl;
-		ilist.insertFront(ap);
+		ip = ilist.removeFront();
+		cout << *ip << endl;
+		ilist.insertFront(ip);
 	}
 }
 
