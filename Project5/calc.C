@@ -148,7 +148,7 @@ bool CheckValid(const string &str)
 	}
 
 	else {
-		if (str[0] < '0' || str[0] > '9' || str[0] != '-')
+		if (str[0] < '0' && str[0] > '9' && str[0] != '-')
 			isValid = false;
 
 		for (size_t i = 1; i != str.size(); ++i)
