@@ -42,7 +42,7 @@ main()
 					case 'p': Print(ilist);		break;
 					case 'c': Clear(ilist);		break;
 					case 'a': PrintAll(ilist);	break;
-					case 'q': Quit(ilist);		break;
+					case 'q': return 0;		break;
 					default: {
 						ip = new int(atoi(cmd.c_str()));
 						ilist.insertFront(ip);
