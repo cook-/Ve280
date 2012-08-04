@@ -109,7 +109,7 @@ void PrintAll(Dlist<int> &ilist)
 
 	while (!tmplist.isEmpty()) {
 		ip = tmplist.removeFront();
-		tmp.insertBack(ip);
+		tmplist.insertBack(ip);
 	}
 }
 
