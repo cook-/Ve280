@@ -116,7 +116,11 @@ void PrintAll(Dlist<int> &ilist)
 
 void Quit(Dlist<int> &ilist)
 {
-	ilist.~Dlist();
+	int *ip = 0;
+	while (!ilist.isEmpty()) {
+		ip = ilist.removeFront();
+		delete ip;
+	}
 	exit(0);
 }
 
