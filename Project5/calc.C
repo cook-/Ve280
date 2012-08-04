@@ -54,6 +54,7 @@ main()
 	return 0;
 }
 
+/*
 void Plus(Dlist<int> &ilist)
 {
 	int *ap = 0;
@@ -76,7 +77,7 @@ void Plus(Dlist<int> &ilist)
 		}
 	}
 }
-
+*/
 void Minus(Dlist<int> &ilist){}
 void Multiply(Dlist<int> &ilist){}
 void Divide(Dlist<int> &ilist){}
