@@ -120,7 +120,7 @@ void PrintAll(Dlist<int> &ilist)
 
 	while (!tmplist.isEmpty()) {
 		ip = tmplist.removeFront();
-		tmplist.insertBack(ip);
+		ilist.insertBack(ip);
 	}
 }
 
