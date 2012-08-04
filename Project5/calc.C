@@ -215,7 +215,7 @@ void Clear(Dlist<int> &ilist)
 {
 	int *ip = 0;
 	while (!ilist.isEmpty()) {
-		ip = removeFront();
+		ip = ilist.removeFront();
 		delete ip;
 	}
 }
