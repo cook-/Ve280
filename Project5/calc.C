@@ -16,7 +16,6 @@ void Reverse(Dlist<int> &);
 void Print(Dlist<int> &);
 void Clear(Dlist<int> &);
 void PrintAll(Dlist<int> &);
-void Quit(Dlist<int> &);
 bool CheckValid(const string &);
 
 int
@@ -241,12 +240,6 @@ void PrintAll(Dlist<int> &ilist)
 			ilist.insertBack(ip);
 		}
 	}
-}
-
-void Quit(Dlist<int> &ilist)
-{
-	Clear(ilist);
-	exit(0);
 }
 
 bool CheckValid(const string &str)
