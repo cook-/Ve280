@@ -107,7 +107,7 @@ void PrintAll(Dlist<int> &ilist)
 	Dlist<int> tmplist;
 	int *ip = 0;
 
-	if (!ilist.isEmpty())
+	if (ilist.isEmpty())
 		cout << "\n";
 
 	while (!ilist.isEmpty()) {
