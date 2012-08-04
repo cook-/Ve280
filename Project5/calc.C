@@ -27,7 +27,7 @@ main()
 	string cmd;
 	while (1) {
 		cin >> cmd;
-		if (!checkValid(cmd))
+		if (!CheckValid(cmd))
 			cout << "Bad input\n";
 		else {
 			if (cmd.size() == 1)
