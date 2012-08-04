@@ -106,7 +106,11 @@ void PrintAll(Dlist<int> &ilist)
 		tmplist.insertBack(ip);
 	}
 	cout << endl;
-	ilist = tmplist;
+
+	while (!tmplist.isEmpty()) {
+		ip = tmplist.removeFront();
+		tmp.insertBack(ip);
+	}
 }
 
 void Quit(Dlist<int> &ilist)
