@@ -80,7 +80,7 @@ main()
 		if (busyTime == 0) {
 			for (unsigned int i = 0; i != statusNum; ++i)
 
-				if (!Buffers[i]->isEmpty) {
+				if (!Buffers[i]->isEmpty()) {
 					call = Buffers[i]->removeFront();
 					cout << "Answering call from " << call->name << endl;
 					busyTime = call->duration;
