@@ -31,10 +31,10 @@ main()
 
 	Dlist<Call> *Calls[] = { &platinum, &gold, &silver, &regular };
 
-	int t;
+	unsigned int t;
 	string name;
 	string status;
-	int duration;
+	unsigned int duration;
 	Call *newCall = 0;
 
 	while (cin) {
@@ -61,7 +61,7 @@ main()
 
 		for (unsigned int i = 0; i != statusNum; ++i) {
 
-			while (!Calls[i].isEmpty()) {
+			while (!Calls[i]->isEmpty()) {
 
 				call = Calls[i]->removeFront();
 				if (call->t == tick) {
@@ -70,7 +70,7 @@ main()
 					waitQueue.insertBack(call);
 				}
 				else {
-					Calls[i].insertFront(call);
+					Calls[i]->insertFront(call);
 					break;
 				}
 
@@ -88,7 +88,7 @@ main()
 		tick++;
 	}
 
-	cout << "Starting tick #" << tickNum << endl;
+	cout << "Starting tick #" << tick << endl;
 
 	return 0;
 }
