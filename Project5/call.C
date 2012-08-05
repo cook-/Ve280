@@ -37,7 +37,7 @@ main()
 	unsigned int duration;
 	Call *newCall = 0;
 
-	for (unsigned int j = 0; j != eventNum; ++j)
+	for (unsigned int j = 0; j != eventNum; ++j) {
 		cin >> t >> name >> status >> duration;
 		for (unsigned int i = 0; i != statusNum; ++i) {
 			if (status == Status[i]) {
