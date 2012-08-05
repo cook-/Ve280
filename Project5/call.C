@@ -66,7 +66,7 @@ main()
 				call = Calls[i]->removeFront();
 				if (call->t == tick) {
 					cout << "Call from " << call->name << " a "
-						 << call->status << " member " << endl;
+						 << call->status << " member" << endl;
 					Buffers[i]->insertBack(call);
 				}
 				else {
