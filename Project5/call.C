@@ -39,10 +39,10 @@ main()
 		for (int i = 0; i != 4; ++i) {
 			if (status == Status[i]) {
 				newCall = new Call;
-				newCall.t = t;
-				newCall.name = name;
-				newCall.status = status;
-				newCall.duration = duration;
+				newCall->t = t;
+				newCall->name = name;
+				newCall->status = status;
+				newCall->duration = duration;
 				Calls[i]->insertBack(newCall);
 			}
 		}
