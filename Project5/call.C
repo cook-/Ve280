@@ -21,7 +21,7 @@ bool allEmpty(Dlist<Call> *Calls[]);
 int
 main()
 {
-	int eventNum;
+	unsigned int eventNum;
 	cin >> eventNum;
 
 	Dlist<Call> platinum;
@@ -37,7 +37,7 @@ main()
 	unsigned int duration;
 	Call *newCall = 0;
 
-	while (cin) {
+	for (unsigned int j = 0; j != eventNum; ++j)
 		cin >> t >> name >> status >> duration;
 		for (unsigned int i = 0; i != statusNum; ++i) {
 			if (status == Status[i]) {
