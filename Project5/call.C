@@ -7,10 +7,10 @@
 using namespace std;
 
 struct Call {
-	int t;
+	unsigned int t;
 	string name;
 	string status;
-	int duration;
+	unsigned int duration;
 };
 
 const unsigned int statusNum = 4;
