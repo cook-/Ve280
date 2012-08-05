@@ -24,12 +24,13 @@ main()
 	unsigned int eventNum;
 	cin >> eventNum;
 
-	Dlist<Call> platinum;
-	Dlist<Call> gold;
-	Dlist<Call> silver;
-	Dlist<Call> regular;
+	Dlist<Call> platinum, pBuffer;
+	Dlist<Call> gold, gBuffer;
+	Dlist<Call> silver, sBuffer;
+	Dlist<Call> regular, rBuffer;
 
 	Dlist<Call> *Calls[] = { &platinum, &gold, &silver, &regular };
+	Dlist<Call> *Buffers[] = { &pBuffer, &gBuffer, &sBuffer, &rBuffer };
 
 	unsigned int t;
 	string name;
@@ -54,9 +55,8 @@ main()
 	unsigned int busyTime = 0;
 	unsigned int tick = 0;
 	Call *call = 0;
-	Dlist<Call> waitQueue;
 	
-	while (!allEmpty(Calls) || !waitQueue.isEmpty() || (busyTime != 0)) {
+	while (!allEmpty(Calls) || !allEmpty(Buffers) || (busyTime != 0)) {
 		cout << "Starting tick #" << tick << endl;
 
 		for (unsigned int i = 0; i != statusNum; ++i) {
@@ -67,7 +67,7 @@ main()
 				if (call->t == tick) {
 					cout << "Call from " << call->name << " a "
 						 << call->status << " member " << endl;
-					waitQueue.insertBack(call);
+					Buffers[i]->insertBack(call);
 				}
 				else {
 					Calls[i]->insertFront(call);
@@ -78,10 +78,16 @@ main()
 		}
 
 		if (busyTime == 0) {
-			call = waitQueue.removeFront();
-			cout << "Answering call from " << call->name << endl;
-			busyTime = call->duration;
-			delete call;
+			for (unsigned int i = 0; i != statusNum; ++i)
+
+				if (!Buffers[i]->isEmpty) {
+					call = Buffers[i]->removeFront();
+					cout << "Answering call from " << call->name << endl;
+					busyTime = call->duration;
+					delete call;
+					break;
+				}
+
 		}
 
 		busyTime = (busyTime == 0) ? 0 : (busyTime - 1);
