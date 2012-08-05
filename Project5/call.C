@@ -13,7 +13,10 @@ struct Call {
 	int duration;
 };
 
+const unsigned int statusNum = 4;
 const string Status[] = { "platinum", "gold", "silver", "regular" };
+
+bool allEmpty(Dlist<Call> *Calls[]);
 
 int
 main()
@@ -36,7 +39,7 @@ main()
 
 	while (cin) {
 		cin >> t >> name >> status >> duration;
-		for (int i = 0; i != 4; ++i) {
+		for (unsigned int i = 0; i != statusNum; ++i) {
 			if (status == Status[i]) {
 				newCall = new Call;
 				newCall->t = t;
@@ -48,5 +51,57 @@ main()
 		}
 	}
 
+	unsigned int busyTime = 0;
+	unsigned int tick = 0;
+	Call *call = 0;
+	Dlist<Call> waitQueue;
+	
+	while (!allEmpty(Calls) || !waitQueue.isEmpty() || (busyTime != 0)) {
+		cout << "Starting tick #" << tick << endl;
+
+		for (unsigned int i = 0; i != statusNum; ++i) {
+
+			while (!Calls[i].isEmpty()) {
+
+				call = Calls[i]->removeFront();
+				if (call->t == tick) {
+					cout << "Call from " << call->name << " a "
+						 << call->status << " member " << endl;
+					waitQueue.insertBack(call);
+				}
+				else {
+					Calls[i].insertFront(call);
+					break;
+				}
+
+			}
+		}
+
+		if (busyTime == 0) {
+			call = waitQueue.removeFront();
+			cout << "Answering call from " << call->name << endl;
+			busyTime = call->duration;
+			delete call;
+		}
+
+		busyTime = (busyTime == 0) ? 0 : (busyTime - 1);
+		tick++;
+	}
+
+	cout << "Starting tick #" << tickNum << endl;
+
 	return 0;
 }
+
+bool
+allEmpty(Dlist<Call> *Calls[])
+{
+	bool allEmpty = true;
+
+	for (unsigned int i = 0; i != statusNum; ++i)
+		allEmpty = allEmpty && Calls[i]->isEmpty();
+
+	return allEmpty;
+}
+
+
