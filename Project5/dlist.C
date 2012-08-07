@@ -140,7 +140,7 @@ template <class T>
 void
 Dlist<T>::copyAll(const Dlist &l)
 {
-	node *np = first;
+	node *np = l.first;
 	while (!np) {
 		T object = *(np->op);
 		T *op = &object;
