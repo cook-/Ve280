@@ -18,7 +18,7 @@ $(TARGETS): $(OBJS)
 	$(CC) $(CFLAGS) -o $(TARGETS) $(OBJS)
 
 memcheck: $(TARGETS)
-	valgrind --leak-check=full ./$(TARGETS) < 
+	valgrind --leak-check=full ./$(TARGETS) < sample 
 
 clean:
 	rm -f $(OBJS) $(TARGETS)
