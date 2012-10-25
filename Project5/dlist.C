@@ -1,5 +1,5 @@
-#ifndef DLIST_C
-#define DLIST_C
+#ifndef __DLIST_C__
+#define __DLIST_C__
 
 template <class T>
 bool
@@ -149,4 +149,4 @@ Dlist<T>::copyAll(const Dlist &l)
 	}
 }
 
-#endif
+#endif /* __DLIST_C__ */
