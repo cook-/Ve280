@@ -11,7 +11,7 @@ class Dlist
 {
     // OVERVIEW: contains a double-ended list of Objects
 
- public:
+public:
 
     // Operational methods
 
@@ -42,7 +42,7 @@ class Dlist
     Dlist &operator=(const Dlist &l);          // assignment operator
     ~Dlist();                                  // destructor
 
- private:
+private:
     // A private type
     struct node
     {
