@@ -1,68 +1,152 @@
-#ifndef __DLIST_H__
-#define __DLIST_H__
-
-class emptyList
-{
-    // OVERVIEW: an exception class
-};
+#ifndef __DLIST_C__
+#define __DLIST_C__
 
 template <class T>
-class Dlist
+bool
+Dlist<T>::isEmpty()
 {
-    // OVERVIEW: contains a double-ended list of Objects
+	return (!first) && (!last);
+}
 
-public:
+template <class T>
+void
+Dlist<T>::insertFront(T *op)
+{
+	node *np = new node;
+	if (isEmpty()) {
+		first = np;
+		last = np;
+		np->next = 0;
+		np->prev = 0;
+		np->op = op;
+	}
+	else {
+		first->prev = np;
+		np->next = first;
+		np->prev = 0;
+		np->op = op;
+		first = np;
+	}
+}
 
-    // Operational methods
+template <class T>
+void
+Dlist<T>::insertBack(T *op)
+{
+	node *np = new node;
+	if (isEmpty()) {
+		first = np;
+		last = np;
+		np->next = 0;
+		np->prev = 0;
+		np->op = op;
+	}
+	else {
+		last->next = np;
+		np->next = 0;
+		np->prev = last;
+		np->op = op;
+		last = np;
+	}
+}
 
-    bool isEmpty();
-    // EFFECTS: returns true if list is empty, false otherwise
+template <class T>
+T *
+Dlist<T>::removeFront()
+{
+	if (isEmpty()) {
+		emptyList e;
+		throw e;
+	}
 
-    void insertFront(T *op);
-    // MODIFIES: this
-    // EFFECTS: inserts op at the front of the list
-    
-    void insertBack(T *op);
-    // MODIFIES: this
-    // EFFECTS: inserts op at the back of the list
+	node *victim = first;
+	if (first == last) {
+		last = 0;
+		first = 0;
+	}
+	else {
+		first = victim->next;
+		victim->next->prev = 0;
+	}
 
-    T *removeFront();
-    // MODIFIES: this
-    // EFFECTS: removes and returns first object from non-empty list
-    //          throws an instance of emptyList if empty
+	T *result = victim->op;
+	delete victim;
+	return result;
+}
 
-    T *removeBack();
-    // MODIFIES: this
-    // EFFECTS: removes and returns last object from non-empty list
-    //          throws an instance of emptyList if empty
+template <class T>
+T *
+Dlist<T>::removeBack()
+{
+	if (isEmpty()) {
+		emptyList e;
+		throw e;
+	}
 
-    // Maintenance methods
-    Dlist();                                   // constructor
-    Dlist(const Dlist &l);                     // copy constructor
-    Dlist &operator=(const Dlist &l);          // assignment operator
-    ~Dlist();                                  // destructor
+	node *victim = first;
+	if (first == last) {
+		first = 0;
+		last = 0;
+	}
+	else {
+		last = victim->prev;
+		victim->prev->next = 0;
+	}
 
-private:
-    // A private type
-    struct node
-    {
-        node   *next;
-        node   *prev;
-        T      *op;
-    };
+	T *result = victim->op;
+	delete victim;
+	return result;
+}
 
-    node   *first; // The pointer to the first node (NULL if none)
-    node   *last;  // The pointer to the last node (NULL if none)
+template <class T>
+Dlist<T>::Dlist(): first(0), last(0)
+{
+}
 
-    // Utility methods
+template <class T>
+Dlist<T>::Dlist(const Dlist &l): first(0), last(0)
+{
+	copyAll(l);
+}
 
-    void removeAll();
-    // EFFECTS: called by destructor/operator= to remove and destroy
-    //          all list elements
+template <class T>
+Dlist<T> &
+Dlist<T>::operator=(const Dlist &l)
+{
+	if (this != &l) {
+		removeAll();
+		copyAll(l);
+	}
+	return *this;
+}
 
-    void copyAll(const Dlist &l);
-    // EFFECTS: called by copy constructor/operator= to copy elements
-    //          from a source instance l to this instance
-};
+template <class T>
+Dlist<T>::~Dlist()
+{
+	removeAll();
+}
 
-#endif /* __DLIST_H__ */
+template <class T>
+void
+Dlist<T>::removeAll()
+{
+	while (!isEmpty()) {
+		T *op = removeFront();
+		delete op;
+	}
+}
+
+template <class T>
+void
+Dlist<T>::copyAll(const Dlist &l)
+{
+	node *np = l.first;
+	while (!np) {
+		T object = *(np->op);
+		T *op = &object;
+		insertBack(op);
+		np = np->next;
+	}
+}
+
+#endif /* __DLIST_C__ */
